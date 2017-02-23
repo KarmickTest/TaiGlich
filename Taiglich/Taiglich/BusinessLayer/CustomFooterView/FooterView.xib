@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="11542" systemVersion="16A323" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina5_5" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11524"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB" customClass="FooterView">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="54"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hNb-QS-bYt">
+                    <rect key="frame" x="0.0" y="0.0" width="64" height="54"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="54" id="YcD-pv-3OP"/>
+                    </constraints>
+                    <state key="normal" image="home_icon"/>
+                    <connections>
+                        <action selector="tabbar_Button_First_Click:" destination="iN0-l3-epB" eventType="touchUpInside" id="u8t-eR-iXh"/>
+                    </connections>
+                </button>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rME-1S-zLA">
+                    <rect key="frame" x="64" y="0.0" width="64" height="54"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="54" id="4Ln-na-uYI"/>
+                    </constraints>
+                    <state key="normal" image="search"/>
+                    <connections>
+                        <action selector="tabbar_Button_Second_Click:" destination="iN0-l3-epB" eventType="touchUpInside" id="eXy-xY-6cY"/>
+                    </connections>
+                </button>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="74o-Fe-7d4">
+                    <rect key="frame" x="128" y="0.0" width="64" height="54"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="54" id="l9K-X2-ZgE"/>
+                    </constraints>
+                    <state key="normal" image="add_eventicon"/>
+                    <connections>
+                        <action selector="tabbar_Button_Third_Click:" destination="iN0-l3-epB" eventType="touchUpInside" id="xnA-wS-VxR"/>
+                    </connections>
+                </button>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XSu-aL-Zdq">
+                    <rect key="frame" x="192" y="0.0" width="64" height="54"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="54" id="AhZ-jr-nUv"/>
+                    </constraints>
+                    <state key="normal" image="information_icon"/>
+                    <connections>
+                        <action selector="tabbar_Button_Fourth_Click:" destination="iN0-l3-epB" eventType="touchUpInside" id="b2d-C2-qqS"/>
+                    </connections>
+                </button>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aUU-Pn-JUu">
+                    <rect key="frame" x="256" y="0.0" width="64" height="54"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="54" id="GRi-zq-Vcv"/>
+                    </constraints>
+                    <state key="normal" image="setting_icon"/>
+                    <connections>
+                        <action selector="tabbar_Button_Fifth_Click:" destination="iN0-l3-epB" eventType="touchUpInside" id="FeR-UE-RT5"/>
+                    </connections>
+                </button>
+            </subviews>
+            <color key="backgroundColor" red="0.12941176470588234" green="0.72549019607843135" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <constraints>
+                <constraint firstItem="hNb-QS-bYt" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="7ZQ-KQ-wMh"/>
+                <constraint firstAttribute="trailing" secondItem="aUU-Pn-JUu" secondAttribute="trailing" id="BAF-l2-gaH"/>
+                <constraint firstItem="rME-1S-zLA" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="JnF-sd-ZFK"/>
+                <constraint firstItem="aUU-Pn-JUu" firstAttribute="leading" secondItem="XSu-aL-Zdq" secondAttribute="trailing" id="Kkb-Q9-ryO"/>
+                <constraint firstItem="aUU-Pn-JUu" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="Lg8-H4-Gtm"/>
+                <constraint firstItem="74o-Fe-7d4" firstAttribute="leading" secondItem="rME-1S-zLA" secondAttribute="trailing" id="MR0-0G-Tws"/>
+                <constraint firstItem="XSu-aL-Zdq" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="Vq3-6m-CM5"/>
+                <constraint firstItem="74o-Fe-7d4" firstAttribute="width" secondItem="hNb-QS-bYt" secondAttribute="width" id="al8-oR-ieo"/>
+                <constraint firstItem="XSu-aL-Zdq" firstAttribute="width" secondItem="hNb-QS-bYt" secondAttribute="width" id="lLA-TY-IAi"/>
+                <constraint firstItem="74o-Fe-7d4" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="mYD-ow-q5H"/>
+                <constraint firstItem="XSu-aL-Zdq" firstAttribute="leading" secondItem="74o-Fe-7d4" secondAttribute="trailing" id="o9n-wc-cuX"/>
+                <constraint firstItem="rME-1S-zLA" firstAttribute="width" secondItem="hNb-QS-bYt" secondAttribute="width" id="oGy-tT-1a3"/>
+                <constraint firstItem="rME-1S-zLA" firstAttribute="leading" secondItem="hNb-QS-bYt" secondAttribute="trailing" id="tVd-3P-zEn"/>
+                <constraint firstItem="hNb-QS-bYt" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="x4S-cu-vIX"/>
+                <constraint firstItem="aUU-Pn-JUu" firstAttribute="width" secondItem="hNb-QS-bYt" secondAttribute="width" id="xXs-p4-Erj"/>
+            </constraints>
+            <nil key="simulatedStatusBarMetrics"/>
+            <nil key="simulatedTopBarMetrics"/>
+            <nil key="simulatedBottomBarMetrics"/>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <point key="canvasLocation" x="328" y="-414"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="add_eventicon" width="33" height="33"/>
+        <image name="home_icon" width="33" height="33"/>
+        <image name="information_icon" width="33" height="33"/>
+        <image name="search" width="33" height="33"/>
+        <image name="setting_icon" width="33" height="33"/>
+    </resources>
+</document>

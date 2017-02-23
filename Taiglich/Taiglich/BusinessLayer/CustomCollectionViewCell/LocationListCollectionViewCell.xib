@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="11542" systemVersion="16A323" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11524"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="LocationListCollectionViewCell" id="gTV-IL-0wX" customClass="LocationListCollectionViewCell">
+            <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
+                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                <subviews>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Skyborder_icon" translatesAutoresizingMaskIntoConstraints="NO" id="QRF-o5-a9P">
+                        <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
+                    </imageView>
+                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7Hi-V6-V73">
+                        <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
+                        <state key="normal" title="NR"/>
+                    </button>
+                </subviews>
+            </view>
+            <constraints>
+                <constraint firstAttribute="trailing" secondItem="7Hi-V6-V73" secondAttribute="trailing" id="4NO-qb-h5y"/>
+                <constraint firstItem="QRF-o5-a9P" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="68Y-s3-fRF"/>
+                <constraint firstAttribute="bottom" secondItem="7Hi-V6-V73" secondAttribute="bottom" id="Cbc-vx-WcG"/>
+                <constraint firstItem="QRF-o5-a9P" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" id="MFb-E8-JGl"/>
+                <constraint firstItem="7Hi-V6-V73" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="WaK-XD-AV9"/>
+                <constraint firstItem="7Hi-V6-V73" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" id="aWM-Dg-8Wh"/>
+                <constraint firstAttribute="trailing" secondItem="QRF-o5-a9P" secondAttribute="trailing" id="alO-Ku-0T2"/>
+                <constraint firstAttribute="bottom" secondItem="QRF-o5-a9P" secondAttribute="bottom" id="n22-FD-QSc"/>
+            </constraints>
+        </collectionViewCell>
+    </objects>
+    <resources>
+        <image name="Skyborder_icon" width="17" height="14"/>
+    </resources>
+</document>
