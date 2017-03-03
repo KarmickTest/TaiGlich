@@ -9,5 +9,6 @@
 #import <UIKit/UIKit.h>
 
 @interface FormViewController : UIViewController
+@property (weak,nonatomic) id delegate;
 
 @end

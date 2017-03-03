@@ -18,6 +18,28 @@
 #import "AppDelegate.h"
 //#import "LCBannerView.h"
 #import "FooterView.h"
+#import "Singelton.h"
+#import "MBProgressHUD.h"
+#import "SCLAlertView.h"
+#import "UIImageView+WebCache.h"
+#import <SWTableViewCell.h>
+
+#import "HomeCell.h"
+#import "LocationListCollectionViewCell.h"
+#import "LocationTableCell.h"
+
+
+
+#import "FormViewController.h"
+#import "SplashScreenViewController.h"
+#import "HomeViewController.h"
+#import "RegistrationViewController.h"
+#import "InfoViewController.h"
+#import "SearchViewController.h"
+#import "SettingsViewController.h"
+
+
+
 
 
 

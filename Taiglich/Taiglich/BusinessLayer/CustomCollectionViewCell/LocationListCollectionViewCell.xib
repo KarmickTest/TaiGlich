@@ -11,35 +11,41 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
-        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="LocationListCollectionViewCell" id="gTV-IL-0wX" customClass="LocationListCollectionViewCell">
+        <collectionViewCell opaque="NO" clipsSubviews="YES" contentMode="center" reuseIdentifier="LocationListCollectionViewCell" id="gTV-IL-0wX" customClass="LocationListCollectionViewCell">
             <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
             <autoresizingMask key="autoresizingMask"/>
             <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
                 <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                 <subviews>
-                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Skyborder_icon" translatesAutoresizingMaskIntoConstraints="NO" id="QRF-o5-a9P">
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="QRF-o5-a9P">
                         <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
                     </imageView>
-                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7Hi-V6-V73">
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="NR" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1dn-mk-I9w">
                         <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
-                        <state key="normal" title="NR"/>
-                    </button>
+                        <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                        <color key="textColor" red="0.039215686274509803" green="0.69411764705882351" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <nil key="highlightedColor"/>
+                    </label>
                 </subviews>
             </view>
             <constraints>
-                <constraint firstAttribute="trailing" secondItem="7Hi-V6-V73" secondAttribute="trailing" id="4NO-qb-h5y"/>
+                <constraint firstItem="QRF-o5-a9P" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" id="1mE-Nn-Z12"/>
                 <constraint firstItem="QRF-o5-a9P" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="68Y-s3-fRF"/>
-                <constraint firstAttribute="bottom" secondItem="7Hi-V6-V73" secondAttribute="bottom" id="Cbc-vx-WcG"/>
+                <constraint firstItem="1dn-mk-I9w" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="8mG-L1-Tzi"/>
                 <constraint firstItem="QRF-o5-a9P" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" id="MFb-E8-JGl"/>
-                <constraint firstItem="7Hi-V6-V73" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="WaK-XD-AV9"/>
-                <constraint firstItem="7Hi-V6-V73" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" id="aWM-Dg-8Wh"/>
                 <constraint firstAttribute="trailing" secondItem="QRF-o5-a9P" secondAttribute="trailing" id="alO-Ku-0T2"/>
+                <constraint firstItem="1dn-mk-I9w" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" id="cOo-5n-2jt"/>
+                <constraint firstItem="QRF-o5-a9P" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="gPj-j4-FoI"/>
+                <constraint firstAttribute="trailing" secondItem="1dn-mk-I9w" secondAttribute="trailing" id="mtl-uD-6q5"/>
                 <constraint firstAttribute="bottom" secondItem="QRF-o5-a9P" secondAttribute="bottom" id="n22-FD-QSc"/>
+                <constraint firstAttribute="bottom" secondItem="QRF-o5-a9P" secondAttribute="bottom" id="qdH-pp-YOJ"/>
+                <constraint firstAttribute="bottom" secondItem="1dn-mk-I9w" secondAttribute="bottom" id="u5r-UL-aQ5"/>
+                <constraint firstAttribute="trailing" secondItem="QRF-o5-a9P" secondAttribute="trailing" id="zxj-2D-UQb"/>
             </constraints>
+            <connections>
+                <outlet property="lbl_Location_Name" destination="1dn-mk-I9w" id="4fM-al-eq8"/>
+            </connections>
         </collectionViewCell>
     </objects>
-    <resources>
-        <image name="Skyborder_icon" width="17" height="14"/>
-    </resources>
 </document>

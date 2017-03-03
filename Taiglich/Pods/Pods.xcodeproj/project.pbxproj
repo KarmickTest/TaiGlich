@@ -1,0 +1,1154 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		0B92C609090AD3F630C0CDFEAADAB308 /* JTCalendarWeekDayView.m in Sources */ = {isa = PBXBuildFile; fileRef = 573289591A693904C68F46456466994F /* JTCalendarWeekDayView.m */; };
+		0CB2E682B5FDE90C274C3A2CFC45161E /* SWUtilityButtonView.m in Sources */ = {isa = PBXBuildFile; fileRef = 8EA6C63D4CCD6A4908F482D0EDE1F010 /* SWUtilityButtonView.m */; };
+		16F9017458599E7EAC940B3508C8CFA9 /* SCLAlertViewStyleKit.m in Sources */ = {isa = PBXBuildFile; fileRef = EDB82EE29D2ECD653F6259471195547A /* SCLAlertViewStyleKit.m */; };
+		192E4BF9055888AC88DA5F936B5D5BF3 /* SCLTimerDisplay.h in Headers */ = {isa = PBXBuildFile; fileRef = 09F323379BC445E3158741AB22EE738A /* SCLTimerDisplay.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		1A5BEDC57E17712D312C29BBFB2A3316 /* JTCalendarSettings.h in Headers */ = {isa = PBXBuildFile; fileRef = 69F5D4CE8C577DDD1BECB34AC803A2AE /* JTCalendarSettings.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		1B7DB4AF25CBFAE21C56D8157FBE0B39 /* JTCalendarWeek.h in Headers */ = {isa = PBXBuildFile; fileRef = 0055A00B812F80981B6E1AD354FF4575 /* JTCalendarWeek.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		1C4AF8D0570425A512FD79D885819869 /* JTCalendarPageView.h in Headers */ = {isa = PBXBuildFile; fileRef = 31C5460594787C47C32E8FA5DF297B38 /* JTCalendarPageView.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		1E6E3C523CDB2838C24D53A567505A05 /* UIImage+ImageEffects.m in Sources */ = {isa = PBXBuildFile; fileRef = FD72C35B80BA798F78CB98ECE872E76B /* UIImage+ImageEffects.m */; };
+		20AE883B8ADA7E0D3854EECCAACB60F6 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 73977E235E1E8190947007C459A91940 /* UIKit.framework */; };
+		24EA1450BD673D7FE5B0EC4950521CEA /* SCLAlertViewStyleKit.h in Headers */ = {isa = PBXBuildFile; fileRef = 6C9BAB5BB4C8C082616FCE09E807D82A /* SCLAlertViewStyleKit.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		257233B60B2E3DB62E6AFC44B108AE0C /* JTCalendarDayView.m in Sources */ = {isa = PBXBuildFile; fileRef = E1E4A226E279DD93FD8379F2A22181F9 /* JTCalendarDayView.m */; };
+		264C54C82A8C39ED39A0ACE34D7D7B6A /* SCLAlertView.m in Sources */ = {isa = PBXBuildFile; fileRef = 1B4CE177D76E4489794D1DBB6C016DEA /* SCLAlertView.m */; };
+		28DD14055DEBF9F352FE28736BB6C632 /* Pods-Taiglich-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = CC2384BD3B2F630887291721D9FE1CBF /* Pods-Taiglich-dummy.m */; };
+		2C5AC373339411F2A4BB16C34F420AD4 /* SWLongPressGestureRecognizer.m in Sources */ = {isa = PBXBuildFile; fileRef = F0CC60FE70FF6AC2990249CD013FC0A0 /* SWLongPressGestureRecognizer.m */; };
+		30C4CF70790695A22980D3772EBAEE36 /* JTVerticalCalendarView.h in Headers */ = {isa = PBXBuildFile; fileRef = 4F84E13984EE2F51B2ACDF2078360194 /* JTVerticalCalendarView.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		3A830E71A69982CAB27605669BDDA447 /* SWTableViewCell-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = E09A1416971A7A4DEC17AD73E0E21C18 /* SWTableViewCell-dummy.m */; };
+		4692B9ED4A6A3BC8183A11D711D50CA9 /* JTVerticalCalendarView.m in Sources */ = {isa = PBXBuildFile; fileRef = ABE3111E63E24E1B17781EF6005B2D84 /* JTVerticalCalendarView.m */; };
+		49C2DF6A134234DD0D16A5EAB1BBA5DF /* SWLongPressGestureRecognizer.h in Headers */ = {isa = PBXBuildFile; fileRef = 625B5C8DFFD0DEEE13477E3FF753D833 /* SWLongPressGestureRecognizer.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		51AA53E4426E98140FFE0031CDA49561 /* JTCalendarPageView.m in Sources */ = {isa = PBXBuildFile; fileRef = 0E6ACF1B32607266D14A0649CA9BDEEF /* JTCalendarPageView.m */; };
+		536196304F7B3EC177C210D37ADB0EFC /* JTMenu.h in Headers */ = {isa = PBXBuildFile; fileRef = B174120A4EB28729D226E8732123E723 /* JTMenu.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		536F7D0550F5FD9F5869CEC995CFEE9B /* MBProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = BB802443FED6506725D1551A17B93568 /* MBProgressHUD.m */; };
+		583CF4E6A831BCBF02609772EF94D802 /* SWUtilityButtonView.h in Headers */ = {isa = PBXBuildFile; fileRef = 25E9D614C1AC4C1A9039C85FF1223041 /* SWUtilityButtonView.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		59A09E7A4086C004E889D7D303892D46 /* SWTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 0C84BEF9EA3E7370CE86B667758851D2 /* SWTableViewCell.m */; };
+		59B22A4207C5539E9EE1FA4222145DEA /* JTCalendarDay.h in Headers */ = {isa = PBXBuildFile; fileRef = B042B95ED2308766B76692FEEC3A1AD0 /* JTCalendarDay.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		5C8E00076C405BF0B0DDADDED34818D5 /* JTCalendarWeekDay.h in Headers */ = {isa = PBXBuildFile; fileRef = 8B8923903D9A6775FED17E4DA5E5F75B /* JTCalendarWeekDay.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		5FE109F2181D5EF4346BDF6A6B7E94DE /* JTHorizontalCalendarView.m in Sources */ = {isa = PBXBuildFile; fileRef = 2045C7C804EE94C2E4F4E5095E11660A /* JTHorizontalCalendarView.m */; };
+		61B8F4B5507FAA5CFDC7731BA2EF6787 /* JTCalendarMenuView.h in Headers */ = {isa = PBXBuildFile; fileRef = 01CE6671077C34C1D5DD9CDE139FB836 /* JTCalendarMenuView.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		620177E03D13F9828450EE83DC868B96 /* SCLAlertViewResponder.h in Headers */ = {isa = PBXBuildFile; fileRef = EB4976B12F5CAE4F65FF7F7A6043E1F2 /* SCLAlertViewResponder.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		6394EBA2168F8B84D4B425508777ADC4 /* SCLAlertViewResponder.m in Sources */ = {isa = PBXBuildFile; fileRef = 4558A3DD7C6D4846E78660105EA2866C /* SCLAlertViewResponder.m */; };
+		6778F1E28C9C6B40E7CB2F3E1D4E6B3B /* JTCalendar-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 9490DCAF3ECA9C5BB4B6FA9F55D557A5 /* JTCalendar-dummy.m */; };
+		6897C7EC8F944DFF19115049C4A61C33 /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D44932C2C323397EAE3FCB60E9EC6951 /* AudioToolbox.framework */; };
+		6F27CFD921D17359B93C3527E495E7DD /* SCLSwitchView.m in Sources */ = {isa = PBXBuildFile; fileRef = CB0686FDEB20AAC9D92C585534068730 /* SCLSwitchView.m */; };
+		6F8CEE4B4D87FAF231469243288A72DB /* SWUtilityButtonTapGestureRecognizer.m in Sources */ = {isa = PBXBuildFile; fileRef = 9E83083F243D7AD0CD88D8D01C0974CB /* SWUtilityButtonTapGestureRecognizer.m */; };
+		72B6D9BC38F41E3C5F4DA38C2831AEDF /* NSMutableArray+SWUtilityButtons.h in Headers */ = {isa = PBXBuildFile; fileRef = 705B99DEC47B6D791D728E7A38B27338 /* NSMutableArray+SWUtilityButtons.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		7877D032F2C960AC2165DF68BAEAD2BC /* SCLSwitchView.h in Headers */ = {isa = PBXBuildFile; fileRef = 924241E088370E4D4C20A681975E82D0 /* SCLSwitchView.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		7C25AD780E7FDF5D842DBE47A510FED8 /* JTCalendarWeekView.m in Sources */ = {isa = PBXBuildFile; fileRef = AEABCD238AABD3FC5B42FC8A9277CAA8 /* JTCalendarWeekView.m */; };
+		7E1730715D604A94A35EEA7DE45E6D9A /* SCLAlertView.h in Headers */ = {isa = PBXBuildFile; fileRef = 9493C6EC74D8AC6980C108F1B82D2859 /* SCLAlertView.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		7F1D3622C2104C3942EB00B65CC8410C /* Accelerate.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FEF10A4284685653C2C5407E7EB89637 /* Accelerate.framework */; };
+		8297CD0E370D3524DA0D3A40E52C924C /* JTCalendarDayView.h in Headers */ = {isa = PBXBuildFile; fileRef = 847B9755F1E61CE7D94BEEA2432C8C13 /* JTCalendarDayView.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		85CF6EBC66DE02C95C79974D42AE3006 /* JTDateHelper.h in Headers */ = {isa = PBXBuildFile; fileRef = F69B9C6E1EF85D4C0D971A1B55DB8BEC /* JTDateHelper.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		8C929DFDA2F683BE086420DF09E828CB /* JTCalendarManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C591E0BC3ECAD619B16329DEF5CA609 /* JTCalendarManager.m */; };
+		8C9B1DC3568E2881FF159096A119F748 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0D0889950E907B9DBDB5441755D43E1E /* CoreGraphics.framework */; };
+		8CB78B58C2A752E44D69EBF7E3663530 /* JTCalendar.h in Headers */ = {isa = PBXBuildFile; fileRef = 7DF9C47EA6BAE70E93CCF6E182FEA833 /* JTCalendar.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		8DC5067D1DB4A332723BEF427DDBB8AD /* SCLButton.m in Sources */ = {isa = PBXBuildFile; fileRef = E895C0DE6D3B613910C36C8201EDAF0A /* SCLButton.m */; };
+		921738D6C5F05E13D1F034121334B228 /* JTCalendarDelegateManager.h in Headers */ = {isa = PBXBuildFile; fileRef = 78100AC3A068485C0E21350A04F3CC37 /* JTCalendarDelegateManager.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		98C17803F2E6B2E4B73C7C45EF3A1E8A /* SWCellScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = 119FF1B78F325E7AA50EADF6E53D3F5A /* SWCellScrollView.m */; };
+		9E945EF671D1F56632555C4189B92E65 /* JTCalendarWeekView.h in Headers */ = {isa = PBXBuildFile; fileRef = 7C138A7D5ED23CB9953EEB875C761132 /* JTCalendarWeekView.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		A00FD290FFEC432E1E29152585D56276 /* JTCalendarPage.h in Headers */ = {isa = PBXBuildFile; fileRef = 77A9C1C9A639422A45A09B2F610ED1C8 /* JTCalendarPage.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		A0527A017A19EEA1481BD2301C3F9318 /* JTCalendarDelegateManager.m in Sources */ = {isa = PBXBuildFile; fileRef = A421450FE0B8300AFC8E4C47C041A303 /* JTCalendarDelegateManager.m */; };
+		A0EBE73495F0AAF5177E86B8E3336CE5 /* NSMutableArray+SWUtilityButtons.m in Sources */ = {isa = PBXBuildFile; fileRef = 17EBDCCEE89A5E27C6482550F1FC1548 /* NSMutableArray+SWUtilityButtons.m */; };
+		A5C341B38ECA045C3051FA277FF1671B /* JTCalendarWeekDayView.h in Headers */ = {isa = PBXBuildFile; fileRef = CAEACDFF3BB6F7AEA9C902E0D50CEF26 /* JTCalendarWeekDayView.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		A7FA7803B5975CC3CABF0069D7300EE2 /* JTCalendarSettings.m in Sources */ = {isa = PBXBuildFile; fileRef = 0DBC5C4FE4A0C3A30B00B4D2C8507C4A /* JTCalendarSettings.m */; };
+		ABFF13995BDE32F1FF920875C11B2C08 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CF17A27E0A4C4FB8297CC64A0DDE5005 /* Foundation.framework */; };
+		ADA07155330F715618430ECDF5196C7E /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CF17A27E0A4C4FB8297CC64A0DDE5005 /* Foundation.framework */; };
+		AEABD4CA502E8E9EDCFA8EA435B767B3 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CF17A27E0A4C4FB8297CC64A0DDE5005 /* Foundation.framework */; };
+		B0D459C76CD70420C0E545C326D5F5BC /* JTContent.h in Headers */ = {isa = PBXBuildFile; fileRef = DAD6DCDEB4F4B33B2BAC2DF9E705C292 /* JTContent.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		B362D4FDD4F333F45AC4A7DF09409A18 /* SCLMacros.h in Headers */ = {isa = PBXBuildFile; fileRef = 675FA271FB62F9AEB25B79C303FEA5FB /* SCLMacros.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		B3C9C5AC3EB22D0B6F28BCFF10851A72 /* SCLTextView.h in Headers */ = {isa = PBXBuildFile; fileRef = 97FC738E82D453B4602665AC87EE1CAA /* SCLTextView.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		B3EF49DA660F2511CBCA82BF8ECC4028 /* JTCalendarMenuView.m in Sources */ = {isa = PBXBuildFile; fileRef = 69C51E7EFF976B3817EB964DEEC72B8D /* JTCalendarMenuView.m */; };
+		C4C160B59A2D33A603EFE532FEC0BC4F /* JTCalendarScrollManager.h in Headers */ = {isa = PBXBuildFile; fileRef = 949E8DDD82036AACE5D6175B40E6D858 /* JTCalendarScrollManager.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		C530AD236B631DBE04C6C868E947A191 /* JTHorizontalCalendarView.h in Headers */ = {isa = PBXBuildFile; fileRef = AEE090D8D2AE2865867E6AB37CA385F4 /* JTHorizontalCalendarView.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		CA5E682B018BF5756152E04FE2F23909 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CF17A27E0A4C4FB8297CC64A0DDE5005 /* Foundation.framework */; };
+		CB1A9829FA1C960924DC4DB02F8B793C /* JTCalendarScrollManager.m in Sources */ = {isa = PBXBuildFile; fileRef = F85140D23E0AD631F03FB0B4C7767E0B /* JTCalendarScrollManager.m */; };
+		CF0606477A7BFBF1C9450E5D258B36EB /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CF17A27E0A4C4FB8297CC64A0DDE5005 /* Foundation.framework */; };
+		CFDE5B1F4AA82C56178F2605FE6661F6 /* SWCellScrollView.h in Headers */ = {isa = PBXBuildFile; fileRef = 93D362F8E7929B36F6DA8DD42D550DC5 /* SWCellScrollView.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		D2CE56842AC56D87E6804A40567B8634 /* JTDateHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 3731ECC1A93C76FB6B7CD0E65E1AF38B /* JTDateHelper.m */; };
+		D415D0767A8AF457434FFFB5957D4616 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 57817BC7102529AD0776DA636286A65C /* QuartzCore.framework */; };
+		D49671041D6D4AD556A82370BF0C001E /* SWUtilityButtonTapGestureRecognizer.h in Headers */ = {isa = PBXBuildFile; fileRef = 1C0E5A0419FEC6A844DA269B8F79F810 /* SWUtilityButtonTapGestureRecognizer.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		D4E6CA5A6958AC81EE2EC9EBF10E0C68 /* comic-sans.ttf in Sources */ = {isa = PBXBuildFile; fileRef = 7CCA859059068F9FA829486055816FD4 /* comic-sans.ttf */; };
+		D6A5C8DDDDE5B8A7527D6BCA2A2C9A26 /* SCLTextView.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D9E18B36A83C521418A91E5757943EA /* SCLTextView.m */; };
+		D7A1A2445578F92ECC36EF277A01E921 /* SCLTimerDisplay.m in Sources */ = {isa = PBXBuildFile; fileRef = 38BB537DC8C94389A60EDF504915E52F /* SCLTimerDisplay.m */; };
+		D9BDCB103BDD8397CD3C7856C752F8EC /* UIImage+ImageEffects.h in Headers */ = {isa = PBXBuildFile; fileRef = 15187EFF54B1EE7DA2934C969EBFE1A2 /* UIImage+ImageEffects.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		DA438629C6824545C7183EE8C65E0355 /* SCLAlertView-Objective-C-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = B636917560FD5B55C6D4CE7FF8FE9390 /* SCLAlertView-Objective-C-dummy.m */; };
+		DBB70B614371E7F8ACDA46A492D7D630 /* JTCalendarDelegate.h in Headers */ = {isa = PBXBuildFile; fileRef = 58589D261ACE69D2B7EA2E850807805E /* JTCalendarDelegate.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		E5229F5125ACD420659E7B2D19BB30A8 /* MBProgressHUD-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 94F18BBF00E849EBEB16A4060E7C69E6 /* MBProgressHUD-dummy.m */; };
+		E944EE1C0C1018D0E438EB7B7C34497C /* SCLButton.h in Headers */ = {isa = PBXBuildFile; fileRef = 71E3C7BAA5CA4C9276C5A3A0735C0621 /* SCLButton.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		EA321C98029015AA4895C0B26891D8F8 /* MBProgressHUD.h in Headers */ = {isa = PBXBuildFile; fileRef = 3BEBC061A5EEFBE9B3F50AA4FF668B44 /* MBProgressHUD.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		F22BC70D538F17028FEEA53EB346B113 /* JTCalendarManager.h in Headers */ = {isa = PBXBuildFile; fileRef = A6A8656D27186977EDCAB3302BB5ECB9 /* JTCalendarManager.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		F25C905E22D32EE978F884C66FD5372E /* SWTableViewCell.h in Headers */ = {isa = PBXBuildFile; fileRef = D582682C5784E93056FBF885BE14A842 /* SWTableViewCell.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		F9732C17F0D86156E6F9BA4D230384CF /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0D0889950E907B9DBDB5441755D43E1E /* CoreGraphics.framework */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		59DB25CA10D12D0F5C6C6EE0051D9698 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = D41D8CD98F00B204E9800998ECF8427E /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 586F2DFA9BDCC6675C2546793A69E5CC;
+			remoteInfo = MBProgressHUD;
+		};
+		95166D915DEC72F812BCDC5C2E0BD478 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = D41D8CD98F00B204E9800998ECF8427E /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 0D260CB381B10C18D0255FE4508993DF;
+			remoteInfo = "SCLAlertView-Objective-C";
+		};
+		DCF14905A259F530EF0E4F354717EDAB /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = D41D8CD98F00B204E9800998ECF8427E /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 15B9C57A34E9B8F8776133805843DD52;
+			remoteInfo = SWTableViewCell;
+		};
+		F04BF1D4746FB0C55D2D1B34CFD815AB /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = D41D8CD98F00B204E9800998ECF8427E /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 0BE4A16FFDEF8D8F814E3AE6A2577F6C;
+			remoteInfo = JTCalendar;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		0055A00B812F80981B6E1AD354FF4575 /* JTCalendarWeek.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = JTCalendarWeek.h; path = JTCalendar/Protocols/JTCalendarWeek.h; sourceTree = "<group>"; };
+		01CE6671077C34C1D5DD9CDE139FB836 /* JTCalendarMenuView.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = JTCalendarMenuView.h; path = JTCalendar/Views/JTCalendarMenuView.h; sourceTree = "<group>"; };
+		09F323379BC445E3158741AB22EE738A /* SCLTimerDisplay.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = SCLTimerDisplay.h; path = SCLAlertView/SCLTimerDisplay.h; sourceTree = "<group>"; };
+		0C84BEF9EA3E7370CE86B667758851D2 /* SWTableViewCell.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = SWTableViewCell.m; path = SWTableViewCell/PodFiles/SWTableViewCell.m; sourceTree = "<group>"; };
+		0D0889950E907B9DBDB5441755D43E1E /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS10.0.sdk/System/Library/Frameworks/CoreGraphics.framework; sourceTree = DEVELOPER_DIR; };
+		0DBC5C4FE4A0C3A30B00B4D2C8507C4A /* JTCalendarSettings.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = JTCalendarSettings.m; path = JTCalendar/JTCalendarSettings.m; sourceTree = "<group>"; };
+		0E6ACF1B32607266D14A0649CA9BDEEF /* JTCalendarPageView.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = JTCalendarPageView.m; path = JTCalendar/Views/JTCalendarPageView.m; sourceTree = "<group>"; };
+		119FF1B78F325E7AA50EADF6E53D3F5A /* SWCellScrollView.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = SWCellScrollView.m; path = SWTableViewCell/PodFiles/SWCellScrollView.m; sourceTree = "<group>"; };
+		12D940082DD9DBFAB33D64114E3C4418 /* libSCLAlertView-Objective-C.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; name = "libSCLAlertView-Objective-C.a"; path = "libSCLAlertView-Objective-C.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		15187EFF54B1EE7DA2934C969EBFE1A2 /* UIImage+ImageEffects.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "UIImage+ImageEffects.h"; path = "SCLAlertView/UIImage+ImageEffects.h"; sourceTree = "<group>"; };
+		172F99D1A77A47B24E939215B663D3BE /* Pods-Taiglich-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-Taiglich-frameworks.sh"; sourceTree = "<group>"; };
+		17EBDCCEE89A5E27C6482550F1FC1548 /* NSMutableArray+SWUtilityButtons.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "NSMutableArray+SWUtilityButtons.m"; path = "SWTableViewCell/PodFiles/NSMutableArray+SWUtilityButtons.m"; sourceTree = "<group>"; };
+		1B4CE177D76E4489794D1DBB6C016DEA /* SCLAlertView.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = SCLAlertView.m; path = SCLAlertView/SCLAlertView.m; sourceTree = "<group>"; };
+		1C0E5A0419FEC6A844DA269B8F79F810 /* SWUtilityButtonTapGestureRecognizer.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = SWUtilityButtonTapGestureRecognizer.h; path = SWTableViewCell/PodFiles/SWUtilityButtonTapGestureRecognizer.h; sourceTree = "<group>"; };
+		2045C7C804EE94C2E4F4E5095E11660A /* JTHorizontalCalendarView.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = JTHorizontalCalendarView.m; path = JTCalendar/Views/JTHorizontalCalendarView.m; sourceTree = "<group>"; };
+		2153C14D80ED7FA9874D98422D745352 /* libMBProgressHUD.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; name = libMBProgressHUD.a; path = libMBProgressHUD.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		25E9D614C1AC4C1A9039C85FF1223041 /* SWUtilityButtonView.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = SWUtilityButtonView.h; path = SWTableViewCell/PodFiles/SWUtilityButtonView.h; sourceTree = "<group>"; };
+		31C5460594787C47C32E8FA5DF297B38 /* JTCalendarPageView.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = JTCalendarPageView.h; path = JTCalendar/Views/JTCalendarPageView.h; sourceTree = "<group>"; };
+		3731ECC1A93C76FB6B7CD0E65E1AF38B /* JTDateHelper.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = JTDateHelper.m; path = JTCalendar/JTDateHelper.m; sourceTree = "<group>"; };
+		37AF5907C3E2742B5682A30208EFE96F /* JTCalendar-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "JTCalendar-prefix.pch"; sourceTree = "<group>"; };
+		38BB537DC8C94389A60EDF504915E52F /* SCLTimerDisplay.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = SCLTimerDisplay.m; path = SCLAlertView/SCLTimerDisplay.m; sourceTree = "<group>"; };
+		3BEBC061A5EEFBE9B3F50AA4FF668B44 /* MBProgressHUD.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = MBProgressHUD.h; sourceTree = "<group>"; };
+		4052023A23DC5DFB764C7B04336DACA2 /* MBProgressHUD.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = MBProgressHUD.xcconfig; sourceTree = "<group>"; };
+		4558A3DD7C6D4846E78660105EA2866C /* SCLAlertViewResponder.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = SCLAlertViewResponder.m; path = SCLAlertView/SCLAlertViewResponder.m; sourceTree = "<group>"; };
+		47E8472F11DAACE421C24DB37C73D512 /* Pods-Taiglich-resources.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-Taiglich-resources.sh"; sourceTree = "<group>"; };
+		4C591E0BC3ECAD619B16329DEF5CA609 /* JTCalendarManager.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = JTCalendarManager.m; path = JTCalendar/JTCalendarManager.m; sourceTree = "<group>"; };
+		4D700269A63BA848DF0E4DDE4A5E54B4 /* Pods-Taiglich-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-Taiglich-acknowledgements.markdown"; sourceTree = "<group>"; };
+		4F84E13984EE2F51B2ACDF2078360194 /* JTVerticalCalendarView.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = JTVerticalCalendarView.h; path = JTCalendar/Views/JTVerticalCalendarView.h; sourceTree = "<group>"; };
+		5365DE1FD45B7F8E06385DFF39AB4560 /* Pods-Taiglich.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-Taiglich.debug.xcconfig"; sourceTree = "<group>"; };
+		573289591A693904C68F46456466994F /* JTCalendarWeekDayView.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = JTCalendarWeekDayView.m; path = JTCalendar/Views/JTCalendarWeekDayView.m; sourceTree = "<group>"; };
+		57655F188722ED2636D23BC86C027C00 /* libPods-Taiglich.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; name = "libPods-Taiglich.a"; path = "libPods-Taiglich.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		57817BC7102529AD0776DA636286A65C /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS10.0.sdk/System/Library/Frameworks/QuartzCore.framework; sourceTree = DEVELOPER_DIR; };
+		58589D261ACE69D2B7EA2E850807805E /* JTCalendarDelegate.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = JTCalendarDelegate.h; path = JTCalendar/JTCalendarDelegate.h; sourceTree = "<group>"; };
+		5D9E18B36A83C521418A91E5757943EA /* SCLTextView.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = SCLTextView.m; path = SCLAlertView/SCLTextView.m; sourceTree = "<group>"; };
+		5F3C0D71595B48C6A8741E52C2B25420 /* MBProgressHUD-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "MBProgressHUD-prefix.pch"; sourceTree = "<group>"; };
+		625B5C8DFFD0DEEE13477E3FF753D833 /* SWLongPressGestureRecognizer.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = SWLongPressGestureRecognizer.h; path = SWTableViewCell/PodFiles/SWLongPressGestureRecognizer.h; sourceTree = "<group>"; };
+		675FA271FB62F9AEB25B79C303FEA5FB /* SCLMacros.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = SCLMacros.h; path = SCLAlertView/SCLMacros.h; sourceTree = "<group>"; };
+		69C51E7EFF976B3817EB964DEEC72B8D /* JTCalendarMenuView.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = JTCalendarMenuView.m; path = JTCalendar/Views/JTCalendarMenuView.m; sourceTree = "<group>"; };
+		69F5D4CE8C577DDD1BECB34AC803A2AE /* JTCalendarSettings.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = JTCalendarSettings.h; path = JTCalendar/JTCalendarSettings.h; sourceTree = "<group>"; };
+		6C9BAB5BB4C8C082616FCE09E807D82A /* SCLAlertViewStyleKit.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = SCLAlertViewStyleKit.h; path = SCLAlertView/SCLAlertViewStyleKit.h; sourceTree = "<group>"; };
+		705B99DEC47B6D791D728E7A38B27338 /* NSMutableArray+SWUtilityButtons.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "NSMutableArray+SWUtilityButtons.h"; path = "SWTableViewCell/PodFiles/NSMutableArray+SWUtilityButtons.h"; sourceTree = "<group>"; };
+		71E3C7BAA5CA4C9276C5A3A0735C0621 /* SCLButton.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = SCLButton.h; path = SCLAlertView/SCLButton.h; sourceTree = "<group>"; };
+		73977E235E1E8190947007C459A91940 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS10.0.sdk/System/Library/Frameworks/UIKit.framework; sourceTree = DEVELOPER_DIR; };
+		77A9C1C9A639422A45A09B2F610ED1C8 /* JTCalendarPage.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = JTCalendarPage.h; path = JTCalendar/Protocols/JTCalendarPage.h; sourceTree = "<group>"; };
+		78100AC3A068485C0E21350A04F3CC37 /* JTCalendarDelegateManager.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = JTCalendarDelegateManager.h; path = JTCalendar/Managers/JTCalendarDelegateManager.h; sourceTree = "<group>"; };
+		7C138A7D5ED23CB9953EEB875C761132 /* JTCalendarWeekView.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = JTCalendarWeekView.h; path = JTCalendar/Views/JTCalendarWeekView.h; sourceTree = "<group>"; };
+		7CCA859059068F9FA829486055816FD4 /* comic-sans.ttf */ = {isa = PBXFileReference; includeInIndex = 1; name = "comic-sans.ttf"; path = "SCLAlertView/comic-sans.ttf"; sourceTree = "<group>"; };
+		7DF9C47EA6BAE70E93CCF6E182FEA833 /* JTCalendar.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = JTCalendar.h; path = JTCalendar/JTCalendar.h; sourceTree = "<group>"; };
+		847B9755F1E61CE7D94BEEA2432C8C13 /* JTCalendarDayView.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = JTCalendarDayView.h; path = JTCalendar/Views/JTCalendarDayView.h; sourceTree = "<group>"; };
+		8B8923903D9A6775FED17E4DA5E5F75B /* JTCalendarWeekDay.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = JTCalendarWeekDay.h; path = JTCalendar/Protocols/JTCalendarWeekDay.h; sourceTree = "<group>"; };
+		8EA6C63D4CCD6A4908F482D0EDE1F010 /* SWUtilityButtonView.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = SWUtilityButtonView.m; path = SWTableViewCell/PodFiles/SWUtilityButtonView.m; sourceTree = "<group>"; };
+		924241E088370E4D4C20A681975E82D0 /* SCLSwitchView.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = SCLSwitchView.h; path = SCLAlertView/SCLSwitchView.h; sourceTree = "<group>"; };
+		93A4A3777CF96A4AAC1D13BA6DCCEA73 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; lastKnownFileType = text; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		93D362F8E7929B36F6DA8DD42D550DC5 /* SWCellScrollView.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = SWCellScrollView.h; path = SWTableViewCell/PodFiles/SWCellScrollView.h; sourceTree = "<group>"; };
+		9490DCAF3ECA9C5BB4B6FA9F55D557A5 /* JTCalendar-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "JTCalendar-dummy.m"; sourceTree = "<group>"; };
+		9493C6EC74D8AC6980C108F1B82D2859 /* SCLAlertView.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = SCLAlertView.h; path = SCLAlertView/SCLAlertView.h; sourceTree = "<group>"; };
+		949E8DDD82036AACE5D6175B40E6D858 /* JTCalendarScrollManager.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = JTCalendarScrollManager.h; path = JTCalendar/Managers/JTCalendarScrollManager.h; sourceTree = "<group>"; };
+		94F18BBF00E849EBEB16A4060E7C69E6 /* MBProgressHUD-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "MBProgressHUD-dummy.m"; sourceTree = "<group>"; };
+		97FC738E82D453B4602665AC87EE1CAA /* SCLTextView.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = SCLTextView.h; path = SCLAlertView/SCLTextView.h; sourceTree = "<group>"; };
+		9A48EFC90AAB146081502AF3603EC4BC /* SCLAlertView-Objective-C.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "SCLAlertView-Objective-C.xcconfig"; sourceTree = "<group>"; };
+		9D9C30B968894DCD3881A743F4F5DF7D /* libSWTableViewCell.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; name = libSWTableViewCell.a; path = libSWTableViewCell.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		9E83083F243D7AD0CD88D8D01C0974CB /* SWUtilityButtonTapGestureRecognizer.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = SWUtilityButtonTapGestureRecognizer.m; path = SWTableViewCell/PodFiles/SWUtilityButtonTapGestureRecognizer.m; sourceTree = "<group>"; };
+		A0ECE420326BE175C4B619880942E73E /* SWTableViewCell.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = SWTableViewCell.xcconfig; sourceTree = "<group>"; };
+		A23026731E99DF3ADF3CDC99F42AF85B /* SWTableViewCell-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "SWTableViewCell-prefix.pch"; sourceTree = "<group>"; };
+		A421450FE0B8300AFC8E4C47C041A303 /* JTCalendarDelegateManager.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = JTCalendarDelegateManager.m; path = JTCalendar/Managers/JTCalendarDelegateManager.m; sourceTree = "<group>"; };
+		A6A8656D27186977EDCAB3302BB5ECB9 /* JTCalendarManager.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = JTCalendarManager.h; path = JTCalendar/JTCalendarManager.h; sourceTree = "<group>"; };
+		ABE3111E63E24E1B17781EF6005B2D84 /* JTVerticalCalendarView.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = JTVerticalCalendarView.m; path = JTCalendar/Views/JTVerticalCalendarView.m; sourceTree = "<group>"; };
+		AD611CCCFF73F60D2FC4304D9FAF7CF3 /* libJTCalendar.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; name = libJTCalendar.a; path = libJTCalendar.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		AEABCD238AABD3FC5B42FC8A9277CAA8 /* JTCalendarWeekView.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = JTCalendarWeekView.m; path = JTCalendar/Views/JTCalendarWeekView.m; sourceTree = "<group>"; };
+		AEE090D8D2AE2865867E6AB37CA385F4 /* JTHorizontalCalendarView.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = JTHorizontalCalendarView.h; path = JTCalendar/Views/JTHorizontalCalendarView.h; sourceTree = "<group>"; };
+		B042B95ED2308766B76692FEEC3A1AD0 /* JTCalendarDay.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = JTCalendarDay.h; path = JTCalendar/Protocols/JTCalendarDay.h; sourceTree = "<group>"; };
+		B174120A4EB28729D226E8732123E723 /* JTMenu.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = JTMenu.h; path = JTCalendar/Protocols/JTMenu.h; sourceTree = "<group>"; };
+		B636917560FD5B55C6D4CE7FF8FE9390 /* SCLAlertView-Objective-C-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "SCLAlertView-Objective-C-dummy.m"; sourceTree = "<group>"; };
+		BB802443FED6506725D1551A17B93568 /* MBProgressHUD.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = MBProgressHUD.m; sourceTree = "<group>"; };
+		C2F81E44FA04EEF352B87AA3545F7DC4 /* Pods-Taiglich.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-Taiglich.release.xcconfig"; sourceTree = "<group>"; };
+		CAEACDFF3BB6F7AEA9C902E0D50CEF26 /* JTCalendarWeekDayView.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = JTCalendarWeekDayView.h; path = JTCalendar/Views/JTCalendarWeekDayView.h; sourceTree = "<group>"; };
+		CB0686FDEB20AAC9D92C585534068730 /* SCLSwitchView.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = SCLSwitchView.m; path = SCLAlertView/SCLSwitchView.m; sourceTree = "<group>"; };
+		CC2384BD3B2F630887291721D9FE1CBF /* Pods-Taiglich-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-Taiglich-dummy.m"; sourceTree = "<group>"; };
+		CF17A27E0A4C4FB8297CC64A0DDE5005 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS10.0.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
+		D185D7968E9900230831B337324F82A9 /* Pods-Taiglich-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-Taiglich-acknowledgements.plist"; sourceTree = "<group>"; };
+		D44932C2C323397EAE3FCB60E9EC6951 /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS10.0.sdk/System/Library/Frameworks/AudioToolbox.framework; sourceTree = DEVELOPER_DIR; };
+		D582682C5784E93056FBF885BE14A842 /* SWTableViewCell.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = SWTableViewCell.h; path = SWTableViewCell/PodFiles/SWTableViewCell.h; sourceTree = "<group>"; };
+		DAD6DCDEB4F4B33B2BAC2DF9E705C292 /* JTContent.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = JTContent.h; path = JTCalendar/Protocols/JTContent.h; sourceTree = "<group>"; };
+		E09A1416971A7A4DEC17AD73E0E21C18 /* SWTableViewCell-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "SWTableViewCell-dummy.m"; sourceTree = "<group>"; };
+		E1E4A226E279DD93FD8379F2A22181F9 /* JTCalendarDayView.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = JTCalendarDayView.m; path = JTCalendar/Views/JTCalendarDayView.m; sourceTree = "<group>"; };
+		E41707BFAD74288C3F6FEAFA0000B389 /* SCLAlertView-Objective-C-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "SCLAlertView-Objective-C-prefix.pch"; sourceTree = "<group>"; };
+		E895C0DE6D3B613910C36C8201EDAF0A /* SCLButton.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = SCLButton.m; path = SCLAlertView/SCLButton.m; sourceTree = "<group>"; };
+		EB4976B12F5CAE4F65FF7F7A6043E1F2 /* SCLAlertViewResponder.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = SCLAlertViewResponder.h; path = SCLAlertView/SCLAlertViewResponder.h; sourceTree = "<group>"; };
+		EDB82EE29D2ECD653F6259471195547A /* SCLAlertViewStyleKit.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = SCLAlertViewStyleKit.m; path = SCLAlertView/SCLAlertViewStyleKit.m; sourceTree = "<group>"; };
+		F0CC60FE70FF6AC2990249CD013FC0A0 /* SWLongPressGestureRecognizer.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = SWLongPressGestureRecognizer.m; path = SWTableViewCell/PodFiles/SWLongPressGestureRecognizer.m; sourceTree = "<group>"; };
+		F69B9C6E1EF85D4C0D971A1B55DB8BEC /* JTDateHelper.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = JTDateHelper.h; path = JTCalendar/JTDateHelper.h; sourceTree = "<group>"; };
+		F85140D23E0AD631F03FB0B4C7767E0B /* JTCalendarScrollManager.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = JTCalendarScrollManager.m; path = JTCalendar/Managers/JTCalendarScrollManager.m; sourceTree = "<group>"; };
+		FD72C35B80BA798F78CB98ECE872E76B /* UIImage+ImageEffects.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "UIImage+ImageEffects.m"; path = "SCLAlertView/UIImage+ImageEffects.m"; sourceTree = "<group>"; };
+		FEF10A4284685653C2C5407E7EB89637 /* Accelerate.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Accelerate.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS10.0.sdk/System/Library/Frameworks/Accelerate.framework; sourceTree = DEVELOPER_DIR; };
+		FF6697ACF76BE22BEF176986360BDE7A /* JTCalendar.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = JTCalendar.xcconfig; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		23F8412A588F51E16569463A5C7DB2FB /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				ABFF13995BDE32F1FF920875C11B2C08 /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		3FA88BF9B169A25828DABBA850320D01 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				7F1D3622C2104C3942EB00B65CC8410C /* Accelerate.framework in Frameworks */,
+				6897C7EC8F944DFF19115049C4A61C33 /* AudioToolbox.framework in Frameworks */,
+				F9732C17F0D86156E6F9BA4D230384CF /* CoreGraphics.framework in Frameworks */,
+				AEABD4CA502E8E9EDCFA8EA435B767B3 /* Foundation.framework in Frameworks */,
+				20AE883B8ADA7E0D3854EECCAACB60F6 /* UIKit.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		484C26860E07ACF60C163C8118211D81 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				CF0606477A7BFBF1C9450E5D258B36EB /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		A5C8657C3AAF3EA65FE117877C6C2ABA /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				ADA07155330F715618430ECDF5196C7E /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		F9AC974E3329F79899A7B3BE290FC894 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				8C9B1DC3568E2881FF159096A119F748 /* CoreGraphics.framework in Frameworks */,
+				CA5E682B018BF5756152E04FE2F23909 /* Foundation.framework in Frameworks */,
+				D415D0767A8AF457434FFFB5957D4616 /* QuartzCore.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		0F75DF6C7C5F002280EC53F48E80B587 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				41B0BD45D2F293A107FE9021BFBB2610 /* iOS */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		2C1D690841BD14221D6E55C159C96A7A /* Support Files */ = {
+			isa = PBXGroup;
+			children = (
+				4052023A23DC5DFB764C7B04336DACA2 /* MBProgressHUD.xcconfig */,
+				94F18BBF00E849EBEB16A4060E7C69E6 /* MBProgressHUD-dummy.m */,
+				5F3C0D71595B48C6A8741E52C2B25420 /* MBProgressHUD-prefix.pch */,
+			);
+			name = "Support Files";
+			path = "../Target Support Files/MBProgressHUD";
+			sourceTree = "<group>";
+		};
+		349AC14EC2105EE2D307E75BE7E4A67B /* Support Files */ = {
+			isa = PBXGroup;
+			children = (
+				A0ECE420326BE175C4B619880942E73E /* SWTableViewCell.xcconfig */,
+				E09A1416971A7A4DEC17AD73E0E21C18 /* SWTableViewCell-dummy.m */,
+				A23026731E99DF3ADF3CDC99F42AF85B /* SWTableViewCell-prefix.pch */,
+			);
+			name = "Support Files";
+			path = "../Target Support Files/SWTableViewCell";
+			sourceTree = "<group>";
+		};
+		41B0BD45D2F293A107FE9021BFBB2610 /* iOS */ = {
+			isa = PBXGroup;
+			children = (
+				FEF10A4284685653C2C5407E7EB89637 /* Accelerate.framework */,
+				D44932C2C323397EAE3FCB60E9EC6951 /* AudioToolbox.framework */,
+				0D0889950E907B9DBDB5441755D43E1E /* CoreGraphics.framework */,
+				CF17A27E0A4C4FB8297CC64A0DDE5005 /* Foundation.framework */,
+				57817BC7102529AD0776DA636286A65C /* QuartzCore.framework */,
+				73977E235E1E8190947007C459A91940 /* UIKit.framework */,
+			);
+			name = iOS;
+			sourceTree = "<group>";
+		};
+		490ABFA12A52854F4992CC351E32656C /* SCLAlertView-Objective-C */ = {
+			isa = PBXGroup;
+			children = (
+				7CCA859059068F9FA829486055816FD4 /* comic-sans.ttf */,
+				9493C6EC74D8AC6980C108F1B82D2859 /* SCLAlertView.h */,
+				1B4CE177D76E4489794D1DBB6C016DEA /* SCLAlertView.m */,
+				EB4976B12F5CAE4F65FF7F7A6043E1F2 /* SCLAlertViewResponder.h */,
+				4558A3DD7C6D4846E78660105EA2866C /* SCLAlertViewResponder.m */,
+				6C9BAB5BB4C8C082616FCE09E807D82A /* SCLAlertViewStyleKit.h */,
+				EDB82EE29D2ECD653F6259471195547A /* SCLAlertViewStyleKit.m */,
+				71E3C7BAA5CA4C9276C5A3A0735C0621 /* SCLButton.h */,
+				E895C0DE6D3B613910C36C8201EDAF0A /* SCLButton.m */,
+				675FA271FB62F9AEB25B79C303FEA5FB /* SCLMacros.h */,
+				924241E088370E4D4C20A681975E82D0 /* SCLSwitchView.h */,
+				CB0686FDEB20AAC9D92C585534068730 /* SCLSwitchView.m */,
+				97FC738E82D453B4602665AC87EE1CAA /* SCLTextView.h */,
+				5D9E18B36A83C521418A91E5757943EA /* SCLTextView.m */,
+				09F323379BC445E3158741AB22EE738A /* SCLTimerDisplay.h */,
+				38BB537DC8C94389A60EDF504915E52F /* SCLTimerDisplay.m */,
+				15187EFF54B1EE7DA2934C969EBFE1A2 /* UIImage+ImageEffects.h */,
+				FD72C35B80BA798F78CB98ECE872E76B /* UIImage+ImageEffects.m */,
+				B9399BFFE832EC35FB6E30C35B879FBC /* Support Files */,
+			);
+			name = "SCLAlertView-Objective-C";
+			path = "SCLAlertView-Objective-C";
+			sourceTree = "<group>";
+		};
+		7AAB4ABC929016C4F35F1D6A53D3A17B /* JTCalendar */ = {
+			isa = PBXGroup;
+			children = (
+				7DF9C47EA6BAE70E93CCF6E182FEA833 /* JTCalendar.h */,
+				B042B95ED2308766B76692FEEC3A1AD0 /* JTCalendarDay.h */,
+				847B9755F1E61CE7D94BEEA2432C8C13 /* JTCalendarDayView.h */,
+				E1E4A226E279DD93FD8379F2A22181F9 /* JTCalendarDayView.m */,
+				58589D261ACE69D2B7EA2E850807805E /* JTCalendarDelegate.h */,
+				78100AC3A068485C0E21350A04F3CC37 /* JTCalendarDelegateManager.h */,
+				A421450FE0B8300AFC8E4C47C041A303 /* JTCalendarDelegateManager.m */,
+				A6A8656D27186977EDCAB3302BB5ECB9 /* JTCalendarManager.h */,
+				4C591E0BC3ECAD619B16329DEF5CA609 /* JTCalendarManager.m */,
+				01CE6671077C34C1D5DD9CDE139FB836 /* JTCalendarMenuView.h */,
+				69C51E7EFF976B3817EB964DEEC72B8D /* JTCalendarMenuView.m */,
+				77A9C1C9A639422A45A09B2F610ED1C8 /* JTCalendarPage.h */,
+				31C5460594787C47C32E8FA5DF297B38 /* JTCalendarPageView.h */,
+				0E6ACF1B32607266D14A0649CA9BDEEF /* JTCalendarPageView.m */,
+				949E8DDD82036AACE5D6175B40E6D858 /* JTCalendarScrollManager.h */,
+				F85140D23E0AD631F03FB0B4C7767E0B /* JTCalendarScrollManager.m */,
+				69F5D4CE8C577DDD1BECB34AC803A2AE /* JTCalendarSettings.h */,
+				0DBC5C4FE4A0C3A30B00B4D2C8507C4A /* JTCalendarSettings.m */,
+				0055A00B812F80981B6E1AD354FF4575 /* JTCalendarWeek.h */,
+				8B8923903D9A6775FED17E4DA5E5F75B /* JTCalendarWeekDay.h */,
+				CAEACDFF3BB6F7AEA9C902E0D50CEF26 /* JTCalendarWeekDayView.h */,
+				573289591A693904C68F46456466994F /* JTCalendarWeekDayView.m */,
+				7C138A7D5ED23CB9953EEB875C761132 /* JTCalendarWeekView.h */,
+				AEABCD238AABD3FC5B42FC8A9277CAA8 /* JTCalendarWeekView.m */,
+				DAD6DCDEB4F4B33B2BAC2DF9E705C292 /* JTContent.h */,
+				F69B9C6E1EF85D4C0D971A1B55DB8BEC /* JTDateHelper.h */,
+				3731ECC1A93C76FB6B7CD0E65E1AF38B /* JTDateHelper.m */,
+				AEE090D8D2AE2865867E6AB37CA385F4 /* JTHorizontalCalendarView.h */,
+				2045C7C804EE94C2E4F4E5095E11660A /* JTHorizontalCalendarView.m */,
+				B174120A4EB28729D226E8732123E723 /* JTMenu.h */,
+				4F84E13984EE2F51B2ACDF2078360194 /* JTVerticalCalendarView.h */,
+				ABE3111E63E24E1B17781EF6005B2D84 /* JTVerticalCalendarView.m */,
+				E2B11E929F149890C61C43FE56D96C20 /* Support Files */,
+			);
+			name = JTCalendar;
+			path = JTCalendar;
+			sourceTree = "<group>";
+		};
+		7DB346D0F39D3F0E887471402A8071AB = {
+			isa = PBXGroup;
+			children = (
+				93A4A3777CF96A4AAC1D13BA6DCCEA73 /* Podfile */,
+				0F75DF6C7C5F002280EC53F48E80B587 /* Frameworks */,
+				8233277804DE618C2EE24001B9B5BA1B /* Pods */,
+				8D6CFC80328ED730C708B4AF5C380586 /* Products */,
+				F8EF272D3128B8E1C53129EC4E30CD5D /* Targets Support Files */,
+			);
+			sourceTree = "<group>";
+		};
+		8233277804DE618C2EE24001B9B5BA1B /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				7AAB4ABC929016C4F35F1D6A53D3A17B /* JTCalendar */,
+				C71812CEE4B31A1FCF6337651A619635 /* MBProgressHUD */,
+				490ABFA12A52854F4992CC351E32656C /* SCLAlertView-Objective-C */,
+				D7EB1A29DD8D54856499A49E0C74F458 /* SWTableViewCell */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		89E88DF5331CA00A268B936DF5FF7BFA /* Pods-Taiglich */ = {
+			isa = PBXGroup;
+			children = (
+				4D700269A63BA848DF0E4DDE4A5E54B4 /* Pods-Taiglich-acknowledgements.markdown */,
+				D185D7968E9900230831B337324F82A9 /* Pods-Taiglich-acknowledgements.plist */,
+				CC2384BD3B2F630887291721D9FE1CBF /* Pods-Taiglich-dummy.m */,
+				172F99D1A77A47B24E939215B663D3BE /* Pods-Taiglich-frameworks.sh */,
+				47E8472F11DAACE421C24DB37C73D512 /* Pods-Taiglich-resources.sh */,
+				5365DE1FD45B7F8E06385DFF39AB4560 /* Pods-Taiglich.debug.xcconfig */,
+				C2F81E44FA04EEF352B87AA3545F7DC4 /* Pods-Taiglich.release.xcconfig */,
+			);
+			name = "Pods-Taiglich";
+			path = "Target Support Files/Pods-Taiglich";
+			sourceTree = "<group>";
+		};
+		8D6CFC80328ED730C708B4AF5C380586 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				AD611CCCFF73F60D2FC4304D9FAF7CF3 /* libJTCalendar.a */,
+				2153C14D80ED7FA9874D98422D745352 /* libMBProgressHUD.a */,
+				57655F188722ED2636D23BC86C027C00 /* libPods-Taiglich.a */,
+				12D940082DD9DBFAB33D64114E3C4418 /* libSCLAlertView-Objective-C.a */,
+				9D9C30B968894DCD3881A743F4F5DF7D /* libSWTableViewCell.a */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		B9399BFFE832EC35FB6E30C35B879FBC /* Support Files */ = {
+			isa = PBXGroup;
+			children = (
+				9A48EFC90AAB146081502AF3603EC4BC /* SCLAlertView-Objective-C.xcconfig */,
+				B636917560FD5B55C6D4CE7FF8FE9390 /* SCLAlertView-Objective-C-dummy.m */,
+				E41707BFAD74288C3F6FEAFA0000B389 /* SCLAlertView-Objective-C-prefix.pch */,
+			);
+			name = "Support Files";
+			path = "../Target Support Files/SCLAlertView-Objective-C";
+			sourceTree = "<group>";
+		};
+		C71812CEE4B31A1FCF6337651A619635 /* MBProgressHUD */ = {
+			isa = PBXGroup;
+			children = (
+				3BEBC061A5EEFBE9B3F50AA4FF668B44 /* MBProgressHUD.h */,
+				BB802443FED6506725D1551A17B93568 /* MBProgressHUD.m */,
+				2C1D690841BD14221D6E55C159C96A7A /* Support Files */,
+			);
+			name = MBProgressHUD;
+			path = MBProgressHUD;
+			sourceTree = "<group>";
+		};
+		D7EB1A29DD8D54856499A49E0C74F458 /* SWTableViewCell */ = {
+			isa = PBXGroup;
+			children = (
+				705B99DEC47B6D791D728E7A38B27338 /* NSMutableArray+SWUtilityButtons.h */,
+				17EBDCCEE89A5E27C6482550F1FC1548 /* NSMutableArray+SWUtilityButtons.m */,
+				93D362F8E7929B36F6DA8DD42D550DC5 /* SWCellScrollView.h */,
+				119FF1B78F325E7AA50EADF6E53D3F5A /* SWCellScrollView.m */,
+				625B5C8DFFD0DEEE13477E3FF753D833 /* SWLongPressGestureRecognizer.h */,
+				F0CC60FE70FF6AC2990249CD013FC0A0 /* SWLongPressGestureRecognizer.m */,
+				D582682C5784E93056FBF885BE14A842 /* SWTableViewCell.h */,
+				0C84BEF9EA3E7370CE86B667758851D2 /* SWTableViewCell.m */,
+				1C0E5A0419FEC6A844DA269B8F79F810 /* SWUtilityButtonTapGestureRecognizer.h */,
+				9E83083F243D7AD0CD88D8D01C0974CB /* SWUtilityButtonTapGestureRecognizer.m */,
+				25E9D614C1AC4C1A9039C85FF1223041 /* SWUtilityButtonView.h */,
+				8EA6C63D4CCD6A4908F482D0EDE1F010 /* SWUtilityButtonView.m */,
+				349AC14EC2105EE2D307E75BE7E4A67B /* Support Files */,
+			);
+			name = SWTableViewCell;
+			path = SWTableViewCell;
+			sourceTree = "<group>";
+		};
+		E2B11E929F149890C61C43FE56D96C20 /* Support Files */ = {
+			isa = PBXGroup;
+			children = (
+				FF6697ACF76BE22BEF176986360BDE7A /* JTCalendar.xcconfig */,
+				9490DCAF3ECA9C5BB4B6FA9F55D557A5 /* JTCalendar-dummy.m */,
+				37AF5907C3E2742B5682A30208EFE96F /* JTCalendar-prefix.pch */,
+			);
+			name = "Support Files";
+			path = "../Target Support Files/JTCalendar";
+			sourceTree = "<group>";
+		};
+		F8EF272D3128B8E1C53129EC4E30CD5D /* Targets Support Files */ = {
+			isa = PBXGroup;
+			children = (
+				89E88DF5331CA00A268B936DF5FF7BFA /* Pods-Taiglich */,
+			);
+			name = "Targets Support Files";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXHeadersBuildPhase section */
+		1B1D84BCA4F7BDAE79C37DF88C9DCE23 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				EA321C98029015AA4895C0B26891D8F8 /* MBProgressHUD.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		282D8593F48CABF74388FDA0633A1BDE /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				8CB78B58C2A752E44D69EBF7E3663530 /* JTCalendar.h in Headers */,
+				59B22A4207C5539E9EE1FA4222145DEA /* JTCalendarDay.h in Headers */,
+				8297CD0E370D3524DA0D3A40E52C924C /* JTCalendarDayView.h in Headers */,
+				DBB70B614371E7F8ACDA46A492D7D630 /* JTCalendarDelegate.h in Headers */,
+				921738D6C5F05E13D1F034121334B228 /* JTCalendarDelegateManager.h in Headers */,
+				F22BC70D538F17028FEEA53EB346B113 /* JTCalendarManager.h in Headers */,
+				61B8F4B5507FAA5CFDC7731BA2EF6787 /* JTCalendarMenuView.h in Headers */,
+				A00FD290FFEC432E1E29152585D56276 /* JTCalendarPage.h in Headers */,
+				1C4AF8D0570425A512FD79D885819869 /* JTCalendarPageView.h in Headers */,
+				C4C160B59A2D33A603EFE532FEC0BC4F /* JTCalendarScrollManager.h in Headers */,
+				1A5BEDC57E17712D312C29BBFB2A3316 /* JTCalendarSettings.h in Headers */,
+				1B7DB4AF25CBFAE21C56D8157FBE0B39 /* JTCalendarWeek.h in Headers */,
+				5C8E00076C405BF0B0DDADDED34818D5 /* JTCalendarWeekDay.h in Headers */,
+				A5C341B38ECA045C3051FA277FF1671B /* JTCalendarWeekDayView.h in Headers */,
+				9E945EF671D1F56632555C4189B92E65 /* JTCalendarWeekView.h in Headers */,
+				B0D459C76CD70420C0E545C326D5F5BC /* JTContent.h in Headers */,
+				85CF6EBC66DE02C95C79974D42AE3006 /* JTDateHelper.h in Headers */,
+				C530AD236B631DBE04C6C868E947A191 /* JTHorizontalCalendarView.h in Headers */,
+				536196304F7B3EC177C210D37ADB0EFC /* JTMenu.h in Headers */,
+				30C4CF70790695A22980D3772EBAEE36 /* JTVerticalCalendarView.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		4A2B5D4595A21653290DBA5768822A56 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				72B6D9BC38F41E3C5F4DA38C2831AEDF /* NSMutableArray+SWUtilityButtons.h in Headers */,
+				CFDE5B1F4AA82C56178F2605FE6661F6 /* SWCellScrollView.h in Headers */,
+				49C2DF6A134234DD0D16A5EAB1BBA5DF /* SWLongPressGestureRecognizer.h in Headers */,
+				F25C905E22D32EE978F884C66FD5372E /* SWTableViewCell.h in Headers */,
+				D49671041D6D4AD556A82370BF0C001E /* SWUtilityButtonTapGestureRecognizer.h in Headers */,
+				583CF4E6A831BCBF02609772EF94D802 /* SWUtilityButtonView.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		C7575DCE4913025B1E1EAFB8CCF59F3A /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				7E1730715D604A94A35EEA7DE45E6D9A /* SCLAlertView.h in Headers */,
+				620177E03D13F9828450EE83DC868B96 /* SCLAlertViewResponder.h in Headers */,
+				24EA1450BD673D7FE5B0EC4950521CEA /* SCLAlertViewStyleKit.h in Headers */,
+				E944EE1C0C1018D0E438EB7B7C34497C /* SCLButton.h in Headers */,
+				B362D4FDD4F333F45AC4A7DF09409A18 /* SCLMacros.h in Headers */,
+				7877D032F2C960AC2165DF68BAEAD2BC /* SCLSwitchView.h in Headers */,
+				B3C9C5AC3EB22D0B6F28BCFF10851A72 /* SCLTextView.h in Headers */,
+				192E4BF9055888AC88DA5F936B5D5BF3 /* SCLTimerDisplay.h in Headers */,
+				D9BDCB103BDD8397CD3C7856C752F8EC /* UIImage+ImageEffects.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXHeadersBuildPhase section */
+
+/* Begin PBXNativeTarget section */
+		0BE4A16FFDEF8D8F814E3AE6A2577F6C /* JTCalendar */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = B24D27A8EE9FEDD621CF4C874E1F7FFC /* Build configuration list for PBXNativeTarget "JTCalendar" */;
+			buildPhases = (
+				BC6B4F18CB6E8A9A8F534938DE4B48EC /* Sources */,
+				484C26860E07ACF60C163C8118211D81 /* Frameworks */,
+				282D8593F48CABF74388FDA0633A1BDE /* Headers */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = JTCalendar;
+			productName = JTCalendar;
+			productReference = AD611CCCFF73F60D2FC4304D9FAF7CF3 /* libJTCalendar.a */;
+			productType = "com.apple.product-type.library.static";
+		};
+		0D260CB381B10C18D0255FE4508993DF /* SCLAlertView-Objective-C */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 1E585F7E0288B0A1EC71490C257F1584 /* Build configuration list for PBXNativeTarget "SCLAlertView-Objective-C" */;
+			buildPhases = (
+				BC6F4FBCA51EBB88F710C63ED836EA48 /* Sources */,
+				3FA88BF9B169A25828DABBA850320D01 /* Frameworks */,
+				C7575DCE4913025B1E1EAFB8CCF59F3A /* Headers */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "SCLAlertView-Objective-C";
+			productName = "SCLAlertView-Objective-C";
+			productReference = 12D940082DD9DBFAB33D64114E3C4418 /* libSCLAlertView-Objective-C.a */;
+			productType = "com.apple.product-type.library.static";
+		};
+		15B9C57A34E9B8F8776133805843DD52 /* SWTableViewCell */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 6DCDC0495DD4EE957C9973826C9CDAE6 /* Build configuration list for PBXNativeTarget "SWTableViewCell" */;
+			buildPhases = (
+				1A85967E6A45A3CD068E0CD381345EB4 /* Sources */,
+				23F8412A588F51E16569463A5C7DB2FB /* Frameworks */,
+				4A2B5D4595A21653290DBA5768822A56 /* Headers */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = SWTableViewCell;
+			productName = SWTableViewCell;
+			productReference = 9D9C30B968894DCD3881A743F4F5DF7D /* libSWTableViewCell.a */;
+			productType = "com.apple.product-type.library.static";
+		};
+		586F2DFA9BDCC6675C2546793A69E5CC /* MBProgressHUD */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 6B44251FA50022CA55D4B2FBE1468C76 /* Build configuration list for PBXNativeTarget "MBProgressHUD" */;
+			buildPhases = (
+				7E4305B404C5BA5156646C69578ADD62 /* Sources */,
+				F9AC974E3329F79899A7B3BE290FC894 /* Frameworks */,
+				1B1D84BCA4F7BDAE79C37DF88C9DCE23 /* Headers */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = MBProgressHUD;
+			productName = MBProgressHUD;
+			productReference = 2153C14D80ED7FA9874D98422D745352 /* libMBProgressHUD.a */;
+			productType = "com.apple.product-type.library.static";
+		};
+		F3524815420F3076702B47441A788941 /* Pods-Taiglich */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 1708AA98A459043197426FA6829B8FE4 /* Build configuration list for PBXNativeTarget "Pods-Taiglich" */;
+			buildPhases = (
+				59A2078741704A6BF6CDD1950F802F6E /* Sources */,
+				A5C8657C3AAF3EA65FE117877C6C2ABA /* Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				984FE21422343C862281BA1F344760A6 /* PBXTargetDependency */,
+				D8483CFAEC4A2B2E68FD14536F84C1D7 /* PBXTargetDependency */,
+				A5F980A53C3F6C426989269468B7949D /* PBXTargetDependency */,
+				EE2D93462C67450DEF90327F2A5F6D6D /* PBXTargetDependency */,
+			);
+			name = "Pods-Taiglich";
+			productName = "Pods-Taiglich";
+			productReference = 57655F188722ED2636D23BC86C027C00 /* libPods-Taiglich.a */;
+			productType = "com.apple.product-type.library.static";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		D41D8CD98F00B204E9800998ECF8427E /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 0730;
+				LastUpgradeCheck = 0700;
+			};
+			buildConfigurationList = 2D8E8EC45A3A1A1D94AE762CB5028504 /* Build configuration list for PBXProject "Pods" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = 7DB346D0F39D3F0E887471402A8071AB;
+			productRefGroup = 8D6CFC80328ED730C708B4AF5C380586 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				0BE4A16FFDEF8D8F814E3AE6A2577F6C /* JTCalendar */,
+				586F2DFA9BDCC6675C2546793A69E5CC /* MBProgressHUD */,
+				F3524815420F3076702B47441A788941 /* Pods-Taiglich */,
+				0D260CB381B10C18D0255FE4508993DF /* SCLAlertView-Objective-C */,
+				15B9C57A34E9B8F8776133805843DD52 /* SWTableViewCell */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXSourcesBuildPhase section */
+		1A85967E6A45A3CD068E0CD381345EB4 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A0EBE73495F0AAF5177E86B8E3336CE5 /* NSMutableArray+SWUtilityButtons.m in Sources */,
+				98C17803F2E6B2E4B73C7C45EF3A1E8A /* SWCellScrollView.m in Sources */,
+				2C5AC373339411F2A4BB16C34F420AD4 /* SWLongPressGestureRecognizer.m in Sources */,
+				3A830E71A69982CAB27605669BDDA447 /* SWTableViewCell-dummy.m in Sources */,
+				59A09E7A4086C004E889D7D303892D46 /* SWTableViewCell.m in Sources */,
+				6F8CEE4B4D87FAF231469243288A72DB /* SWUtilityButtonTapGestureRecognizer.m in Sources */,
+				0CB2E682B5FDE90C274C3A2CFC45161E /* SWUtilityButtonView.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		59A2078741704A6BF6CDD1950F802F6E /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				28DD14055DEBF9F352FE28736BB6C632 /* Pods-Taiglich-dummy.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		7E4305B404C5BA5156646C69578ADD62 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				E5229F5125ACD420659E7B2D19BB30A8 /* MBProgressHUD-dummy.m in Sources */,
+				536F7D0550F5FD9F5869CEC995CFEE9B /* MBProgressHUD.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		BC6B4F18CB6E8A9A8F534938DE4B48EC /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				6778F1E28C9C6B40E7CB2F3E1D4E6B3B /* JTCalendar-dummy.m in Sources */,
+				257233B60B2E3DB62E6AFC44B108AE0C /* JTCalendarDayView.m in Sources */,
+				A0527A017A19EEA1481BD2301C3F9318 /* JTCalendarDelegateManager.m in Sources */,
+				8C929DFDA2F683BE086420DF09E828CB /* JTCalendarManager.m in Sources */,
+				B3EF49DA660F2511CBCA82BF8ECC4028 /* JTCalendarMenuView.m in Sources */,
+				51AA53E4426E98140FFE0031CDA49561 /* JTCalendarPageView.m in Sources */,
+				CB1A9829FA1C960924DC4DB02F8B793C /* JTCalendarScrollManager.m in Sources */,
+				A7FA7803B5975CC3CABF0069D7300EE2 /* JTCalendarSettings.m in Sources */,
+				0B92C609090AD3F630C0CDFEAADAB308 /* JTCalendarWeekDayView.m in Sources */,
+				7C25AD780E7FDF5D842DBE47A510FED8 /* JTCalendarWeekView.m in Sources */,
+				D2CE56842AC56D87E6804A40567B8634 /* JTDateHelper.m in Sources */,
+				5FE109F2181D5EF4346BDF6A6B7E94DE /* JTHorizontalCalendarView.m in Sources */,
+				4692B9ED4A6A3BC8183A11D711D50CA9 /* JTVerticalCalendarView.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		BC6F4FBCA51EBB88F710C63ED836EA48 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D4E6CA5A6958AC81EE2EC9EBF10E0C68 /* comic-sans.ttf in Sources */,
+				DA438629C6824545C7183EE8C65E0355 /* SCLAlertView-Objective-C-dummy.m in Sources */,
+				264C54C82A8C39ED39A0ACE34D7D7B6A /* SCLAlertView.m in Sources */,
+				6394EBA2168F8B84D4B425508777ADC4 /* SCLAlertViewResponder.m in Sources */,
+				16F9017458599E7EAC940B3508C8CFA9 /* SCLAlertViewStyleKit.m in Sources */,
+				8DC5067D1DB4A332723BEF427DDBB8AD /* SCLButton.m in Sources */,
+				6F27CFD921D17359B93C3527E495E7DD /* SCLSwitchView.m in Sources */,
+				D6A5C8DDDDE5B8A7527D6BCA2A2C9A26 /* SCLTextView.m in Sources */,
+				D7A1A2445578F92ECC36EF277A01E921 /* SCLTimerDisplay.m in Sources */,
+				1E6E3C523CDB2838C24D53A567505A05 /* UIImage+ImageEffects.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		984FE21422343C862281BA1F344760A6 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = JTCalendar;
+			target = 0BE4A16FFDEF8D8F814E3AE6A2577F6C /* JTCalendar */;
+			targetProxy = F04BF1D4746FB0C55D2D1B34CFD815AB /* PBXContainerItemProxy */;
+		};
+		A5F980A53C3F6C426989269468B7949D /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = "SCLAlertView-Objective-C";
+			target = 0D260CB381B10C18D0255FE4508993DF /* SCLAlertView-Objective-C */;
+			targetProxy = 95166D915DEC72F812BCDC5C2E0BD478 /* PBXContainerItemProxy */;
+		};
+		D8483CFAEC4A2B2E68FD14536F84C1D7 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = MBProgressHUD;
+			target = 586F2DFA9BDCC6675C2546793A69E5CC /* MBProgressHUD */;
+			targetProxy = 59DB25CA10D12D0F5C6C6EE0051D9698 /* PBXContainerItemProxy */;
+		};
+		EE2D93462C67450DEF90327F2A5F6D6D /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = SWTableViewCell;
+			target = 15B9C57A34E9B8F8776133805843DD52 /* SWTableViewCell */;
+			targetProxy = DCF14905A259F530EF0E4F354717EDAB /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		16583A016330397BEF90B7C6B3EEEF17 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 9A48EFC90AAB146081502AF3603EC4BC /* SCLAlertView-Objective-C.xcconfig */;
+			buildSettings = {
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_PREFIX_HEADER = "Target Support Files/SCLAlertView-Objective-C/SCLAlertView-Objective-C-prefix.pch";
+				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PRIVATE_HEADERS_FOLDER_PATH = "";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PUBLIC_HEADERS_FOLDER_PATH = "";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+			};
+			name = Debug;
+		};
+		1F205BC1069526B94CB042887F9F6C90 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = FF6697ACF76BE22BEF176986360BDE7A /* JTCalendar.xcconfig */;
+			buildSettings = {
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_PREFIX_HEADER = "Target Support Files/JTCalendar/JTCalendar-prefix.pch";
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PRIVATE_HEADERS_FOLDER_PATH = "";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PUBLIC_HEADERS_FOLDER_PATH = "";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+			};
+			name = Release;
+		};
+		2D6505E4F84AB187E42E7D1F17C02FC3 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 4052023A23DC5DFB764C7B04336DACA2 /* MBProgressHUD.xcconfig */;
+			buildSettings = {
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_PREFIX_HEADER = "Target Support Files/MBProgressHUD/MBProgressHUD-prefix.pch";
+				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PRIVATE_HEADERS_FOLDER_PATH = "";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PUBLIC_HEADERS_FOLDER_PATH = "";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+			};
+			name = Debug;
+		};
+		349703B5011FFD330986D0C8116D90DF /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 9A48EFC90AAB146081502AF3603EC4BC /* SCLAlertView-Objective-C.xcconfig */;
+			buildSettings = {
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_PREFIX_HEADER = "Target Support Files/SCLAlertView-Objective-C/SCLAlertView-Objective-C-prefix.pch";
+				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PRIVATE_HEADERS_FOLDER_PATH = "";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PUBLIC_HEADERS_FOLDER_PATH = "";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+			};
+			name = Release;
+		};
+		3D206169D26EBA593072BF4035D540B8 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = A0ECE420326BE175C4B619880942E73E /* SWTableViewCell.xcconfig */;
+			buildSettings = {
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_PREFIX_HEADER = "Target Support Files/SWTableViewCell/SWTableViewCell-prefix.pch";
+				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PRIVATE_HEADERS_FOLDER_PATH = "";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PUBLIC_HEADERS_FOLDER_PATH = "";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+			};
+			name = Debug;
+		};
+		81D27BBFE39221A11085CC94C71E9978 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 4052023A23DC5DFB764C7B04336DACA2 /* MBProgressHUD.xcconfig */;
+			buildSettings = {
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_PREFIX_HEADER = "Target Support Files/MBProgressHUD/MBProgressHUD-prefix.pch";
+				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PRIVATE_HEADERS_FOLDER_PATH = "";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PUBLIC_HEADERS_FOLDER_PATH = "";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+			};
+			name = Release;
+		};
+		A435E3C35B2666C25C53422D898980A7 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGNING_REQUIRED = NO;
+				COPY_PHASE_STRIP = NO;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"POD_CONFIGURATION_DEBUG=1",
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.1;
+				ONLY_ACTIVE_ARCH = YES;
+				PROVISIONING_PROFILE_SPECIFIER = NO_SIGNING/;
+				STRIP_INSTALLED_PRODUCT = NO;
+				SYMROOT = "${SRCROOT}/../build";
+			};
+			name = Debug;
+		};
+		B82D3AC89D1E1EEE6B51C750D5D5AC97 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = A0ECE420326BE175C4B619880942E73E /* SWTableViewCell.xcconfig */;
+			buildSettings = {
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_PREFIX_HEADER = "Target Support Files/SWTableViewCell/SWTableViewCell-prefix.pch";
+				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PRIVATE_HEADERS_FOLDER_PATH = "";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PUBLIC_HEADERS_FOLDER_PATH = "";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+			};
+			name = Release;
+		};
+		C976F418A8967B8BC70FDC5A231BE8F9 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 5365DE1FD45B7F8E06385DFF39AB4560 /* Pods-Taiglich.debug.xcconfig */;
+			buildSettings = {
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_NO_COMMON_BLOCKS = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.1;
+				MACH_O_TYPE = staticlib;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+			};
+			name = Debug;
+		};
+		DDA5F4C59100E19A7D6C85E2079635C0 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = C2F81E44FA04EEF352B87AA3545F7DC4 /* Pods-Taiglich.release.xcconfig */;
+			buildSettings = {
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_NO_COMMON_BLOCKS = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.1;
+				MACH_O_TYPE = staticlib;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+			};
+			name = Release;
+		};
+		F2C4F47FC8AD76198661C5EFDE751899 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGNING_REQUIRED = NO;
+				COPY_PHASE_STRIP = YES;
+				ENABLE_NS_ASSERTIONS = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"POD_CONFIGURATION_RELEASE=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.1;
+				PROVISIONING_PROFILE_SPECIFIER = NO_SIGNING/;
+				STRIP_INSTALLED_PRODUCT = NO;
+				SYMROOT = "${SRCROOT}/../build";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		F38054132F0490EFA095D00DE0228A12 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = FF6697ACF76BE22BEF176986360BDE7A /* JTCalendar.xcconfig */;
+			buildSettings = {
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_PREFIX_HEADER = "Target Support Files/JTCalendar/JTCalendar-prefix.pch";
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PRIVATE_HEADERS_FOLDER_PATH = "";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PUBLIC_HEADERS_FOLDER_PATH = "";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+			};
+			name = Debug;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		1708AA98A459043197426FA6829B8FE4 /* Build configuration list for PBXNativeTarget "Pods-Taiglich" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				C976F418A8967B8BC70FDC5A231BE8F9 /* Debug */,
+				DDA5F4C59100E19A7D6C85E2079635C0 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		1E585F7E0288B0A1EC71490C257F1584 /* Build configuration list for PBXNativeTarget "SCLAlertView-Objective-C" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				16583A016330397BEF90B7C6B3EEEF17 /* Debug */,
+				349703B5011FFD330986D0C8116D90DF /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		2D8E8EC45A3A1A1D94AE762CB5028504 /* Build configuration list for PBXProject "Pods" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				A435E3C35B2666C25C53422D898980A7 /* Debug */,
+				F2C4F47FC8AD76198661C5EFDE751899 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		6B44251FA50022CA55D4B2FBE1468C76 /* Build configuration list for PBXNativeTarget "MBProgressHUD" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				2D6505E4F84AB187E42E7D1F17C02FC3 /* Debug */,
+				81D27BBFE39221A11085CC94C71E9978 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		6DCDC0495DD4EE957C9973826C9CDAE6 /* Build configuration list for PBXNativeTarget "SWTableViewCell" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				3D206169D26EBA593072BF4035D540B8 /* Debug */,
+				B82D3AC89D1E1EEE6B51C750D5D5AC97 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		B24D27A8EE9FEDD621CF4C874E1F7FFC /* Build configuration list for PBXNativeTarget "JTCalendar" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				F38054132F0490EFA095D00DE0228A12 /* Debug */,
+				1F205BC1069526B94CB042887F9F6C90 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = D41D8CD98F00B204E9800998ECF8427E /* Project object */;
+}

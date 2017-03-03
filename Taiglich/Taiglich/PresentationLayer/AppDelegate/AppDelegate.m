@@ -7,8 +7,13 @@
 //
 
 #import "AppDelegate.h"
+#import "DefineHeader.h"
 
-@interface AppDelegate ()
+@interface AppDelegate (){
+    HomeViewController* mHomeViewController;
+    UINavigationController *navigationController;
+    RegistrationViewController *mRegistrationViewController;
+}
 
 @end
 
@@ -17,6 +22,16 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
+    
+    navigationController = (UINavigationController *)self.window.rootViewController;
+   if ([[[NSUserDefaults standardUserDefaults] objectForKey:@"Login"] isEqualToString:@"Yes"]) {
+        mHomeViewController = [[UIStoryboard storyboardWithName:@"Main" bundle:nil] instantiateViewControllerWithIdentifier:@"HomeViewController"];
+        [navigationController pushViewController:mHomeViewController animated:NO];
+    }
+    else{
+        mRegistrationViewController = [[UIStoryboard storyboardWithName:@"Main" bundle:nil] instantiateViewControllerWithIdentifier:@"RegistrationViewController"];
+        [navigationController pushViewController:mRegistrationViewController animated:NO];
+    }
     return YES;
 }
 

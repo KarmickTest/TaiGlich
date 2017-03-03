@@ -2,15 +2,15 @@
 
 #ifndef hairvii_Constant_h
 #define hairvii_Constant_h
-#import "ServerConnection.h"
+
 
  //#define API @"http://demo.hairvii.com/webservice/"
 #define API @"http://karmickdev.com/taiglich/webservice/"
 //#define API @"http://61.16.241.116/matrix/project/hairvii/webservice/"
 
-#define REGISTRATION @"customers/registration"
-#define COUNTRYLIST  @"customers/country_list"
-#define LOGIN  @"customers/login"
+#define REGISTRATION @"registration.php"
+#define EVENTLISTINGBYDATE  @"eventsListingByDate.php"
+#define LOCATIONLISTING  @"locationListing.php"
 #define FACEBOOKLOGIN @"customers/fblogin"
 #define CHANGEPASSWORD @"customers/change_password"
 #define CATAEGORYLIST @"categories/list"

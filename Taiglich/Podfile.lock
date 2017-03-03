@@ -1,0 +1,21 @@
+PODS:
+  - JTCalendar (2.1.9)
+  - MBProgressHUD (1.0.0)
+  - SCLAlertView-Objective-C (1.1.0)
+  - SWTableViewCell (0.3.7)
+
+DEPENDENCIES:
+  - JTCalendar (~> 2.0)
+  - MBProgressHUD (~> 1.0.0)
+  - SCLAlertView-Objective-C
+  - SWTableViewCell (~> 0.3.7)
+
+SPEC CHECKSUMS:
+  JTCalendar: beb2f4c1b639bf6880f680b4858227acf83a049c
+  MBProgressHUD: 4890f671c94e8a0f3cf959aa731e9de2f036d71a
+  SCLAlertView-Objective-C: 349a894d4e1d1dbf14d443da784c6ca1e92c78d2
+  SWTableViewCell: 2a94aadc9d47b2b611fa064566bf57948b95b579
+
+PODFILE CHECKSUM: 2584f4aa4351b8901ae69e2d8ee3a203d0b831b6
+
+COCOAPODS: 1.1.1

@@ -9,5 +9,6 @@
 #import <UIKit/UIKit.h>
 
 @interface LocationListCollectionViewCell : UICollectionViewCell
+@property (weak, nonatomic) IBOutlet UILabel *lbl_Location_Name;
 
 @end

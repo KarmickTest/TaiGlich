@@ -1,0 +1,30 @@
+{
+  "DVTSourceControlWorkspaceBlueprintPrimaryRemoteRepositoryKey" : "C6BBEABD2D14A3A11511F73DBC38E1C14F9758BF",
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyRepositoryLocationsKey" : {
+
+  },
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyStatesKey" : {
+    "B1CFDE7216E3E13C4118841BC2FE54B723EA706F" : 9223372036854775807,
+    "C6BBEABD2D14A3A11511F73DBC38E1C14F9758BF" : 9223372036854775807
+  },
+  "DVTSourceControlWorkspaceBlueprintIdentifierKey" : "B3B65CC6-9F16-4BEC-9CE7-213F4B1A94E8",
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyPathsKey" : {
+    "B1CFDE7216E3E13C4118841BC2FE54B723EA706F" : "Kana_20_02_17-\/",
+    "C6BBEABD2D14A3A11511F73DBC38E1C14F9758BF" : "TaiGlich\/"
+  },
+  "DVTSourceControlWorkspaceBlueprintNameKey" : "Taiglich",
+  "DVTSourceControlWorkspaceBlueprintVersion" : 204,
+  "DVTSourceControlWorkspaceBlueprintRelativePathToProjectKey" : "Taiglich\/Taiglich.xcworkspace",
+  "DVTSourceControlWorkspaceBlueprintRemoteRepositoriesKey" : [
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/github.com\/KarmickTest\/Kana_20_02_17-.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "B1CFDE7216E3E13C4118841BC2FE54B723EA706F"
+    },
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/github.com\/KarmickTest\/TaiGlich.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "C6BBEABD2D14A3A11511F73DBC38E1C14F9758BF"
+    }
+  ]
+}
