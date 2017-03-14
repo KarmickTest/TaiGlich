@@ -139,6 +139,11 @@
 }
 - (IBAction)btn_Submit_Click:(id)sender {
 }
+- (IBAction)btn_Home_Click:(id)sender {
+    [[NSUserDefaults standardUserDefaults] setBool:YES forKey:@"backtohome"];
+    [[NSUserDefaults standardUserDefaults] synchronize];
+    [self.navigationController popViewControllerAnimated:NO];
+}
 
 #pragma mark - Button Action
 -(void)btn_Radio_Click:(id)sender{
