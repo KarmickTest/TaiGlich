@@ -14,6 +14,7 @@
 @interface FormViewController ()
 {
     EngagementOneViewController *mEngagementOneViewController;
+    EngagementTwoViewController *mEngagementTwoViewController;
     NSInteger buttonTag;
     BOOL buttonTapped;
     SCLAlertView *alert;
@@ -56,12 +57,17 @@
 
 - (IBAction)btn_Submit_Click:(id)sender {
     if (buttonTapped) {
-        if (buttonTag ==7 || buttonTag ==8) {
+        if (buttonTag ==7) {
         mEngagementOneViewController = [[UIStoryboard storyboardWithName:@"Main" bundle:nil] instantiateViewControllerWithIdentifier:@"EngagementOneViewController"];
         mEngagementOneViewController.strPassButtonValue=[NSString stringWithFormat:@"%ld",(long)buttonTag];
         DebugLog(@"strPassButtonValue%@", mEngagementOneViewController.strPassButtonValue);
         [self.navigationController pushViewController:mEngagementOneViewController animated:NO];
      }
+    else if(buttonTag == 8){
+        mEngagementTwoViewController = [[UIStoryboard storyboardWithName:@"Main" bundle:nil] instantiateViewControllerWithIdentifier:@"EngagementTwoViewController"];
+       [self.navigationController pushViewController:mEngagementTwoViewController animated:NO];
+
+    }
     else{
         alert=[[SCLAlertView alloc]init];
         [alert showWarning:self title:@"Warning" subTitle:@"Under development" closeButtonTitle:@"OK" duration:0.0f];
