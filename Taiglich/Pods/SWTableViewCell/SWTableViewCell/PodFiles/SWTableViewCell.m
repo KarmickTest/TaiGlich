@@ -9,6 +9,7 @@
 #import "SWTableViewCell.h"
 #import "SWUtilityButtonView.h"
 
+
 static NSString * const kTableViewCellContentView = @"UITableViewCellContentView";
 
 #define kSectionIndexWidth 15
@@ -58,7 +59,7 @@ static NSString * const kTableViewCellContentView = @"UITableViewCellContentView
     {
         [self initializer];
     }
-    
+    NSLog(@"1");
     return self;
 }
 
@@ -70,12 +71,13 @@ static NSString * const kTableViewCellContentView = @"UITableViewCellContentView
     {
         [self initializer];
     }
-    
+    NSLog(@"2");
     return self;
 }
 
 - (void)initializer
 {
+    NSLog(@"3");
     layoutUpdating = NO;
     // Set up scroll view that will host our cell content
     self.cellScrollView = [[SWCellScrollView alloc] init];
@@ -182,16 +184,19 @@ static NSString * const kTableViewPanState = @"state";
 
 - (void)removeOldTableViewPanObserver
 {
+    NSLog(@"4");
     [_tableViewPanGestureRecognizer removeObserver:self forKeyPath:kTableViewPanState];
 }
 
 - (void)dealloc
 {
+    NSLog(@"5");
     [self removeOldTableViewPanObserver];
 }
 
 - (void)setContainingTableView:(UITableView *)containingTableView
 {
+    NSLog(@"6");
     [self removeOldTableViewPanObserver];
     
     _tableViewPanGestureRecognizer = containingTableView.panGestureRecognizer;
@@ -217,6 +222,7 @@ static NSString * const kTableViewPanState = @"state";
 
 - (void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary *)change context:(void *)context
 {
+    NSLog(@"7");
     if([keyPath isEqualToString:kTableViewPanState] && object == _tableViewPanGestureRecognizer)
     {
         if(_tableViewPanGestureRecognizer.state == UIGestureRecognizerStateBegan)
@@ -240,6 +246,7 @@ static NSString * const kTableViewPanState = @"state";
 
 - (void)setLeftUtilityButtons:(NSArray *)leftUtilityButtons
 {
+    NSLog(@"8");
     if (![_leftUtilityButtons sw_isEqualToButtons:leftUtilityButtons]) {
         _leftUtilityButtons = leftUtilityButtons;
         
@@ -252,6 +259,7 @@ static NSString * const kTableViewPanState = @"state";
 
 - (void)setLeftUtilityButtons:(NSArray *)leftUtilityButtons WithButtonWidth:(CGFloat) width
 {
+    NSLog(@"9");
     _leftUtilityButtons = leftUtilityButtons;
     
     [self.leftUtilityButtonsView setUtilityButtons:leftUtilityButtons WithButtonWidth:width];
@@ -261,7 +269,7 @@ static NSString * const kTableViewPanState = @"state";
 }
 
 - (void)setRightUtilityButtons:(NSArray *)rightUtilityButtons
-{
+{    NSLog(@"10");
     if (![_rightUtilityButtons sw_isEqualToButtons:rightUtilityButtons]) {
         _rightUtilityButtons = rightUtilityButtons;
         
@@ -274,6 +282,7 @@ static NSString * const kTableViewPanState = @"state";
 
 - (void)setRightUtilityButtons:(NSArray *)rightUtilityButtons WithButtonWidth:(CGFloat) width
 {
+    NSLog(@"11");
     _rightUtilityButtons = rightUtilityButtons;
     
     [self.rightUtilityButtonsView setUtilityButtons:rightUtilityButtons WithButtonWidth:width];
@@ -285,7 +294,7 @@ static NSString * const kTableViewPanState = @"state";
 #pragma mark - UITableViewCell overrides
 
 - (void)didMoveToSuperview
-{
+{ NSLog(@"12");
     self.containingTableView = nil;
     UIView *view = self.superview;
     
@@ -301,7 +310,7 @@ static NSString * const kTableViewPanState = @"state";
 - (void)layoutSubviews
 {
     [super layoutSubviews];
-    
+    NSLog(@"13");
     // Offset the contentView origin so that it appears correctly w/rt the enclosing scroll view (to which we moved it).
     CGRect frame = self.contentView.frame;
     frame.origin.x = [self leftUtilityButtonsWidth];
@@ -319,6 +328,8 @@ static NSString * const kTableViewPanState = @"state";
 
 - (void)setFrame:(CGRect)frame
 {
+    
+    NSLog(@"14");
     layoutUpdating = YES;
     // Fix for new screen sizes
     // Initially, the cell is still 320 points wide
@@ -337,14 +348,14 @@ static NSString * const kTableViewPanState = @"state";
 - (void)prepareForReuse
 {
     [super prepareForReuse];
-    
+    NSLog(@"15");
     [self hideUtilityButtonsAnimated:NO];
 }
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated
 {
     // Work around stupid background-destroying override magic that UITableView seems to perform on contained buttons.
-    
+    NSLog(@"16");
     [self.leftUtilityButtonsView pushBackgroundColors];
     [self.rightUtilityButtonsView pushBackgroundColors];
     
@@ -356,7 +367,7 @@ static NSString * const kTableViewPanState = @"state";
 
 - (void)didTransitionToState:(UITableViewCellStateMask)state {
     [super didTransitionToState:state];
-    
+    NSLog(@"17");
     if (state == UITableViewCellStateDefaultMask) {
         [self layoutSubviews];
     }
@@ -366,6 +377,7 @@ static NSString * const kTableViewPanState = @"state";
 
 - (BOOL)shouldHighlight
 {
+    NSLog(@"18");
     BOOL shouldHighlight = YES;
     
     if ([self.containingTableView.delegate respondsToSelector:@selector(tableView:shouldHighlightRowAtIndexPath:)])
@@ -380,6 +392,7 @@ static NSString * const kTableViewPanState = @"state";
 
 - (void)scrollViewPressed:(UIGestureRecognizer *)gestureRecognizer
 {
+    NSLog(@"19");
     if (gestureRecognizer.state == UIGestureRecognizerStateBegan && !self.isHighlighted && self.shouldHighlight)
     {
         [self setHighlighted:YES animated:NO];
@@ -400,6 +413,7 @@ static NSString * const kTableViewPanState = @"state";
 
 - (void)scrollViewTapped:(UIGestureRecognizer *)gestureRecognizer
 {
+    NSLog(@"20");
     if (_cellState == kCellStateCenter)
     {
         if (self.isSelected)
@@ -420,6 +434,7 @@ static NSString * const kTableViewPanState = @"state";
 
 - (void)selectCell
 {
+    NSLog(@"21");
     if (_cellState == kCellStateCenter)
     {
         NSIndexPath *cellIndexPath = [self.containingTableView indexPathForCell:self];
@@ -442,7 +457,7 @@ static NSString * const kTableViewPanState = @"state";
 }
 
 - (void)deselectCell
-{
+{    NSLog(@"22");
     if (_cellState == kCellStateCenter)
     {
         NSIndexPath *cellIndexPath = [self.containingTableView indexPathForCell:self];
@@ -468,6 +483,7 @@ static NSString * const kTableViewPanState = @"state";
 
 - (void)rightUtilityButtonHandler:(id)sender
 {
+    NSLog(@"23");
     SWUtilityButtonTapGestureRecognizer *utilityButtonTapGestureRecognizer = (SWUtilityButtonTapGestureRecognizer *)sender;
     NSUInteger utilityButtonIndex = utilityButtonTapGestureRecognizer.buttonIndex;
     if ([self.delegate respondsToSelector:@selector(swipeableTableViewCell:didTriggerRightUtilityButtonWithIndex:)])
@@ -488,6 +504,7 @@ static NSString * const kTableViewPanState = @"state";
 
 - (void)hideUtilityButtonsAnimated:(BOOL)animated
 {
+    NSLog(@"24");
     if (_cellState != kCellStateCenter)
     {
         [self.cellScrollView setContentOffset:[self contentOffsetForCellState:kCellStateCenter] animated:animated];
@@ -500,6 +517,7 @@ static NSString * const kTableViewPanState = @"state";
 }
 
 - (void)showLeftUtilityButtonsAnimated:(BOOL)animated {
+    NSLog(@"25");
     if (_cellState != kCellStateLeft)
     {
         [self.cellScrollView setContentOffset:[self contentOffsetForCellState:kCellStateLeft] animated:animated];
@@ -512,6 +530,7 @@ static NSString * const kTableViewPanState = @"state";
 }
 
 - (void)showRightUtilityButtonsAnimated:(BOOL)animated {
+    NSLog(@"26");
     if (_cellState != kCellStateRight)
     {
         [self.cellScrollView setContentOffset:[self contentOffsetForCellState:kCellStateRight] animated:animated];
@@ -524,6 +543,7 @@ static NSString * const kTableViewPanState = @"state";
 }
 
 - (BOOL)isUtilityButtonsHidden {
+    NSLog(@"27");
     return _cellState == kCellStateCenter;
 }
 
@@ -532,6 +552,8 @@ static NSString * const kTableViewPanState = @"state";
 
 - (CGFloat)leftUtilityButtonsWidth
 {
+    NSLog(@"28");
+    //[[NSNotificationCenter defaultCenter] postNotificationName:@"cellForword"     object:self userInfo:nil];
 #if CGFLOAT_IS_DOUBLE
     return round(CGRectGetWidth(self.leftUtilityButtonsView.frame));
 #else
@@ -541,6 +563,7 @@ static NSString * const kTableViewPanState = @"state";
 
 - (CGFloat)rightUtilityButtonsWidth
 {
+    NSLog(@"29");
 #if CGFLOAT_IS_DOUBLE
     return round(CGRectGetWidth(self.rightUtilityButtonsView.frame) + self.additionalRightPadding);
 #else
@@ -550,6 +573,7 @@ static NSString * const kTableViewPanState = @"state";
 
 - (CGFloat)utilityButtonsPadding
 {
+    NSLog(@"30");
 #if CGFLOAT_IS_DOUBLE
     return round([self leftUtilityButtonsWidth] + [self rightUtilityButtonsWidth]);
 #else
@@ -559,6 +583,8 @@ static NSString * const kTableViewPanState = @"state";
 
 - (CGPoint)contentOffsetForCellState:(SWCellState)state
 {
+    NSLog(@"31");
+    
     CGPoint scrollPt = CGPointZero;
     
     switch (state)
@@ -575,12 +601,13 @@ static NSString * const kTableViewPanState = @"state";
             scrollPt.x = 0;
             break;
     }
-    
+   // [[NSNotificationCenter defaultCenter] postNotificationName:@"cellBack"     object:self userInfo:nil];
     return scrollPt;
 }
 
 - (void)updateCellState
 {
+    NSLog(@"32");
     if(layoutUpdating == NO)
     {
         // Update the cell state according to the current scroll view contentOffset.
@@ -633,6 +660,7 @@ static NSString * const kTableViewPanState = @"state";
         {
             self.tapGestureRecognizer.enabled = NO;
             self.longPressGestureRecognizer.enabled = NO;
+           
         }
         
         self.cellScrollView.scrollEnabled = !self.isEditing;
@@ -643,6 +671,7 @@ static NSString * const kTableViewPanState = @"state";
 
 - (void)scrollViewWillEndDragging:(UIScrollView *)scrollView withVelocity:(CGPoint)velocity targetContentOffset:(inout CGPoint *)targetContentOffset
 {
+    NSLog(@"33");
     if (velocity.x >= 0.5f)
     {
         if (_cellState == kCellStateLeft || !self.rightUtilityButtons || self.rightUtilityButtonsWidth == 0.0)
@@ -668,7 +697,9 @@ static NSString * const kTableViewPanState = @"state";
     else
     {
         CGFloat leftThreshold = [self contentOffsetForCellState:kCellStateLeft].x + (self.leftUtilityButtonsWidth / 2);
+         NSLog(@"leftThreshold%d",leftThreshold);
         CGFloat rightThreshold = [self contentOffsetForCellState:kCellStateRight].x - (self.rightUtilityButtonsWidth / 2);
+        NSLog(@"rightThreshold%d",rightThreshold);
         
         if (targetContentOffset->x > rightThreshold)
         {
@@ -706,6 +737,7 @@ static NSString * const kTableViewPanState = @"state";
 
 - (void)scrollViewDidScroll:(UIScrollView *)scrollView
 {
+    NSLog(@"34");
     if (scrollView.contentOffset.x > [self leftUtilityButtonsWidth])
     {
         if ([self rightUtilityButtonsWidth] > 0)
@@ -751,6 +783,7 @@ static NSString * const kTableViewPanState = @"state";
 
 - (void)scrollViewDidEndDecelerating:(UIScrollView *)scrollView
 {
+    NSLog(@"38");
     [self updateCellState];
 
     if (self.delegate && [self.delegate respondsToSelector:@selector(swipeableTableViewCellDidEndScrolling:)]) {
@@ -760,6 +793,7 @@ static NSString * const kTableViewPanState = @"state";
 
 - (void)scrollViewDidEndScrollingAnimation:(UIScrollView *)scrollView
 {
+    NSLog(@"35");
     [self updateCellState];
 
     if (self.delegate && [self.delegate respondsToSelector:@selector(swipeableTableViewCellDidEndScrolling:)]) {
@@ -769,6 +803,7 @@ static NSString * const kTableViewPanState = @"state";
 
 -(void)scrollViewDidEndDragging:(UIScrollView *)scrollView willDecelerate:(BOOL)decelerate
 {
+    NSLog(@"35");
     if (!decelerate)
     {
         self.tapGestureRecognizer.enabled = YES;
@@ -780,6 +815,7 @@ static NSString * const kTableViewPanState = @"state";
 
 - (BOOL)gestureRecognizer:(UIGestureRecognizer *)gestureRecognizer shouldRecognizeSimultaneouslyWithGestureRecognizer:(UIGestureRecognizer *)otherGestureRecognizer
 {
+    NSLog(@"36");
     if ((gestureRecognizer == self.containingTableView.panGestureRecognizer && otherGestureRecognizer == self.longPressGestureRecognizer)
         || (gestureRecognizer == self.longPressGestureRecognizer && otherGestureRecognizer == self.containingTableView.panGestureRecognizer))
     {
@@ -794,6 +830,8 @@ static NSString * const kTableViewPanState = @"state";
 
 -(BOOL)gestureRecognizer:(UIGestureRecognizer *)gestureRecognizer shouldReceiveTouch:(UITouch *)touch
 {
+    NSLog(@"37");
+    
     return ![touch.view isKindOfClass:[UIControl class]];
 }
 

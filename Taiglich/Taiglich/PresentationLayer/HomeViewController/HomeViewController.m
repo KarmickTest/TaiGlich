@@ -13,7 +13,7 @@
 
 @interface HomeViewController ()<CustomAction,UITableViewDelegate,UITableViewDataSource,JTCalendarDelegate,SWTableViewCellDelegate>
 {
-    HomeCell *cell;
+    HomeCell *mHomeCell;
     LocationTableCell *mLocationTableCell;
     FormViewController *mFormViewController;
     SearchViewController *mSearchViewController;
@@ -69,6 +69,7 @@
 
 @property (weak, nonatomic) IBOutlet UIView *CalenderBackView;
 @property (weak, nonatomic) IBOutlet UIView *vw_Mask_View;
+@property (nonatomic, assign) SWCellState cellState;
 
 
 @property (weak, nonatomic) IBOutlet JTCalendarMenuView *calendarMenuView;
@@ -176,7 +177,7 @@
         }
     }
     
-    
+  //  [[NSNotificationCenter defaultCenter] removeObserver:self];
 
     _dateSelected=[NSDate date];
     
@@ -895,11 +896,10 @@
         return mLocationTableCell;
     }
     else{
-    cell=[tableView dequeueReusableCellWithIdentifier:@"HomeCell"];
-    cell.leftUtilityButtons = [self leftButtons];
-    cell.delegate = self;
-        
-        
+    mHomeCell=[tableView dequeueReusableCellWithIdentifier:@"HomeCell"];
+    mHomeCell.leftUtilityButtons = [self leftButtons];
+    mHomeCell.delegate = self;
+     
     UIFont *robotoRegular = [UIFont fontWithName:@"Helvetica" size:12.0];
     NSDictionary *robotoMediumDict = [NSDictionary dictionaryWithObjectsAndKeys:robotoRegular,NSFontAttributeName,[UIColor colorWithRed:10.0f/255.0f green:177.0f/255.0f blue:255.0f/255.0f alpha:1.0f],NSForegroundColorAttributeName, nil];
         
@@ -920,7 +920,7 @@
     [brideFirst appendAttributedString:middleName];
     [lastName appendAttributedString:brideFirst];
    
-     cell.lbl_1stOne.attributedText = lastName;
+     mHomeCell.lbl_1stOne.attributedText = lastName;
         
       NSMutableAttributedString *entityFirstName1 = [[NSMutableAttributedString alloc] initWithString:[NSString stringWithFormat:@"%@",@"First Name"] attributes:robotoMediumDict];
         
@@ -948,7 +948,7 @@
         [entityWifesFatherLastName appendAttributedString:entityTitleBack];
         [entityLivingTown appendAttributedString:entityWifesFatherLastName];
         
-        cell.lbl_Second.attributedText=entityLivingTown;
+        mHomeCell.lbl_Second.attributedText=entityLivingTown;
         
         NSMutableAttributedString *entityFirstName2 = [[NSMutableAttributedString alloc] initWithString:[NSString stringWithFormat:@"%@",@"First Name"] attributes:robotoMediumDict];
         
@@ -983,12 +983,13 @@
         
         [bridesFatherLivingTown appendAttributedString:brideMothersFatherLastName];
         
-        cell.lbl_Third.attributedText=bridesFatherLivingTown;
-        cell.lbl_Loction.text=[NSString stringWithFormat:@"%@%@%@%@",[[arrmEventList valueForKey:@"event_place_address"]objectAtIndex:indexPath.row],[[arrmEventList valueForKey:@"event_place_town"]objectAtIndex:indexPath.row],[[arrmEventList valueForKey:@"event_place_state"]objectAtIndex:indexPath.row],[[arrmEventList valueForKey:@"event_place_zip"]objectAtIndex:indexPath.row]];
+        mHomeCell.lbl_Third.attributedText=bridesFatherLivingTown;
+        mHomeCell.lbl_Loction.text=[NSString stringWithFormat:@"%@%@%@%@",[[arrmEventList valueForKey:@"event_place_address"]objectAtIndex:indexPath.row],[[arrmEventList valueForKey:@"event_place_town"]objectAtIndex:indexPath.row],[[arrmEventList valueForKey:@"event_place_state"]objectAtIndex:indexPath.row],[[arrmEventList valueForKey:@"event_place_zip"]objectAtIndex:indexPath.row]];
           
-    [cell setSelectionStyle:UITableViewCellSelectionStyleNone];
-    
-    return cell;
+    [mHomeCell setSelectionStyle:UITableViewCellSelectionStyleNone];
+        
+        
+    return mHomeCell;
     }
 }
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
@@ -1060,6 +1061,17 @@
             NSLog(@"list button was pressed");
         default:
             break;
+    }
+}
+- (void)swipeableTableViewCell:(HomeCell *)cell scrollingToState:(SWCellState)state{
+    
+    NSLog(@"state%d",state);
+    if (state==1) {
+        cell.imgv_forword_image.transform = CGAffineTransformMakeScale(-1.0, 1.0);
+        
+    }
+    else{
+        cell.imgv_forword_image.transform = CGAffineTransformMakeScale(1.0, -1.0);
     }
 }
 
@@ -1250,5 +1262,16 @@
  }
  
 */
+
+- (BOOL)swipeableTableViewCellShouldHideUtilityButtonsOnSwipe:(SWTableViewCell *)cell{
+    return YES;
+}
+- (BOOL)swipeableTableViewCell:(SWTableViewCell *)cell canSwipeToState:(SWCellState)state{
+    return YES;
+}
+- (void)swipeableTableViewCellDidEndScrolling:(SWTableViewCell *)cell
+{
+   
+}
 
 @end

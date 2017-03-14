@@ -67,7 +67,8 @@
 - (BOOL)textFieldShouldBeginEditing:(UITextField *)textField{
    
     if (textField==_txtfld_Name) {
-        [self animateTextView: YES];
+        
+       // [self animateTextView: YES];
         UIToolbar* numberToolbar = [[UIToolbar alloc]initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, 50)];
         numberToolbar.barStyle = UIBarStyleBlack;
         numberToolbar.items = [NSArray arrayWithObjects:
@@ -77,6 +78,9 @@
                                nil];
         [numberToolbar sizeToFit];
        _txtfld_Name.inputAccessoryView = numberToolbar;
+    }
+    else{
+        [self moveUpViewFrameInClick:self.view];
     }
     return YES;
 }
@@ -97,11 +101,41 @@
 }
 - (BOOL)textFieldShouldReturn:(UITextField *)textField
 {
+    [self moveDownViewFrameInClick:self.view];
     [textField resignFirstResponder];
     return YES;
 }
 
 #pragma mark - Self Method
+
+
+-(void)moveUpViewFrameInClick:(UIView *)viewUp{
+    CGRect viewFrame = viewUp.frame;
+    if (viewFrame.origin.y>=0 )
+    {
+        viewFrame.origin.y -= 182;
+        [UIView beginAnimations:nil context:NULL];
+        [UIView setAnimationBeginsFromCurrentState:YES];
+        [UIView setAnimationDuration:.5];
+        [viewUp setFrame:viewFrame];
+        [UIView commitAnimations];
+    }
+}
+
+-(void)moveDownViewFrameInClick:(UIView *)viewDown{
+    CGRect viewFrame = viewDown.frame;
+    if (viewFrame.origin.y<0)
+    {
+        viewFrame.origin.y += 182;
+        [UIView beginAnimations:nil context:NULL];
+        [UIView setAnimationBeginsFromCurrentState:YES];
+        [UIView setAnimationDuration:.2];
+        [viewDown setFrame:viewFrame];
+        [UIView commitAnimations];
+    }
+}
+
+
 
 -(void)cancelNumberPad
 {
@@ -154,6 +188,8 @@
       [Utility showAlertWithTitle:@"Alert" message:@"Phone number should be 10 digits"];
     }
     else{
+        [_txtfld_number resignFirstResponder];
+        [self moveDownViewFrameInClick:self.view];
        [self postRegisterData];
     }
 }
