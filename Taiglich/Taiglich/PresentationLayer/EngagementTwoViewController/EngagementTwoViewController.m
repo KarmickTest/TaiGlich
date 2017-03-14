@@ -18,6 +18,8 @@
     EngagementForthCell *mEngagementForthCell;
     EngagementFifthCell *mEngagementFifthCell;
     EngagementSixthCell *mEngagementSixthCell;
+    NSInteger buttonTag;
+    BOOL buttonTapped;
     
 }
 @property (weak, nonatomic) IBOutlet UITableView *tblv_Engagement2;
@@ -89,6 +91,7 @@
 }
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
    
+    if (indexPath.section==2) {
         if (indexPath.row==0){
             mEngagementForthCell=[tableView dequeueReusableCellWithIdentifier:@"EngagementForthCell"];
             [mEngagementForthCell setSelectionStyle:UITableViewCellSelectionStyleNone];
@@ -96,10 +99,10 @@
         }
         else if(indexPath.row==1){
             mEngagementFifthCell=[tableView dequeueReusableCellWithIdentifier:@"EngagementFifthCell"];
-//            [mEngagementFifthCell.btn_Cell_Radio addTarget:self action:@selector(btn_Radio_Click:) forControlEvents:UIControlEventTouchUpInside];
-//            [mEngagementFifthCell.btn_Cell_Radio1 addTarget:self action:@selector(btn_Radio_Click:) forControlEvents:UIControlEventTouchUpInside];
-//            [mEngagementFifthCell.btn_Cell_Radio2 addTarget:self action:@selector(btn_Radio_Click:) forControlEvents:UIControlEventTouchUpInside];
-//            [mEngagementFifthCell setSelectionStyle:UITableViewCellSelectionStyleNone];
+            [mEngagementFifthCell.btn_Cell_Radio addTarget:self action:@selector(btn_Radio_Click:) forControlEvents:UIControlEventTouchUpInside];
+            [mEngagementFifthCell.btn_Cell_Radio1 addTarget:self action:@selector(btn_Radio_Click:) forControlEvents:UIControlEventTouchUpInside];
+            [mEngagementFifthCell.btn_Cell_Radio2 addTarget:self action:@selector(btn_Radio_Click:) forControlEvents:UIControlEventTouchUpInside];
+            [mEngagementFifthCell setSelectionStyle:UITableViewCellSelectionStyleNone];
             return mEngagementFifthCell;
         }
         else{
@@ -108,8 +111,41 @@
             return mEngagementSixthCell;
             
         }
+    }
+    else{
+        
+        if (indexPath.row==1){
+            mEngagementSecondCell=[tableView dequeueReusableCellWithIdentifier:@"EngagementSecondCell"];
+            [mEngagementSecondCell setSelectionStyle:UITableViewCellSelectionStyleNone];
+            return mEngagementSecondCell;
+        }
+        else if(indexPath.row==3){
+            mEngagementThirdCell=[tableView dequeueReusableCellWithIdentifier:@"EngagementThirdCell"];
+            [mEngagementThirdCell setSelectionStyle:UITableViewCellSelectionStyleNone];
+            return mEngagementThirdCell;
+        }
+        else{
+            mEngagementFirstCell=[tableView dequeueReusableCellWithIdentifier:@"EngagementFirstCell"];
+            
+            [mEngagementFirstCell setSelectionStyle:UITableViewCellSelectionStyleNone];
+            
+           
+            
+            return mEngagementFirstCell;
+            
+        }
+    }
+
 }
 - (IBAction)btn_Submit_Click:(id)sender {
+}
+
+#pragma mark - Button Action
+-(void)btn_Radio_Click:(id)sender{
+    buttonTapped=YES;
+    UIButton *button = (UIButton *)sender;
+    buttonTag = button.tag;
+    DebugLog(@"buttonTag%ld", (long)buttonTag);
 }
 
 @end
