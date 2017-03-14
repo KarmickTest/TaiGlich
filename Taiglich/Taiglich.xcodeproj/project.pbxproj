@@ -25,7 +25,7 @@
 		4E8D32571E5EE027003F1100 /* SearchViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E8D32561E5EE027003F1100 /* SearchViewController.m */; };
 		4E8D325A1E5EE034003F1100 /* InfoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E8D32591E5EE034003F1100 /* InfoViewController.m */; };
 		4EB1710D1E77B6DB00A4EB87 /* EngagementTwoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4EB1710C1E77B6DB00A4EB87 /* EngagementTwoViewController.m */; };
-		4EB171101E77C89B00A4EB87 /* Singelton.m in Sources */ = {isa = PBXBuildFile; fileRef = 4EB1710F1E77C89B00A4EB87 /* Singelton.m */; };
+		4EB171141E77C9F400A4EB87 /* Singelton.m in Sources */ = {isa = PBXBuildFile; fileRef = 4EB171131E77C9F400A4EB87 /* Singelton.m */; };
 		A26FF5441E4076BB00A1626E /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = A26FF5431E4076BB00A1626E /* main.m */; };
 		A26FF54D1E4076BB00A1626E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A26FF54B1E4076BB00A1626E /* Main.storyboard */; };
 		A26FF5501E4076BB00A1626E /* Taiglich.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = A26FF54E1E4076BB00A1626E /* Taiglich.xcdatamodeld */; };
@@ -207,8 +207,8 @@
 		4E8D32591E5EE034003F1100 /* InfoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = InfoViewController.m; sourceTree = "<group>"; };
 		4EB1710B1E77B6DB00A4EB87 /* EngagementTwoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EngagementTwoViewController.h; sourceTree = "<group>"; };
 		4EB1710C1E77B6DB00A4EB87 /* EngagementTwoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EngagementTwoViewController.m; sourceTree = "<group>"; };
-		4EB1710E1E77C89B00A4EB87 /* Singelton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Singelton.h; sourceTree = "<group>"; };
-		4EB1710F1E77C89B00A4EB87 /* Singelton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Singelton.m; sourceTree = "<group>"; };
+		4EB171121E77C9F400A4EB87 /* Singelton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Singelton.h; sourceTree = "<group>"; };
+		4EB171131E77C9F400A4EB87 /* Singelton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Singelton.m; sourceTree = "<group>"; };
 		A26FF53F1E4076BB00A1626E /* Taiglich.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Taiglich.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A26FF5431E4076BB00A1626E /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		A26FF54C1E4076BB00A1626E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -568,16 +568,6 @@
 			path = SettingsViewController;
 			sourceTree = "<group>";
 		};
-		4E9C60821E5EC0F200EA1845 /* ServerConnection */ = {
-			isa = PBXGroup;
-			children = (
-				4EB1710E1E77C89B00A4EB87 /* Singelton.h */,
-				4EB1710F1E77C89B00A4EB87 /* Singelton.m */,
-			);
-			name = ServerConnection;
-			path = "../../../../Kana_20_02_17-/Kana/DataAccessLayer/ServerConnection";
-			sourceTree = "<group>";
-		};
 		4EB1710A1E77B6BB00A4EB87 /* EngagementTwoViewController */ = {
 			isa = PBXGroup;
 			children = (
@@ -585,6 +575,15 @@
 				4EB1710C1E77B6DB00A4EB87 /* EngagementTwoViewController.m */,
 			);
 			path = EngagementTwoViewController;
+			sourceTree = "<group>";
+		};
+		4EB171111E77C9F400A4EB87 /* ServerConnection */ = {
+			isa = PBXGroup;
+			children = (
+				4EB171121E77C9F400A4EB87 /* Singelton.h */,
+				4EB171131E77C9F400A4EB87 /* Singelton.m */,
+			);
+			path = ServerConnection;
 			sourceTree = "<group>";
 		};
 		A26FF5361E4076BA00A1626E = {
@@ -876,9 +875,9 @@
 		A26FF6011E4083B300A1626E /* DataAccessLayer */ = {
 			isa = PBXGroup;
 			children = (
+				4EB171111E77C9F400A4EB87 /* ServerConnection */,
 				A26FF6021E4083B300A1626E /* Base64 */,
 				A26FF6051E4083B300A1626E /* DataValidation */,
-				4E9C60821E5EC0F200EA1845 /* ServerConnection */,
 				A26FF6081E4083B300A1626E /* FontClass */,
 				A26FF60D1E4083B300A1626E /* Framework */,
 				A26FF6111E4083B300A1626E /* GoogleAppUtilities.framework */,
@@ -1440,7 +1439,7 @@
 				A26FF5F81E407B8500A1626E /* HomeViewController.m in Sources */,
 				4E07B88C1E6FE4990090675A /* EngagementOneViewController.m in Sources */,
 				A26FF5E41E4077F700A1626E /* UIImageView+WebCache.m in Sources */,
-				4EB171101E77C89B00A4EB87 /* Singelton.m in Sources */,
+				4EB171141E77C9F400A4EB87 /* Singelton.m in Sources */,
 				A26FF5501E4076BB00A1626E /* Taiglich.xcdatamodeld in Sources */,
 				4E8D325A1E5EE034003F1100 /* InfoViewController.m in Sources */,
 				A26FF6D51E4083B400A1626E /* SBJsonWriter.m in Sources */,
