@@ -10,4 +10,5 @@
 
 @interface EngagementTwoViewController : UIViewController
 
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *bottomTrailConstraint;
 @end

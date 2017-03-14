@@ -9,6 +9,7 @@
 #import <UIKit/UIKit.h>
 
 @interface EngagementFirstCell : UITableViewCell
+
 @property (weak, nonatomic) IBOutlet UIView *vw_FortitleFront;
 @property (weak, nonatomic) IBOutlet UIView *vw_Father_Title_Back;
 @property (weak, nonatomic) IBOutlet UIView *vw_Father_Title_front;

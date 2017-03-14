@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>SchemeUserState</key>
+	<dict>
+		<key>JTCalendar.xcscheme</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>1</integer>
+		</dict>
+		<key>MBProgressHUD.xcscheme</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>2</integer>
+		</dict>
+		<key>Pods-Taiglich.xcscheme</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>3</integer>
+		</dict>
+		<key>SCLAlertView-Objective-C.xcscheme</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>4</integer>
+		</dict>
+		<key>SWTableViewCell.xcscheme</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>5</integer>
+		</dict>
+	</dict>
+	<key>SuppressBuildableAutocreation</key>
+	<dict>
+		<key>0BE4A16FFDEF8D8F814E3AE6A2577F6C</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>0D260CB381B10C18D0255FE4508993DF</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>15B9C57A34E9B8F8776133805843DD52</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>586F2DFA9BDCC6675C2546793A69E5CC</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>F3524815420F3076702B47441A788941</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+	</dict>
+</dict>
+</plist>
