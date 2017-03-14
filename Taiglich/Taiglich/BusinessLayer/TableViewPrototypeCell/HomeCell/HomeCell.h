@@ -16,5 +16,6 @@
 @property (weak, nonatomic) IBOutlet UILabel *lbl_Second;
 @property (weak, nonatomic) IBOutlet UILabel *lbl_Third;
 @property (weak, nonatomic) IBOutlet UIImageView *imgv_Profile_Image;
+@property (weak, nonatomic) IBOutlet UILabel *lbl_Loction;
 
 @end

@@ -11,7 +11,7 @@
 #define REGISTRATION @"registration.php"
 #define EVENTLISTINGBYDATE  @"eventsListingByDate.php"
 #define LOCATIONLISTING  @"locationListing.php"
-#define FACEBOOKLOGIN @"customers/fblogin"
+#define TOWNLISTING @"townListing.php"
 #define CHANGEPASSWORD @"customers/change_password"
 #define CATAEGORYLIST @"categories/list"
 #define ADDVERTISEMENT @"customers/mobileads"

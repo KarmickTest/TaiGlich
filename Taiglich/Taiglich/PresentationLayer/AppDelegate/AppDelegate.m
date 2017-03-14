@@ -8,6 +8,9 @@
 
 #import "AppDelegate.h"
 #import "DefineHeader.h"
+#import <Fabric/Fabric.h>
+#import <Crashlytics/Crashlytics.h>
+
 
 @interface AppDelegate (){
     HomeViewController* mHomeViewController;
@@ -22,7 +25,8 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
-    
+     [Fabric with:@[[Crashlytics class]]];
+
     navigationController = (UINavigationController *)self.window.rootViewController;
    if ([[[NSUserDefaults standardUserDefaults] objectForKey:@"Login"] isEqualToString:@"Yes"]) {
         mHomeViewController = [[UIStoryboard storyboardWithName:@"Main" bundle:nil] instantiateViewControllerWithIdentifier:@"HomeViewController"];

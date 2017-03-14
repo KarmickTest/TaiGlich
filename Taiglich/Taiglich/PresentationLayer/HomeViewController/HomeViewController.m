@@ -19,7 +19,6 @@
     SearchViewController *mSearchViewController;
     InfoViewController *mInfoViewController;
     SettingsViewController *mSettingsViewController;
-    NSMutableArray *arrmCollctionIndex;
     LocationListCollectionViewCell *cellLocationListCollectionViewCell;
     BOOL isFirstRowTap;
     NSMutableDictionary *_eventsByDate;
@@ -38,10 +37,21 @@
     NSMutableArray *arrmSortEventList;
     NSMutableArray *arrmLocationId;
     NSString *strTapOnAll;
+    NSDate *appo_date;
+    //NSDate *today_Date;
     
-    
+    BOOL isSelectAll;
+    BOOL isSelectIndividualLocation;
+    NSMutableArray *arrmTotalCheckMark;
+    NSString *strLocationId1;
+    NSDate *currDate;
+    NSDateFormatter *dateFormatter1;
 
 }
+@property (weak, nonatomic) IBOutlet UILabel *lbl_Day;
+@property (weak, nonatomic) IBOutlet UILabel *lbl_Date;
+@property (weak, nonatomic) IBOutlet UILabel *lbl_Month;
+@property (weak, nonatomic) IBOutlet UIButton *btn_All;
 @property (weak, nonatomic) IBOutlet UIView *vw_Location_Mask_view;
 @property (weak, nonatomic) IBOutlet UIButton *btn_LoCation;
 @property (weak, nonatomic) IBOutlet UIView *vw_For_Location_Table;
@@ -79,15 +89,15 @@
 //    _colv_Location_Cell.dataSource=self;
 //    [_colv_Location_Cell registerNib:[UINib nibWithNibName:@"LocationListCollectionViewCell" bundle:[NSBundle mainBundle]] forCellWithReuseIdentifier:@"LocationListCollectionViewCell"];
 //    [_colv_Location_Cell reloadData];
+    NSDate *todayDate2 = [NSDate date];
+    appo_date=todayDate2;
+
 
     _mFooterView =[[[NSBundle mainBundle] loadNibNamed:@"FooterView" owner:self options:nil]  objectAtIndex:0];
-    NSLog(@"1-%@",self.view);
-    NSLog(@"2--%@",_mFooterView);
-    NSLog(@"3----%@",self.Footer_view);
     [_mFooterView setFrame:CGRectMake(0,0, self.Footer_view.frame.size.width,43)];
-    NSLog(@"1-%@",self.view);
-    NSLog(@"2--%@",_mFooterView);
-    NSLog(@"3---%@",self.Footer_view);
+    DebugLog(@"1-%@",self.view);
+    DebugLog(@"2--%@",_mFooterView);
+    DebugLog(@"3---%@",self.Footer_view);
     _mFooterView.delegate=self;
     [self.Footer_view addSubview:_mFooterView];
     
@@ -95,19 +105,21 @@
     self.HomeTableView.delegate=self;
     self.HomeTableView.dataSource=self;
     self.HomeTableView.tag=2010;
+    self.HomeTableView.showsVerticalScrollIndicator=NO;
     arrmEventList=[[NSMutableArray alloc]init];
     
     
     self.tblv_Location_Table.delegate=self;
     self.tblv_Location_Table.dataSource=self;
     self.tblv_Location_Table.tag=2011;
+    self.tblv_Location_Table.showsVerticalScrollIndicator=NO;
     arrmEventList=[[NSMutableArray alloc]init];
     arrmSortEventList=[[NSMutableArray alloc]init];
     arrmCoppyOfEventList=[[NSMutableArray alloc]init];
     arrmLocationId=[[NSMutableArray alloc]init];
     
    // [self.colv_Location_Cell setAllowsMultipleSelection:YES];
-    arrmCollctionIndex=[[NSMutableArray alloc]init];
+   
     
     _CalenderBackView.hidden=YES;
     _vw_Mask_View.hidden=YES;
@@ -141,8 +153,80 @@
     _vw_Yesterday_Tomorrow.layer.borderColor=[UIColor clearColor].CGColor;
     _vw_For_Location_Table.layer.cornerRadius=5.0f;
     
+    /*******************************ALL BUTTON SELECTION**********************************************/
+    isSelectAll=YES;
+    isSelectIndividualLocation=NO;
+    
+    arrmTotalCheckMark =[[NSMutableArray alloc]init];
+    
 }
 -(void)viewWillAppear:(BOOL)animated{
+    if ([[NSUserDefaults standardUserDefaults] boolForKey:@"backtohome"]) {
+        if (mSearchViewController) {
+            [mSearchViewController.view removeFromSuperview];
+        }
+        if (mFormViewController) {
+            [mFormViewController.view removeFromSuperview];
+        }
+        if (mInfoViewController) {
+            [mInfoViewController.view removeFromSuperview];
+        }
+        if (mSettingsViewController) {
+            [mSettingsViewController.view removeFromSuperview];
+        }
+    }
+    
+    
+
+    _dateSelected=[NSDate date];
+    
+     dateFormatter1=[[NSDateFormatter alloc] init];
+    [dateFormatter1 setDateFormat:@"EEEE MMM. d YYYY"];
+    // or @"yyyy-MM-dd hh:mm:ss a" if you prefer the time with AM/PM
+    NSLog(@"dateFormatter%@",[dateFormatter1 stringFromDate:[NSDate date]]);
+    
+    NSString *convertedDateString2 = [dateFormatter1 stringFromDate:appo_date];
+    NSArray *Date_chunks = [convertedDateString2 componentsSeparatedByString: @" "];
+    
+    DebugLog(@"%@",[NSString stringWithFormat:@"%@",[Date_chunks objectAtIndex:2]]);
+    DebugLog(@"%@",[NSString stringWithFormat:@"%@",[Date_chunks objectAtIndex:0]]);
+    DebugLog(@"%@",[NSString stringWithFormat:@"%@",[Date_chunks objectAtIndex:1]]);
+    
+    dateFormatter1 = [[NSDateFormatter alloc] init];
+    [dateFormatter1 setDateFormat:@"yyyy-MM-dd"];
+    NSString *convertedDateString4 = [dateFormatter1 stringFromDate:appo_date];
+    
+    [[NSUserDefaults standardUserDefaults]setObject:convertedDateString4 forKey:@"Selected_Date"];
+    [[NSUserDefaults standardUserDefaults]synchronize];
+    
+    //    NSDate *now = [[NSDate alloc] init];
+    //    NSString *dateString = [format stringFromDate:[now dateByAddingTimeInterval:(-60*60*24*10)]];
+//    NSMutableString *tempDate = [[NSMutableString alloc]initWithString:[NSString stringWithFormat:@"%@",[Date_chunks objectAtIndex:2]]];
+//    int day = [[tempDate substringFromIndex:[tempDate length]-1] intValue];
+//    switch (day) {
+//        case 1:
+//        case 21:
+//        case 31:
+//            [tempDate appendString:@"st"];
+//            break;
+//        case 2:
+//        case 22:
+//            [tempDate appendString:@"nd"];
+//            break;
+//        case 3:
+//        case 23:
+//            [tempDate appendString:@"rd"];
+//            break;
+//        default:
+//            [tempDate appendString:@"th"];
+//            break;
+//    }
+//    NSLog(@"tempDate%@",tempDate);//
+    
+//    _lbl_Day.text=[NSString stringWithFormat:@"%@",[Date_chunks objectAtIndex:0]];
+//    _lbl_Date.text=[NSString stringWithFormat:@"%@",tempDate];
+    _lbl_Month.text=[NSString stringWithFormat:@"%@ %@, %@",[Date_chunks objectAtIndex:1],[Date_chunks objectAtIndex:2],[Date_chunks objectAtIndex:3]];
+    
     [super viewWillAppear:NO];
     dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
         // Background work
@@ -168,6 +252,8 @@
 
 -(void)footerButtonClicked:(int)btnTag{
     if(btnTag==0){
+        [[NSUserDefaults standardUserDefaults] setBool:NO forKey:@"backtohome"];
+        [[NSUserDefaults standardUserDefaults] synchronize];
         if (mSearchViewController) {
             [mSearchViewController.view removeFromSuperview];
         }
@@ -183,6 +269,9 @@
         DebugLog(@"Tap0");
     }
     if(btnTag==1){
+        [[NSUserDefaults standardUserDefaults] setBool:NO forKey:@"backtohome"];
+        [[NSUserDefaults standardUserDefaults] synchronize];
+
         if (mSearchViewController) {
         [mSearchViewController.view removeFromSuperview];
         }
@@ -197,12 +286,15 @@
         }
         mSearchViewController = [self.storyboard instantiateViewControllerWithIdentifier:@"SearchViewController"];
         mSearchViewController.delegate = self;
-        [mSearchViewController.view setFrame:CGRectMake(0,0, self.view.frame.size.width, self.view.frame.size.height-58)];
+        [mSearchViewController.view setFrame:CGRectMake(0,0, self.view.frame.size.width, self.view.frame.size.height-43)];
         [self.view addSubview:mSearchViewController.view];
         [self addChildViewController:mSearchViewController];
         DebugLog(@"Tap1");
     }
     if(btnTag==2){
+        [[NSUserDefaults standardUserDefaults] setBool:NO forKey:@"backtohome"];
+        [[NSUserDefaults standardUserDefaults] synchronize];
+
         if (mSearchViewController) {
             [mSearchViewController.view removeFromSuperview];
         }
@@ -217,13 +309,16 @@
         }
         mFormViewController = [self.storyboard instantiateViewControllerWithIdentifier:@"FormViewController"];
         mFormViewController.delegate = self;
-        [mFormViewController.view setFrame:CGRectMake(0,0, self.view.frame.size.width, self.view.frame.size.height-58)];
+        [mFormViewController.view setFrame:CGRectMake(0,0, self.view.frame.size.width, self.view.frame.size.height-43)];
         [self.view addSubview:mFormViewController.view];
         [self addChildViewController:mFormViewController];
        DebugLog(@"Tap2");
 
     }
     if(btnTag==3){
+        [[NSUserDefaults standardUserDefaults] setBool:NO forKey:@"backtohome"];
+        [[NSUserDefaults standardUserDefaults] synchronize];
+
         //[self aboutus];
         if (mSearchViewController) {
             [mSearchViewController.view removeFromSuperview];
@@ -239,12 +334,15 @@
         }
         mInfoViewController = [self.storyboard instantiateViewControllerWithIdentifier:@"InfoViewController"];
         mInfoViewController.delegate = self;
-        [mInfoViewController.view setFrame:CGRectMake(0,0, self.view.frame.size.width, self.view.frame.size.height-58)];
+        [mInfoViewController.view setFrame:CGRectMake(0,0, self.view.frame.size.width, self.view.frame.size.height-43)];
         [self.view addSubview:mInfoViewController.view];
         [self addChildViewController:mInfoViewController];
         DebugLog(@"Tap3");
     }
     if(btnTag==4){
+        [[NSUserDefaults standardUserDefaults] setBool:NO forKey:@"backtohome"];
+        [[NSUserDefaults standardUserDefaults] synchronize];
+
         //[self aboutus];
         if (mSearchViewController) {
             [mSearchViewController.view removeFromSuperview];
@@ -260,10 +358,10 @@
         }
         mSettingsViewController = [self.storyboard instantiateViewControllerWithIdentifier:@"SettingsViewController"];
         mSettingsViewController.delegate = self;
-        [mSettingsViewController.view setFrame:CGRectMake(0,0, self.view.frame.size.width, self.view.frame.size.height-58)];
+        [mSettingsViewController.view setFrame:CGRectMake(0,0, self.view.frame.size.width, self.view.frame.size.height-43)];
         [self.view addSubview:mSettingsViewController.view];
         [self addChildViewController:mSettingsViewController];
-        DebugLog(@"Tap3");
+        DebugLog(@"Tap4");
     }
 }
 
@@ -309,6 +407,16 @@
 - (void)calendar:(JTCalendarManager *)calendar didTouchDayView:(JTCalendarDayView *)dayView{
     _dateSelected = dayView.date;
     DebugLog(@"%@",_dateSelected);
+    
+    appo_date=dayView.date;
+    
+     dateFormatter1 = [[NSDateFormatter alloc] init];
+    [dateFormatter1 setDateFormat:@"EEEE MMM. d YYYY"];
+    NSString *convertedDateString2 = [dateFormatter1 stringFromDate:appo_date];
+    NSArray *Date_chunks = [convertedDateString2 componentsSeparatedByString: @" "];
+    _lbl_Month.text=[NSString stringWithFormat:@"%@ %@, %@",[Date_chunks objectAtIndex:1],[Date_chunks objectAtIndex:2],[Date_chunks objectAtIndex:3]];
+
+
     
     // Animation for the circleView
     dayView.circleView.transform = CGAffineTransformScale(CGAffineTransformIdentity, 0.1, 0.1);
@@ -409,11 +517,169 @@
         [_eventsByDate[key] addObject:randomDate];
     }
 }
+#pragma mark - Self Methods
 
+-(void)reloadHomeTableAllData{
+    _vw_For_Location_Table.hidden=YES;
+    _vw_Location_Mask_view.hidden=YES;
+    _btn_LoCation.userInteractionEnabled=YES;
+    if (arrmSortEventList.count>0) {
+        [arrmSortEventList removeAllObjects];
+    }
+    NSString *strCompareLocationId1;
+    for (int i=0; i<arrmLocationId.count; i++) {
+        strCompareLocationId1=[NSString stringWithFormat:@"%@",[arrmLocationId  objectAtIndex:i]];
+        DebugLog(@"strCompareLocationId1===%@",strCompareLocationId1);
+        for (int j=0; j<arrmEventList.count; j++) {
+            NSString *strCompareLocationId2=[NSString stringWithFormat:@"%@",[[arrmEventList  valueForKey:@"location"]objectAtIndex:j]];
+            DebugLog(@"strCompareLocationId2===%@",strCompareLocationId2);
+            if ([strCompareLocationId1 isEqualToString:strCompareLocationId2]) {
+                [arrmSortEventList addObject:[arrmEventList objectAtIndex:j]];
+                
+            }
+        }
+    }
+    DebugLog(@"arrmSortEventList%@",arrmSortEventList);
+    
+    if (arrmLocationId.count>0) {
+        [arrmEventList removeAllObjects];
+        DebugLog(@"arrmEventList%@",arrmEventList);
+        arrmEventList=[arrmSortEventList mutableCopy];
+        if (arrmEventList.count==0) {
+            alert=[[SCLAlertView alloc]init];
+            [alert showWarning:self title:@"Warning" subTitle:@"No data found" closeButtonTitle:@"OK" duration:0.0f];
+            _HomeTableView.hidden=YES;
+        }
+        else{
+            _HomeTableView.hidden=NO;
+        }
+    }
+    else{
+        arrmEventList=[arrmCoppyOfEventList mutableCopy];
+    }
+    DebugLog(@"arrmEventList%@",arrmEventList);
+    if (arrmEventList.count>0) {
+        [_HomeTableView reloadData];
+    }
 
-
-
+}
 #pragma mark - Button Action
+- (IBAction)btn_Today_Click:(id)sender {
+    _dateSelected= [NSDate date];
+    [self getEventData];
+}
+
+- (IBAction)btn_Previous_Click:(id)sender {
+    int daysToAdd = -1;
+    appo_date = [appo_date dateByAddingTimeInterval:60*60*24*daysToAdd];
+    _dateSelected=appo_date;
+     DebugLog(@"%@",[NSString stringWithFormat:@"_dateSelected%@",_dateSelected]);
+    [self getEventData];
+   
+    dateFormatter1 = [[NSDateFormatter alloc] init];
+    [dateFormatter1 setDateFormat:@"EEEE MMM. d YYYY"];
+    NSString *convertedDateString2 = [dateFormatter1 stringFromDate:appo_date];
+    NSArray *Date_chunks = [convertedDateString2 componentsSeparatedByString: @" "];
+    
+    //[_ selectDate:appo_date makeVisible:YES];
+    
+    dateFormatter1= [[NSDateFormatter alloc] init];
+    [dateFormatter1 setDateFormat:@"yyyy-MM-dd"];
+    NSString *convertedDateString4 = [dateFormatter1 stringFromDate:appo_date];
+    DebugLog(@"convertedDateString4%@",convertedDateString4);
+    
+    [[NSUserDefaults standardUserDefaults]setObject:convertedDateString4 forKey:@"Selected_Date"];
+    [[NSUserDefaults standardUserDefaults]synchronize];
+    
+     DebugLog(@"%@",[NSString stringWithFormat:@"convertedDateString4%@",convertedDateString4]);
+    DebugLog(@"%@",[NSString stringWithFormat:@"%@",[Date_chunks objectAtIndex:2]]);
+     DebugLog(@"%@",[NSString stringWithFormat:@"%@",[Date_chunks objectAtIndex:0]]);
+     DebugLog(@"%@",[NSString stringWithFormat:@"%@",[Date_chunks objectAtIndex:1]]);
+    
+//    
+//    NSMutableString *tempDate = [[NSMutableString alloc]initWithString:[NSString stringWithFormat:@"%@",[Date_chunks objectAtIndex:2]]];
+//    int day = [[tempDate substringFromIndex:[tempDate length]-1] intValue];
+//    switch (day) {
+//        case 1:
+//        case 21:
+//        case 31:
+//            [tempDate appendString:@"st"];
+//            break;
+//        case 2:
+//        case 22:
+//            [tempDate appendString:@"nd"];
+//            break;
+//        case 3:
+//        case 23:
+//            [tempDate appendString:@"rd"];
+//            break;
+//        default:
+//            [tempDate appendString:@"th"];
+//            break;
+//    }
+//    DebugLog(@"tempDate%@",tempDate);
+    
+    
+     _lbl_Month.text=[NSString stringWithFormat:@"%@ %@, %@",[Date_chunks objectAtIndex:1],[Date_chunks objectAtIndex:2],[Date_chunks objectAtIndex:3]];
+    
+    
+  
+    
+}
+- (IBAction)btn_Next_Click:(id)sender {
+    int daysToAdd = 1;
+    appo_date = [appo_date dateByAddingTimeInterval:60*60*24*daysToAdd];
+    _dateSelected=appo_date;
+    [self getEventData];
+     DebugLog(@"%@",[NSString stringWithFormat:@"_dateSelected%@",_dateSelected]);
+    dateFormatter1 = [[NSDateFormatter alloc] init];
+    [dateFormatter1 setDateFormat:@"EEEE MMM. d YYYY"];
+    NSString *convertedDateString2 = [dateFormatter1 stringFromDate:appo_date];
+    NSArray *Date_chunks = [convertedDateString2 componentsSeparatedByString: @" "];
+    
+    DebugLog(@"%@",[NSString stringWithFormat:@"%@",[Date_chunks objectAtIndex:2]]);
+    DebugLog(@"%@",[NSString stringWithFormat:@"%@",[Date_chunks objectAtIndex:0]]);
+    DebugLog(@"%@",[NSString stringWithFormat:@"%@",[Date_chunks objectAtIndex:1]]);
+    DebugLog(@"%@",[NSString stringWithFormat:@"_dateSelected%@",_dateSelected]);
+    
+//    dateFormatter1 = [[NSDateFormatter alloc] init];
+//    [dateFormatter1 setDateFormat:@"yyyy-MM-dd"];
+//    NSString *convertedDateString4 = [dateFormatter1 stringFromDate:appo_date];
+//    
+//    DebugLog(@"convertedDateString5%@",convertedDateString4);
+//    
+//    [[NSUserDefaults standardUserDefaults]setObject:convertedDateString4 forKey:@"Selected_Date"];
+//    [[NSUserDefaults standardUserDefaults]synchronize];
+    
+//    NSDate *now = [[NSDate alloc] init];
+//    NSString *dateString = [format stringFromDate:[now dateByAddingTimeInterval:(-60*60*24*10)]];
+//    NSMutableString *tempDate = [[NSMutableString alloc]initWithString:[NSString stringWithFormat:@"%@",[Date_chunks objectAtIndex:2]]];
+//    int day = [[tempDate substringFromIndex:[tempDate length]-1] intValue];
+//    switch (day) {
+//        case 1:
+//            case 21:
+//        case 31:
+//            [tempDate appendString:@"st"];
+//            break;
+//        case 2:
+//            case 22:
+//            [tempDate appendString:@"nd"];
+//            break;
+//        case 3:
+//            case 23:
+//            [tempDate appendString:@"rd"];
+//            break;
+//        default:
+//            [tempDate appendString:@"th"];
+//            break;
+//    }
+//    NSLog(@"tempDate%@",tempDate);
+    
+//    _lbl_Day.text=[NSString stringWithFormat:@"%@",[Date_chunks objectAtIndex:0]];
+//    _lbl_Date.text=[NSString stringWithFormat:@"%@",tempDate];
+    _lbl_Month.text=[NSString stringWithFormat:@"%@ %@, %@",[Date_chunks objectAtIndex:1],[Date_chunks objectAtIndex:2],[Date_chunks objectAtIndex:3]];
+}
+
 - (IBAction)CalenderNextBtn:(id)sender{
     [_calendarContentView loadNextPageWithAnimation];
     [_calendarManager reload];
@@ -434,50 +700,98 @@
     [_calendarManager reload];
      _vw_Mask_View.hidden=YES;
     _CalenderBackView.hidden=YES;
-    [self getEventData];
+      [self getEventData];
 }
-- (IBAction)btn_Ok_For_Location_Click:(id)sender {
-    _vw_For_Location_Table.hidden=YES;
-    _vw_Location_Mask_view.hidden=YES;
-    _btn_LoCation.userInteractionEnabled=YES;
-    if (arrmSortEventList.count>0) {
-        [arrmSortEventList removeAllObjects];
-    }
-    NSString *strCompareLocationId1;
-    for (int i=0; i<arrmLocationId.count; i++) {
-       strCompareLocationId1=[NSString stringWithFormat:@"%@",[arrmLocationId  objectAtIndex:i]];
-        DebugLog(@"strCompareLocationId1===%@",strCompareLocationId1);
-    for (int j=0; j<arrmEventList.count; j++) {
-        NSString *strCompareLocationId2=[NSString stringWithFormat:@"%@",[[arrmEventList  valueForKey:@"location"]objectAtIndex:j]];
-         DebugLog(@"strCompareLocationId2===%@",strCompareLocationId2);
-        if ([strCompareLocationId1 isEqualToString:strCompareLocationId2]) {
-            [arrmSortEventList addObject:[arrmEventList objectAtIndex:j]];
-            
+- (IBAction)btn_All_Click:(id)sender {
+    if (!isSelectAll) {
+        for (int i=0; i<[arrmLocationList count]; i++)  {
+            [arrmTotalCheckMark addObject:[NSString stringWithFormat:@"%d",i]];
+            strLocationId1=[[arrmLocationList objectAtIndex:i] valueForKey:@"location_id"];
+            [arrmLocationId addObject:strLocationId1];
         }
-        }
-    }
-    DebugLog(@"arrmSortEventList%@",arrmSortEventList);
 
-    if (arrmLocationId.count>0) {
-        [arrmEventList removeAllObjects];
-        DebugLog(@"arrmEventList%@",arrmEventList);
-        arrmEventList=[arrmSortEventList mutableCopy];
-        if (arrmEventList.count==0) {
-        alert=[[SCLAlertView alloc]init];
-        [alert showWarning:self title:@"Warning" subTitle:@"No data found" closeButtonTitle:@"OK" duration:0.0f];
-            _HomeTableView.hidden=YES;
-        }
-        else{
-             _HomeTableView.hidden=NO;
-        }
+        DebugLog(@"arrmTotalCheckMark====%@",arrmTotalCheckMark);
+        DebugLog(@"arrmTotalCheckMark====%@",arrmLocationId);
+        [self.tblv_Location_Table reloadData];
+        
+        [_btn_All setTitle:@"DESELECT ALL" forState:UIControlStateNormal];
+        //[_btn_All setBackgroundColor:[UIColor colorWithRed:10.0f/255.0f green:177.0f/255.0f blue:255.0f/255.0f alpha:1.0f]];
+        isSelectAll=YES;
+        [[NSUserDefaults standardUserDefaults]setBool:YES forKey:@"select"];
+        [[NSUserDefaults standardUserDefaults]synchronize];
+        
+        
     }
     else{
-        arrmEventList=[arrmCoppyOfEventList mutableCopy];
+
+        DebugLog(@"arrmTotalCheckMark====%@",arrmTotalCheckMark);
+        [arrmTotalCheckMark removeAllObjects];
+        [arrmLocationId removeAllObjects];
+        [self.tblv_Location_Table reloadData];
+        [_btn_All setTitle:@"SELECT ALL" forState:UIControlStateNormal];
+       // [_btn_All setBackgroundColor:[UIColor colorWithRed:10.0f/255.0f green:177.0f/255.0f blue:255.0f/255.0f alpha:1.0f]];
+        isSelectAll=NO;
+        [[NSUserDefaults standardUserDefaults]setBool:NO forKey:@"select"];
+        [[NSUserDefaults standardUserDefaults]synchronize];
+
     }
-    DebugLog(@"arrmEventList%@",arrmEventList);
-    if (arrmEventList.count>0) {
-        [_HomeTableView reloadData];
+   // [self reloadHomeTableAllData];
+}
+- (IBAction)btn_Ok_For_Location_Click:(id)sender {
+    if (isSelectAll) {
+         [self reloadHomeTableAllData];
     }
+    else{
+        if (arrmLocationId.count>0) {
+            [self reloadHomeTableAllData];
+        }
+        else{
+            alert=[[SCLAlertView alloc]init];
+            [alert showWarning:self title:@"Warning" subTitle:@"Please select atleast one location" closeButtonTitle:@"OK" duration:0.0f];
+        }
+    }
+   
+//    _vw_For_Location_Table.hidden=YES;
+//    _vw_Location_Mask_view.hidden=YES;
+//    _btn_LoCation.userInteractionEnabled=YES;
+//    if (arrmSortEventList.count>0) {
+//        [arrmSortEventList removeAllObjects];
+//    }
+//    NSString *strCompareLocationId1;
+//    for (int i=0; i<arrmLocationId.count; i++) {
+//       strCompareLocationId1=[NSString stringWithFormat:@"%@",[arrmLocationId  objectAtIndex:i]];
+//        DebugLog(@"strCompareLocationId1===%@",strCompareLocationId1);
+//    for (int j=0; j<arrmEventList.count; j++) {
+//        NSString *strCompareLocationId2=[NSString stringWithFormat:@"%@",[[arrmEventList  valueForKey:@"location"]objectAtIndex:j]];
+//         DebugLog(@"strCompareLocationId2===%@",strCompareLocationId2);
+//        if ([strCompareLocationId1 isEqualToString:strCompareLocationId2]) {
+//            [arrmSortEventList addObject:[arrmEventList objectAtIndex:j]];
+//            
+//        }
+//        }
+//    }
+//    DebugLog(@"arrmSortEventList%@",arrmSortEventList);
+//
+//    if (arrmLocationId.count>0) {
+//        [arrmEventList removeAllObjects];
+//        DebugLog(@"arrmEventList%@",arrmEventList);
+//        arrmEventList=[arrmSortEventList mutableCopy];
+//        if (arrmEventList.count==0) {
+//        alert=[[SCLAlertView alloc]init];
+//        [alert showWarning:self title:@"Warning" subTitle:@"No data found" closeButtonTitle:@"OK" duration:0.0f];
+//            _HomeTableView.hidden=YES;
+//        }
+//        else{
+//             _HomeTableView.hidden=NO;
+//        }
+//    }
+//    else{
+//        arrmEventList=[arrmCoppyOfEventList mutableCopy];
+//    }
+//    DebugLog(@"arrmEventList%@",arrmEventList);
+//    if (arrmEventList.count>0) {
+//        [_HomeTableView reloadData];
+//    }
     
 }
 
@@ -486,15 +800,13 @@
     _vw_Mask_View.hidden=YES;
     _CalenderBackView.hidden=YES;
     
-    [UIView transitionWithView:_CalenderBackView
+    [UIView transitionWithView:self.CalenderBackView
                       duration:0.4
-                       options:UIViewAnimationTransitionCurlUp
+                       options:UIViewAnimationOptionTransitionCurlUp
                     animations:NULL
                     completion:NULL];
     
     [self.CalenderBackView  setHidden:YES];
-    
-    
     
 }
 
@@ -511,28 +823,43 @@
    
 }
 - (IBAction)btn_Location_Click:(id)sender {
+    
     _vw_Mask_View.hidden=YES;
     _vw_Location_Mask_view.hidden=NO;
      _vw_For_Location_Table.hidden=NO;
     _btn_LoCation.userInteractionEnabled=NO;
-    if (arrmEventList.count==0) {
-        arrmEventList=[arrmCoppyOfEventList mutableCopy];
-        [_HomeTableView reloadData];
-        _HomeTableView.hidden=NO;
+    
+    if (isSelectAll) {
+        for (int i=0; i<[arrmLocationList count]; i++)  {
+            [arrmTotalCheckMark addObject:[NSString stringWithFormat:@"%d",i]];
+            strLocationId1=[[arrmLocationList objectAtIndex:i] valueForKey:@"location_id"];
+            [arrmLocationId addObject:strLocationId1];
+        }
+        
+        DebugLog(@"arrmTotalCheckMark====%@",arrmTotalCheckMark);
+        DebugLog(@"arrmTotalCheckMark====%@",arrmLocationId);
+        
+        [_btn_All setTitle:@"DESELECT ALL" forState:UIControlStateNormal];
+        [_btn_All setBackgroundColor:[UIColor colorWithRed:33.0f/255.0f green:185.0f/255.0f blue:255.0f/255.0f alpha:1.0f]];
+    
+         [_tblv_Location_Table reloadData];
     }
+    DebugLog(@"arrmTotalCheckMark====%@",arrmTotalCheckMark);
+   
+
+//    if (arrmEventList.count==0) {
+//        arrmEventList=[arrmCoppyOfEventList mutableCopy];
+//        [_HomeTableView reloadData];
+//        _HomeTableView.hidden=NO;
+//    }
     DebugLog(@"arrmEventListLocation%@",arrmEventList);
-    if (arrmLocationId.count>0) {
-        [arrmLocationId removeAllObjects];
-        [arrmCollctionIndex removeAllObjects];
-        [_tblv_Location_Table reloadData];
-    }
+//    if (arrmLocationId.count>0 ) {
+//        [arrmLocationId removeAllObjects];
+//        [arrmCollctionIndex removeAllObjects];
+//        [_tblv_Location_Table reloadData];
+//    }
    
-   
-//    [UIView beginAnimations:@"LeftFlip" context:nil];
-//    [UIView setAnimationDuration:0.8];
- //    [UIView setAnimationCurve:UIViewAnimationCurveLinear];
-//    [UIView setAnimationTransition:UIViewAnimationTransitionCurlDown    forView:_vw_For_Location_Table cache:YES];
-//    [UIView commitAnimations];
+
    
 }
 
@@ -553,56 +880,112 @@
         mLocationTableCell=[tableView dequeueReusableCellWithIdentifier:@"LocationTableCell"];
         mLocationTableCell.lbl_Location_Name.text=[[arrmLocationList objectAtIndex:indexPath.row]valueForKey:@"location"];
         
-        if ([arrmCollctionIndex containsObject:[NSIndexPath indexPathForRow:indexPath.row inSection:0]]) {
-            mLocationTableCell.layer.borderColor=[UIColor colorWithRed:10.0f/255.0f green:177.0f/255.0f blue:255.0f/255.0f alpha:1.0f].CGColor;
-            mLocationTableCell.lbl_Location_Name.textColor=[UIColor colorWithRed:10.0f/255.0f green:177.0f/255.0f blue:255.0f/255.0f alpha:1.0f];
-            mLocationTableCell.imgv_Checkd_Unchecked.image=[UIImage imageNamed:@"checked"];
-            
-            DebugLog(@"reload");
+        
+        if ([arrmTotalCheckMark containsObject:[NSString stringWithFormat:@"%ld",(long)indexPath.row]])
+        {
+            mLocationTableCell.imgv_Checkd_Unchecked.image = [UIImage imageNamed:@"checked"];
         }
-        else{
-            mLocationTableCell.layer.borderColor=[UIColor lightGrayColor].CGColor;
-            mLocationTableCell.lbl_Location_Name.textColor=[UIColor lightGrayColor];
+        else
+        {
             mLocationTableCell.imgv_Checkd_Unchecked.image=[UIImage imageNamed:@"unchecked"];
-            
-            
-            DebugLog(@"Don't");
         }
+        
         [mLocationTableCell setSelectionStyle:UITableViewCellSelectionStyleNone];
+        
         return mLocationTableCell;
     }
     else{
     cell=[tableView dequeueReusableCellWithIdentifier:@"HomeCell"];
-    
-    
     cell.leftUtilityButtons = [self leftButtons];
     cell.delegate = self;
-    NSString *strName=[NSString stringWithFormat:@"%@ %@",[[arrmEventList valueForKey:@"bride_father_first_name"]objectAtIndex:indexPath.row],[[arrmEventList valueForKey:@"bride_father_last_name"]objectAtIndex:indexPath.row] ];
-    DebugLog(@"%@",strName);
-    cell.lbl_1stOne.text = strName;
-    NSString *strEntityName=[NSString stringWithFormat:@"%@ %@",[[arrmEventList valueForKey:@"entity_first_name"]objectAtIndex:indexPath.row],[[arrmEventList valueForKey:@"entity_last_name"]objectAtIndex:indexPath.row] ];
-    DebugLog(@"%@",strEntityName);
-    cell.lbl_Second.text = strEntityName;
         
-    NSString *strEntityWifeFatherName=[NSString stringWithFormat:@"%@ %@",[[arrmEventList valueForKey:@"entity_wifes_father_first_name"]objectAtIndex:indexPath.row],[[arrmEventList valueForKey:@"entity_wifes_father_last_name"]objectAtIndex:indexPath.row] ];
-    DebugLog(@"%@",strEntityWifeFatherName);
-    cell.lbl_Third.text = strEntityWifeFatherName;
-//    NSMutableAttributedString *attString =[[NSMutableAttributedString alloc]
-//     initWithString: @"שם פרטי שם פרטי שם פרטי"];
-//    
-//    [attString addAttribute: NSFontAttributeName
-//                      value: [UIFont fontWithName:@"Helvetica" size:15]
-//                      range: NSMakeRange(0,6)];
-//    
-//    
-//    [attString addAttribute: NSFontAttributeName
-//                      value:  [UIFont fontWithName:@"Helvetica" size:15]
-//                      range: NSMakeRange(0,6)];
-//    
-//    [attString addAttribute: NSFontAttributeName
-//                      value:  [UIFont fontWithName:[NSString stringWithFormat:@"%@-Bold",cell.lbl_1stOne.font.fontName] size:24]
-//                      range: NSMakeRange(7,4)];
-//    cell.lbl_1stOne.attributedText = attString;
+        
+    UIFont *robotoRegular = [UIFont fontWithName:@"Helvetica" size:12.0];
+    NSDictionary *robotoMediumDict = [NSDictionary dictionaryWithObjectsAndKeys:robotoRegular,NSFontAttributeName,[UIColor colorWithRed:10.0f/255.0f green:177.0f/255.0f blue:255.0f/255.0f alpha:1.0f],NSForegroundColorAttributeName, nil];
+        
+   NSDictionary *robotoRegularDict = [NSDictionary dictionaryWithObjectsAndKeys:robotoRegular,NSFontAttributeName,[UIColor blackColor],NSForegroundColorAttributeName, nil];
+        
+    NSMutableAttributedString *entityChildFast = [[NSMutableAttributedString alloc] initWithString:[NSString stringWithFormat:@"%@%@",[[arrmEventList valueForKey:@"entity_child_fast"]objectAtIndex:indexPath.row],@" "] attributes:robotoRegularDict];
+        
+    NSMutableAttributedString *firstName = [[NSMutableAttributedString alloc]initWithString:[NSString stringWithFormat:@"%@",@"First Name"] attributes:robotoMediumDict];
+        
+    NSMutableAttributedString *middleName = [[NSMutableAttributedString alloc]initWithString:[NSString stringWithFormat:@"%@%@",@"Middle Name",@" "] attributes:robotoMediumDict];
+        
+    NSMutableAttributedString *brideFirst = [[NSMutableAttributedString alloc] initWithString:[NSString stringWithFormat:@"%@%@",[[arrmEventList valueForKey:@"bride_first"]objectAtIndex:indexPath.row],@" "] attributes:robotoRegularDict];
+        
+    NSMutableAttributedString *lastName = [[NSMutableAttributedString alloc]initWithString:[NSString stringWithFormat:@"%@%@",@"Last Name",@" "] attributes:robotoMediumDict];
+        
+    [entityChildFast appendAttributedString:firstName];
+    [middleName  appendAttributedString:entityChildFast];
+    [brideFirst appendAttributedString:middleName];
+    [lastName appendAttributedString:brideFirst];
+   
+     cell.lbl_1stOne.attributedText = lastName;
+        
+      NSMutableAttributedString *entityFirstName1 = [[NSMutableAttributedString alloc] initWithString:[NSString stringWithFormat:@"%@",@"First Name"] attributes:robotoMediumDict];
+        
+       NSMutableAttributedString *entityTitleFront = [[NSMutableAttributedString alloc] initWithString:[NSString  stringWithFormat:@"%@%@",[[arrmEventList valueForKey:@"entity_title"]objectAtIndex:indexPath.row],@" "] attributes:robotoMediumDict];
+        
+       NSMutableAttributedString *entityFirstName = [[NSMutableAttributedString alloc] initWithString:[NSString stringWithFormat:@"%@%@",[[arrmEventList valueForKey:@"entity_first_name"]objectAtIndex:indexPath.row],@" "] attributes:robotoRegularDict];
+        
+       NSMutableAttributedString *entityLastName = [[NSMutableAttributedString alloc] initWithString:[NSString stringWithFormat:@"%@%@",[[arrmEventList valueForKey:@"entity_last_name"]objectAtIndex:indexPath.row],@" "] attributes:robotoRegularDict];
+        
+       NSMutableAttributedString *entityTitleBack = [[NSMutableAttributedString alloc] initWithString:[NSString stringWithFormat:@"%@%@",[[arrmEventList valueForKey:@"entity_back"]objectAtIndex:indexPath.row],@" "] attributes:robotoMediumDict];
+        NSString *strEntityWifesFatherLastName=[NSString stringWithFormat:@"%@",[[arrmEventList valueForKey:@"entity_wifes_father_last_name"]objectAtIndex:indexPath.row]];
+        NSMutableAttributedString *entityWifesFatherLastName;
+        if (strEntityWifesFatherLastName.length>0) {
+        entityWifesFatherLastName = [[NSMutableAttributedString alloc] initWithString:[NSString stringWithFormat:@"[%@]%@",strEntityWifesFatherLastName,@" "] attributes:robotoMediumDict];
+        }
+        else{
+        entityWifesFatherLastName = [[NSMutableAttributedString alloc] initWithString:[NSString stringWithFormat:@"%@",@" "] attributes:robotoMediumDict];
+        }
+      NSMutableAttributedString *entityLivingTown = [[NSMutableAttributedString alloc] initWithString:[NSString stringWithFormat:@"%@%@",[[arrmEventList valueForKey:@"entiy_living_town"]objectAtIndex:indexPath.row],@" "] attributes:robotoMediumDict];
+        
+        [entityTitleFront appendAttributedString:entityFirstName1];
+        [entityFirstName appendAttributedString:entityTitleFront];
+        [entityLastName appendAttributedString:entityFirstName];
+        [entityTitleBack appendAttributedString:entityLastName];
+        [entityWifesFatherLastName appendAttributedString:entityTitleBack];
+        [entityLivingTown appendAttributedString:entityWifesFatherLastName];
+        
+        cell.lbl_Second.attributedText=entityLivingTown;
+        
+        NSMutableAttributedString *entityFirstName2 = [[NSMutableAttributedString alloc] initWithString:[NSString stringWithFormat:@"%@",@"First Name"] attributes:robotoMediumDict];
+        
+        NSMutableAttributedString *brideFatherTitleFront = [[NSMutableAttributedString alloc] initWithString:[NSString  stringWithFormat:@"%@%@",[[arrmEventList valueForKey:@"bride_father_title_front"]objectAtIndex:indexPath.row],@" "] attributes:robotoMediumDict];
+        
+        NSMutableAttributedString *brideFatherFirstName = [[NSMutableAttributedString alloc] initWithString:[NSString stringWithFormat:@"%@%@",[[arrmEventList valueForKey:@"bride_father_first_name"]objectAtIndex:indexPath.row],@" "] attributes:robotoRegularDict];
+        
+        NSMutableAttributedString *brideFatherLastName = [[NSMutableAttributedString alloc] initWithString:[NSString stringWithFormat:@"%@%@",[[arrmEventList valueForKey:@"bride_father_last_name"]objectAtIndex:indexPath.row],@" "] attributes:robotoRegularDict];
+        
+        NSMutableAttributedString *brideFatherTitleBack = [[NSMutableAttributedString alloc] initWithString:[NSString stringWithFormat:@"%@%@",[[arrmEventList valueForKey:@"bride_father_title_back"]objectAtIndex:indexPath.row],@" "] attributes:robotoMediumDict];
+        
+        NSString *strBrideMothersFatherLastName=[NSString stringWithFormat:@"%@",[[arrmEventList valueForKey:@"bride_mothers_father_last_name"]objectAtIndex:indexPath.row]];
+        
+        NSMutableAttributedString * brideMothersFatherLastName;
+        if (strBrideMothersFatherLastName.length>0) {
+            brideMothersFatherLastName = [[NSMutableAttributedString alloc] initWithString:[NSString stringWithFormat:@"[%@]%@",strBrideMothersFatherLastName,@" "] attributes:robotoMediumDict];
+        }
+        else{
+            brideMothersFatherLastName = [[NSMutableAttributedString alloc] initWithString:[NSString stringWithFormat:@"%@",@" "] attributes:robotoMediumDict];
+        }
+        NSMutableAttributedString *bridesFatherLivingTown = [[NSMutableAttributedString alloc] initWithString:[NSString stringWithFormat:@"%@%@",[[arrmEventList valueForKey:@"bride_father_living_town"]objectAtIndex:indexPath.row],@" "] attributes:robotoMediumDict];
+        
+        [brideFatherTitleFront appendAttributedString:entityFirstName2];
+        
+        [brideFatherFirstName appendAttributedString:brideFatherTitleFront];
+        
+        [brideFatherLastName appendAttributedString:brideFatherFirstName];
+        
+        [brideFatherTitleBack appendAttributedString:brideFatherLastName];
+        
+        [brideMothersFatherLastName appendAttributedString:brideFatherTitleBack];
+        
+        [bridesFatherLivingTown appendAttributedString:brideMothersFatherLastName];
+        
+        cell.lbl_Third.attributedText=bridesFatherLivingTown;
+        cell.lbl_Loction.text=[NSString stringWithFormat:@"%@%@%@%@",[[arrmEventList valueForKey:@"event_place_address"]objectAtIndex:indexPath.row],[[arrmEventList valueForKey:@"event_place_town"]objectAtIndex:indexPath.row],[[arrmEventList valueForKey:@"event_place_state"]objectAtIndex:indexPath.row],[[arrmEventList valueForKey:@"event_place_zip"]objectAtIndex:indexPath.row]];
+          
     [cell setSelectionStyle:UITableViewCellSelectionStyleNone];
     
     return cell;
@@ -610,43 +993,41 @@
 }
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     if (tableView.tag==2011) {
-         NSString *strLocationId1;
-        if (indexPath.row==0) {
-            isFirstRowTap=YES;
-            [arrmCollctionIndex removeAllObjects];
-            [arrmLocationId removeAllObjects];
-            NSIndexPath *index= [NSIndexPath indexPathForRow:indexPath.row inSection:0];
-            [arrmCollctionIndex addObject:index];
-            strTapOnAll=@"Yes";
-            DebugLog(@"arrmCollctionIndex%@",arrmCollctionIndex);
-            [_tblv_Location_Table reloadData];
+        DebugLog(@"%ld",(long)indexPath.row);
+        
+        if ([arrmTotalCheckMark containsObject:[NSString stringWithFormat:@"%ld",(long)indexPath.row]]) {
+            [arrmTotalCheckMark removeObject:[NSString stringWithFormat:@"%ld",(long)indexPath.row]];
+            strLocationId1=[[arrmLocationList objectAtIndex:indexPath.row] valueForKey:@"location_id"];
+            [arrmLocationId removeObject:strLocationId1];
+        
         }
         else{
-            if (isFirstRowTap) {
-                [arrmCollctionIndex removeAllObjects];
-                isFirstRowTap=NO;
-                strTapOnAll=@"No";
-            }
+            strLocationId1=[[arrmLocationList objectAtIndex:indexPath.row] valueForKey:@"location_id"];
+            [arrmLocationId addObject:strLocationId1];
+            [arrmTotalCheckMark addObject:[NSString stringWithFormat:@"%ld",(long)indexPath.row]];
+        }
+         DebugLog(@"arrmLocationId%@",arrmLocationId);
         
-            NSIndexPath *index= [NSIndexPath indexPathForRow:indexPath.row inSection:0];
-            if ([arrmCollctionIndex containsObject:index])
-            {
-                strLocationId1=[[arrmLocationList objectAtIndex:index.row] valueForKey:@"location_id"];
-                [arrmLocationId removeObject:strLocationId1];
-                [arrmCollctionIndex removeObject:index];
-            }
-            else
-            {
-                strLocationId1=[[arrmLocationList objectAtIndex:index.row] valueForKey:@"location_id"];
-                [arrmLocationId addObject:strLocationId1];
-                [arrmCollctionIndex addObject:index];
-            }
-            DebugLog(@"arrmCollctionIndex%@",arrmCollctionIndex);
-            DebugLog(@"arrmLocationId%@",arrmLocationId);
-            [_tblv_Location_Table reloadData];
+        if (arrmTotalCheckMark.count == arrmLocationList.count)
+        {
+            [_btn_All setTitle:@"DESELECT ALL" forState:UIControlStateNormal];
+            [_btn_All setBackgroundColor:[UIColor colorWithRed:10.0f/255.0f green:177.0f/255.0f blue:255.0f/255.0f alpha:1.0f]];
+            isSelectAll=YES;
+            [[NSUserDefaults standardUserDefaults]setBool:YES forKey:@"select"];
+            [[NSUserDefaults standardUserDefaults]synchronize];
+
+        }
+        if (arrmTotalCheckMark.count == 0)
+        {
+            [_btn_All setTitle:@"SELECT ALL" forState:UIControlStateNormal];
+            [_btn_All setBackgroundColor:[UIColor colorWithRed:10.0f/255.0f green:177.0f/255.0f blue:255.0f/255.0f alpha:1.0f]];
+            isSelectAll=NO;
+            [[NSUserDefaults standardUserDefaults]setBool:NO forKey:@"select"];
+            [[NSUserDefaults standardUserDefaults]synchronize];
+        }
+        
+        [self.tblv_Location_Table reloadData];
     }
-    }
-    
 }
 
 - (NSArray *)leftButtons{
@@ -692,12 +1073,16 @@
          [hud hideAnimated:YES];
         if ([[testResult valueForKey:@"success"] boolValue]==1) {
             arrmLocationList=[[testResult valueForKey:@"details"] mutableCopy];
-            NSMutableDictionary *dic=[[NSMutableDictionary alloc]init];
-            [dic setObject:@"All" forKey:@"location"];
-            [dic setObject:@"4444" forKey:@"location_id"];
-            [arrmLocationList insertObject:dic atIndex:0];
+//            NSMutableDictionary *dic=[[NSMutableDictionary alloc]init];
+//            [dic setObject:@"All" forKey:@"location"];
+//            [dic setObject:@"4444" forKey:@"location_id"];
+//            [arrmLocationList insertObject:dic atIndex:0];
              DebugLog(@"arrmLocationList====%@",arrmLocationList);
             if (arrmLocationList.count>0) {
+//                for (int i=0; i<[arrmLocationList count]; i++)  {
+//                    [arrmTotalCheckMark addObject:@"NO"];
+//                }
+//                DebugLog(@"arrmTotalCheckMark====%@",arrmTotalCheckMark);
                 [_tblv_Location_Table reloadData];
             }
             else{
@@ -717,21 +1102,12 @@
    }
 }
 -(void)getEventData{
-    NSDate *currDate = [NSDate date];
-    NSComparisonResult result;
-    result = [currDate compare:_dateSelected];
-    if (result==NSOrderedSame) {
-        NSDateFormatter *dateFormatter = [[NSDateFormatter alloc]init];
-        [dateFormatter setDateFormat:@"MM/dd/yyyy"];
-        strDate1 = [dateFormatter stringFromDate:currDate];
-        NSLog(@"strDate1==%@",strDate1);
-    }
-    else{
-        NSDateFormatter *dateFormatter = [[NSDateFormatter alloc]init];
-        [dateFormatter setDateFormat:@"MM/dd/yyyy"];
-        strDate1 = [dateFormatter stringFromDate:_dateSelected];
-        NSLog(@"strDate1==%@",strDate1);
-    }
+    
+    dateFormatter1 = [[NSDateFormatter alloc]init];
+    [dateFormatter1 setDateFormat:@"MM/dd/yyyy"];
+    strDate1 = [dateFormatter1 stringFromDate:_dateSelected];
+    NSLog(@"strDate1==%@",strDate1);
+   
     if ([Utility isNetworkAvailable]==YES) {
         /**********Custom loader****************/
         self.view.userInteractionEnabled=NO;
@@ -748,7 +1124,9 @@
             if ([[testResult valueForKey:@"success"] boolValue]==1) {
                 arrmEventList=[[testResult valueForKey:@"details"] mutableCopy];
                 arrmCoppyOfEventList=[arrmEventList copy];
-               
+                _lbl_Day.text=[NSString stringWithFormat:@"%@",[testResult valueForKey:@"yiddish_date"]];
+                _lbl_Date.text=[NSString stringWithFormat:@"%@",[testResult valueForKey:@"yiddish_week"]];
+
                  DebugLog(@"arrmCoppyOfEventList====%@",arrmCoppyOfEventList);
                
                 if (arrmEventList.count>0) {
@@ -761,6 +1139,15 @@
                 
             }
             else{
+                NSString *strName=[testResult valueForKey:@"yiddish_date"];
+                if (strName.length>0) {
+                _lbl_Day.text=[testResult valueForKey:@"yiddish_date"];
+                    _lbl_Date.text=[testResult valueForKey:@"yiddish_week"];
+                }
+                else{
+                _lbl_Day.text=[NSString stringWithFormat:@"%@",@""];
+                _lbl_Date.text=[NSString stringWithFormat:@"%@",@""];
+                }
                 alert=[[SCLAlertView alloc]init];
                 [alert showWarning:self title:@"Warning" subTitle:[testResult valueForKey:@"message"] closeButtonTitle:@"OK" duration:0.0f];
                  _HomeTableView.hidden=YES;

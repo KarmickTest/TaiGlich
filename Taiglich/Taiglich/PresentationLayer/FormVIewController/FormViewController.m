@@ -8,8 +8,16 @@
 
 #import "FormViewController.h"
 #import "FormTableViewCell.h"
+#import "DefineHeader.h"
+#import "Constant.h"
 
-@interface FormViewController ()<UITableViewDataSource,UITableViewDelegate>
+@interface FormViewController ()
+{
+    EngagementOneViewController *mEngagementOneViewController;
+    NSInteger buttonTag;
+    BOOL buttonTapped;
+    SCLAlertView *alert;
+}
 @property (strong, nonatomic) IBOutlet UITableView *tbl_form;
 @property (strong, nonatomic) IBOutlet UIImageView *imgVw_form;
 
@@ -22,14 +30,14 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
-    UIBlurEffect *blurEffect = [UIBlurEffect effectWithStyle:UIBlurEffectStyleLight];
-    UIVisualEffectView *blurEffectView = [[UIVisualEffectView alloc] initWithEffect:blurEffect];
-    blurEffectView.frame=_imgVw_form.frame;
-    UIVisualEffectView *blurEffectView1 = [[UIVisualEffectView alloc] initWithEffect:blurEffect];
-
-    blurEffectView.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
-    
-    [_imgVw_form addSubview:blurEffectView];
+//    UIBlurEffect *blurEffect = [UIBlurEffect effectWithStyle:UIBlurEffectStyleLight];
+//    UIVisualEffectView *blurEffectView = [[UIVisualEffectView alloc] initWithEffect:blurEffect];
+//    blurEffectView.frame=_imgVw_form.frame;
+//    UIVisualEffectView *blurEffectView1 = [[UIVisualEffectView alloc] initWithEffect:blurEffect];
+//
+//    blurEffectView.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
+//    
+//    [_imgVw_form addSubview:blurEffectView];
 
 }
 
@@ -37,33 +45,36 @@
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
-
-#pragma mark-TableView Datasource
-
-- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
-    return 8;
-}
-
-- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView{
-    return 1;
-}
-- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
+- (IBAction)btn_Radio_Click:(id)sender {
+    buttonTapped=YES;
+    UIButton *button = (UIButton *)sender;
+     buttonTag = button.tag;
+    DebugLog(@"buttonTag%ld", (long)buttonTag);
    
-    FormTableViewCell *cell =[tableView dequeueReusableCellWithIdentifier:@"FormTableViewCell"];
-    if (cell==nil)
-    {
-        cell =(FormTableViewCell *)[[[NSBundle mainBundle] loadNibNamed:@"FormTableViewCell" owner:self options:nil] objectAtIndex:0];
-    }
-    return cell;
+    
 }
-/*
-#pragma mark - Navigation
 
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
+- (IBAction)btn_Submit_Click:(id)sender {
+    if (buttonTapped) {
+        if (buttonTag ==7 || buttonTag ==8) {
+        mEngagementOneViewController = [[UIStoryboard storyboardWithName:@"Main" bundle:nil] instantiateViewControllerWithIdentifier:@"EngagementOneViewController"];
+        mEngagementOneViewController.strPassButtonValue=[NSString stringWithFormat:@"%ld",(long)buttonTag];
+        DebugLog(@"strPassButtonValue%@", mEngagementOneViewController.strPassButtonValue);
+        [self.navigationController pushViewController:mEngagementOneViewController animated:NO];
+     }
+    else{
+        alert=[[SCLAlertView alloc]init];
+        [alert showWarning:self title:@"Warning" subTitle:@"Under development" closeButtonTitle:@"OK" duration:0.0f];
+     
+    }
+    }
+    else{
+        alert=[[SCLAlertView alloc]init];
+        [alert showWarning:self title:@"Warning" subTitle:@"Please select atleast one event type" closeButtonTitle:@"OK" duration:0.0f];
+    }
+   
 }
-*/
+
+
 
 @end
