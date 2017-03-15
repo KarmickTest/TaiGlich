@@ -110,9 +110,18 @@
     NSString *str5=[NSString stringWithFormat:@"ע\"ה"];
     NSString *str6=[NSString stringWithFormat:@"זצ\"ל"];
     _txtf_Phone_Number.delegate=self;
+    NSMutableDictionary *dict1 = [[NSMutableDictionary alloc] initWithObjectsAndKeys:str,@"townName", nil];
+    NSMutableDictionary *dict2 = [[NSMutableDictionary alloc] initWithObjectsAndKeys:@"הרב",@"townName", nil];
+     NSMutableDictionary *dict3 = [[NSMutableDictionary alloc] initWithObjectsAndKeys:str1,@"townName", nil];
+     NSMutableDictionary *dict4 = [[NSMutableDictionary alloc] initWithObjectsAndKeys:str2,@"townName", nil];
     
-    arrTitleBackData=[[NSMutableArray alloc]initWithObjects:str3,str4,str5,str6, nil];
-    arrTitleFrontData=[[NSMutableArray alloc]initWithObjects:str,@"הרב",str1,str2, nil];
+    NSMutableDictionary *dict5 = [[NSMutableDictionary alloc] initWithObjectsAndKeys:str3,@"townName", nil];
+    NSMutableDictionary *dict6 = [[NSMutableDictionary alloc] initWithObjectsAndKeys:str4,@"townName", nil];
+    NSMutableDictionary *dict7 = [[NSMutableDictionary alloc] initWithObjectsAndKeys:str5,@"townName", nil];
+    NSMutableDictionary *dict8 = [[NSMutableDictionary alloc] initWithObjectsAndKeys:str6,@"townName", nil];
+    
+    arrTitleBackData=[[NSMutableArray alloc]initWithObjects:dict5,dict6,dict7,dict8, nil];
+    arrTitleFrontData=[[NSMutableArray alloc]initWithObjects:dict1,dict2,dict3,dict4, nil];
     arrmTitleBackFrontData=[[NSMutableArray alloc]init];
     
 }
@@ -408,16 +417,34 @@
     }
     
 }
+#pragma mark - Custom Delegate
 
 - (void)addItemViewController:(PopUpViewController *)controller didFinishEnteringItem:(NSString *)item
 {
     NSLog(@"This was returned from ViewControllerB %@",item);
+   
     if ([strBtnPress isEqualToString:@"1"]) {
         lblEntity_Title_Back.text=item;
-        [self dismissViewControllerAnimated:YES completion:^{
-            
-        }];
     }
+    else if ([strBtnPress isEqualToString:@"2"]) {
+        lblEntity_Father_Title_Back.text=item;
+    }
+    else if ([strBtnPress isEqualToString:@"3"]) {
+        lblEntity_Wife_Father_Title_Back.text=item;
+    }
+    else if ([strBtnPress isEqualToString:@"4"]){
+        lblEntity_Title_Back1.text=item;
+    }
+    else if ([strBtnPress isEqualToString:@"5"]){
+        lblEntity_Father_Title_Back1.text=item;
+        
+    }
+    else {
+        lblEntity_Wife_Father_Title_Back1.text=item;
+    }
+    [self dismissViewControllerAnimated:YES completion:^{
+        
+    }];
 }
 
 - (void)PopUpViewControllerDidTapCancelButton:(PopUpViewController *)controller{
@@ -490,30 +517,6 @@
     DebugLog(@"arrmTitleFrontAndBackData%@", mPopUpViewController.arrmTitleFrontAndBackData);
     mPopUpViewController.modalPresentationStyle = UIModalPresentationFullScreen;
     [self presentViewController:mPopUpViewController animated:YES completion:NULL];
-//    if (tblv_Title_Choose) {
-//        [tblv_Title_Choose removeFromSuperview];
-//        tblv_Title_Choose = nil;
-//    }
-////    if (arrmTitleBackFrontData.count<=0) {
-////        [arrmTitleBackFrontData removeAllObjects];
-////    }
-////    arrmTitleBackFrontData=[arrTitleBackData mutableCopy];
-////    DebugLog(@"arrmTitleBackFrontData %@",arrmTitleBackFrontData);
-//    
-//   
-//     CGRect fr = CGRectMake(1, _tblv_Engagement1.frame.origin.y+btnEntity_Title_Back.frame.origin.y+56+btnEntity_Title_Back.frame.size.height+2, 82, 116);
-//    _tblv_Engagement1.scrollEnabled=NO;
-//
-//    tblv_Title_Choose = [[UITableView alloc] initWithFrame:fr style:UITableViewStylePlain];
-//    DebugLog(@"My view frame %@",NSStringFromCGRect(tblv_Title_Choose.frame));
-//     tblv_Title_Choose.autoresizingMask =UIViewAutoresizingFlexibleHeight |UIViewAutoresizingFlexibleWidth;
-//    tblv_Title_Choose.separatorStyle = UITableViewCellSeparatorStyleSingleLine; // or you have the previous 'None' style...
-//    tblv_Title_Choose.separatorColor = [UIColor grayColor];
-//    tblv_Title_Choose.delegate = self;
-//    tblv_Title_Choose.dataSource = self;
-//    tblv_Title_Choose.tag=20001;
-//    [self.view addSubview:tblv_Title_Choose];
-//    [tblv_Title_Choose reloadData];
 }
 -(void)btnEntity_Title_Front_Click:(id)sender{
     NSLog(@"Tap");
@@ -553,6 +556,7 @@
     mPopUpViewController.arrmTitleFrontAndBackData=arrTitleBackData;
     DebugLog(@"arrmTitleFrontAndBackData%@", mPopUpViewController.arrmTitleFrontAndBackData);
     mPopUpViewController.modalPresentationStyle = UIModalPresentationFullScreen;
+     [self presentViewController:mPopUpViewController animated:YES completion:NULL];
     
 }
 -(void)btnEntity_Father_Title_Front_Click:(id)sender{
@@ -592,6 +596,7 @@
     mPopUpViewController.arrmTitleFrontAndBackData=arrTitleBackData;
     DebugLog(@"arrmTitleFrontAndBackData%@", mPopUpViewController.arrmTitleFrontAndBackData);
     mPopUpViewController.modalPresentationStyle = UIModalPresentationFullScreen;
+     [self presentViewController:mPopUpViewController animated:YES completion:NULL];
     
 }
 -(void)btnEntity_Wife_Father_Title_Front_Click:(id)sender{
@@ -672,6 +677,7 @@
     mPopUpViewController.arrmTitleFrontAndBackData=arrTitleBackData;
     DebugLog(@"arrmTitleFrontAndBackData%@", mPopUpViewController.arrmTitleFrontAndBackData);
     mPopUpViewController.modalPresentationStyle = UIModalPresentationFullScreen;
+     [self presentViewController:mPopUpViewController animated:YES completion:NULL];
     
 }
 -(void)btnEntity_Father_Title_Front_Click1:(id)sender{
@@ -711,6 +717,7 @@
     mPopUpViewController.arrmTitleFrontAndBackData=arrTitleBackData;
     DebugLog(@"arrmTitleFrontAndBackData%@", mPopUpViewController.arrmTitleFrontAndBackData);
     mPopUpViewController.modalPresentationStyle = UIModalPresentationFullScreen;
+     [self presentViewController:mPopUpViewController animated:YES completion:NULL];
     
 }
 -(void)btnEntity_Wife_Father_Title_Front_Click1:(id)sender{
@@ -743,28 +750,12 @@
 }
 -(void)btnEntity_Living_Town_Click:(id)sender{
     strBtnPress=@"7";
-    if (tblv_Title_Choose) {
-        [tblv_Title_Choose removeFromSuperview];
-        tblv_Title_Choose = nil;
-    }
-    //    if (arrmTitleBackFrontData.count<=0) {
-    //        [arrmTitleBackFrontData removeAllObjects];
-    //    }
-    //    arrmTitleBackFrontData=[arrTitleFrontData mutableCopy];
-    //    DebugLog(@"arrmTitleBackFrontData %@",arrmTitleBackFrontData);
-    CGRect fr = CGRectMake(mEngagementFirstCell.vw_FortitleFront.frame.origin.x+txtfEntity_First_Name.frame.size.width-30, _tblv_Engagement1.frame.origin.y+btnEntity_Title_Back.frame.origin.y+214+btnEntity_Title_Back.frame.size.height+3, 82, 116);
-    _tblv_Engagement1.scrollEnabled=NO;
-    
-    tblv_Title_Choose = [[UITableView alloc] initWithFrame:fr style:UITableViewStylePlain];
-    DebugLog(@"My view frame %@",NSStringFromCGRect(tblv_Title_Choose.frame));
-    tblv_Title_Choose.autoresizingMask =UIViewAutoresizingFlexibleHeight |UIViewAutoresizingFlexibleWidth;
-    tblv_Title_Choose.separatorStyle = UITableViewCellSeparatorStyleSingleLine; // or you have the previous 'None' style...
-    tblv_Title_Choose.separatorColor = [UIColor grayColor];
-    tblv_Title_Choose.delegate = self;
-    tblv_Title_Choose.dataSource = self;
-    tblv_Title_Choose.tag=20003;
-    [self.view addSubview:tblv_Title_Choose];
-    [tblv_Title_Choose reloadData];
+    PopUpViewController *mPopUpViewController=[self.storyboard instantiateViewControllerWithIdentifier:@"PopUpViewController"];
+    mPopUpViewController.delegate=self;
+    mPopUpViewController.arrmTitleFrontAndBackData=arrmLivingTownList;
+    DebugLog(@"arrmTitleFrontAndBackData%@", mPopUpViewController.arrmTitleFrontAndBackData);
+    mPopUpViewController.modalPresentationStyle = UIModalPresentationFullScreen;
+    [self presentViewController:mPopUpViewController animated:YES completion:NULL];
 }
 
 -(void)btnEntity_Living_Town_Click1:(id)sender{

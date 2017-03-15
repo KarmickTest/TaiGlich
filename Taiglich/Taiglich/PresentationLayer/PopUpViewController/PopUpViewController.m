@@ -38,7 +38,7 @@
 }
 
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
-    return [_arrmTitleFrontAndBackData count];;
+    return [_arrmTitleFrontAndBackData count];
     
 }
 
@@ -53,8 +53,8 @@
     if (cell == nil){
         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"cell"];
     }
-    cell.textLabel.font=[UIFont systemFontOfSize:11];
-    cell.textLabel.text=[_arrmTitleFrontAndBackData objectAtIndex:indexPath.row];
+    cell.textLabel.font=[UIFont fontWithName:@"Helvetica Bold" size:18.0];
+    cell.textLabel.text=[[_arrmTitleFrontAndBackData objectAtIndex:indexPath.row] valueForKey:@"townName"];
     //        UIView *vwSeperator=[[UIView alloc]initWithFrame:CGRectMake(0, 30, cell.frame.size.width, 1.0f)];
     //        vwSeperator.backgroundColor=[UIColor lightGrayColor];
     //        [cell addSubview:vwSeperator];
@@ -62,7 +62,7 @@
     
 }
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
-    NSString *itemToPassBack = [_arrmTitleFrontAndBackData objectAtIndex:indexPath.row];
+    NSString *itemToPassBack = [[_arrmTitleFrontAndBackData objectAtIndex:indexPath.row] valueForKey:@"townName"];
     [self.delegate addItemViewController:self didFinishEnteringItem:itemToPassBack];
 }
 @end
