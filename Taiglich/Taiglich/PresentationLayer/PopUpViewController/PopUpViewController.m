@@ -55,7 +55,7 @@
         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"cell"];
     }
     
-    cell.textLabel.text=[[_arrmTitleFrontAndBackData objectAtIndex:indexPath.row] valueForKey:@"townName"];
+    cell.textLabel.text = [[_arrmTitleFrontAndBackData objectAtIndex:indexPath.row] valueForKey:@"townName"];
     cell.textLabel.font=[UIFont fontWithName:@"OpenSans-Bold" size:20.0];
     cell.textLabel.textColor = [UIColor darkGrayColor];
     
