@@ -74,14 +74,22 @@
     UIButton * btnEntity_Living_Town1;
     UITextField *txtfEntity_Child_First1;
     
-    UITableView *tblv_Title_Choose;
+    UIButton *btnYeddish_Week;
+    UIButton *btnYeddish_Day;
+    UIButton *btnEvent_Location;
+    UILabel *lblYeddish_Week;
+    UILabel *lblYeddish_Day;
+    UILabel *lblEvent_Location;
+    
+    
     NSMutableArray *arrTitleBackData;
     NSMutableArray *arrTitleFrontData;
-    NSMutableArray * arrmTitleBackFrontData;
-    BOOL tapOnTitleBack;
+    NSMutableArray * arrmYiddishWeek;
+    NSMutableArray * arrmOnlyYiddishDay;
     NSString *strBtnPress;
     
     NSMutableArray *arrmLivingTownList;
+    NSMutableArray *arrmEventLocationList;
 }
 @property (weak, nonatomic) IBOutlet UITextField *txtf_Phone_Number;
 @property (weak, nonatomic) IBOutlet UITableView *tblv_Engagement1;
@@ -98,6 +106,10 @@
     _tblv_Engagement1.delegate=self;
     _tblv_Engagement1.dataSource=self;
     arrmLivingTownList=[[NSMutableArray alloc]init];
+    [self getLivingTownData];
+    [self getYiddishWeekDayData];
+    [self getEventLocationData];
+
         //
     NSString *str=[NSString stringWithFormat:@"מו\"ה"];
     DebugLog(@"%@",str);
@@ -122,7 +134,9 @@
     
     arrTitleBackData=[[NSMutableArray alloc]initWithObjects:dict5,dict6,dict7,dict8, nil];
     arrTitleFrontData=[[NSMutableArray alloc]initWithObjects:dict1,dict2,dict3,dict4, nil];
-    arrmTitleBackFrontData=[[NSMutableArray alloc]init];
+    arrmYiddishWeek=[[NSMutableArray alloc]init];
+    arrmOnlyYiddishDay=[[NSMutableArray alloc]init];
+    arrmEventLocationList=[[NSMutableArray alloc]init];
     
 }
 
@@ -132,7 +146,6 @@
 }
 -(void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:YES];
-    [self getLivingTownData];
     
 }
 
@@ -171,71 +184,22 @@
 }
 
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
-    if (tableView.tag==20001) {
-        return [arrTitleBackData count];
-    }
-    else if (tableView.tag==20002){
-       return [arrTitleFrontData count];
-    }
-    else if (tableView.tag==20003){
-        return [arrmLivingTownList count];
-    }
-    else{
+   
    return 2;
-    }
     
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
-    if (tableView.tag==20001 || tableView.tag==20002 || tableView.tag==20003 ) {
-        return 28.0f;
+    if (indexPath.row==0 ) {
+     return 265.0f;
     }
     else{
-    return 265.0f;
+    return 297.0f;
     }
     
 }
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
-    if (tableView.tag==20001) {
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"cell"];
-        if (cell == nil){
-        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"cell"];
-        }
-        cell.textLabel.font=[UIFont systemFontOfSize:11];
-        cell.textLabel.text=[arrTitleBackData objectAtIndex:indexPath.row];
-//        UIView *vwSeperator=[[UIView alloc]initWithFrame:CGRectMake(0, 30, cell.frame.size.width, 1.0f)];
-//        vwSeperator.backgroundColor=[UIColor lightGrayColor];
-//        [cell addSubview:vwSeperator];
-        return cell;
-
-    }
-    else if (tableView.tag==20002) {
-        UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"cell"];
-        if (cell == nil){
-            cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"cell"];
-        }
-        cell.textLabel.font=[UIFont systemFontOfSize:11];
-        cell.textLabel.text=[arrTitleFrontData objectAtIndex:indexPath.row];
-//        UIView *vwSeperator=[[UIView alloc]initWithFrame:CGRectMake(0, 30, cell.frame.size.width, 1.0f)];
-//        vwSeperator.backgroundColor=[UIColor lightGrayColor];
-//        [cell addSubview:vwSeperator];
-        return cell;
-        
-    }
-    else if (tableView.tag==20003) {
-        UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"cell"];
-        if (cell == nil){
-            cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"cell"];
-        }
-        cell.textLabel.font=[UIFont systemFontOfSize:11];
-        cell.textLabel.text=[[arrmLivingTownList objectAtIndex:indexPath.row] valueForKey:@"townName"];
-        //        UIView *vwSeperator=[[UIView alloc]initWithFrame:CGRectMake(0, 30, cell.frame.size.width, 1.0f)];
-        //        vwSeperator.backgroundColor=[UIColor lightGrayColor];
-        //        [cell addSubview:vwSeperator];
-        return cell;
-        
-    }
-    if (indexPath.row==0){
+      if (indexPath.row==0){
         mEngagementFirstCell=[tableView dequeueReusableCellWithIdentifier:@"EngagementFirstCell"];
         lblEntity_Title_Back=(UILabel *)[mEngagementFirstCell.contentView viewWithTag:1000];
         btnEntity_Title_Back=(UIButton *)[mEngagementFirstCell.contentView viewWithTag:1001];
@@ -319,6 +283,12 @@
        lblEntity_Living_Town1=(UILabel *)[mEngagementSecondCell.contentView viewWithTag:8002];
        btnEntity_Living_Town1=(UIButton *)[mEngagementSecondCell.contentView viewWithTag:8003];
        txtfEntity_Child_First1=(UITextField *)[mEngagementSecondCell.contentView viewWithTag:8004];
+       btnYeddish_Week=(UIButton *)[mEngagementSecondCell.contentView viewWithTag:9000];
+       btnYeddish_Day=(UIButton *)[mEngagementSecondCell.contentView viewWithTag:9002];
+       btnEvent_Location=(UIButton *)[mEngagementSecondCell.contentView viewWithTag:9004];
+       lblYeddish_Week=(UILabel *)[mEngagementSecondCell.contentView viewWithTag:9001];
+       lblYeddish_Day=(UILabel *)[mEngagementSecondCell.contentView viewWithTag:9003];
+       lblEvent_Location=(UILabel *)[mEngagementSecondCell.contentView viewWithTag:9005];
        txtfEntity_Child_First1.delegate=self;
        
        [btnEntity_Title_Back1 addTarget:self action:@selector(btnEntity_Title_Back_Click1:) forControlEvents:UIControlEventTouchUpInside];
@@ -328,6 +298,9 @@
        [btnEntity_Wife_Father_Title_Back1 addTarget:self action:@selector(btnEntity_Wife_Father_Title_Back_Click1:) forControlEvents:UIControlEventTouchUpInside];
        [btnEntity_Wife_Father_Title_Front1 addTarget:self action:@selector(btnEntity_Wife_Father_Title_Front_Click1:) forControlEvents:UIControlEventTouchUpInside];
         [btnEntity_Living_Town1 addTarget:self action:@selector(btnEntity_Living_Town_Click1:) forControlEvents:UIControlEventTouchUpInside];
+        [btnYeddish_Week addTarget:self action:@selector(btnYeddish_Week_Click:) forControlEvents:UIControlEventTouchUpInside];
+        [btnYeddish_Day addTarget:self action:@selector(btnYeddish_Day_Click:) forControlEvents:UIControlEventTouchUpInside];
+        [btnEvent_Location addTarget:self action:@selector(btnEvent_Location_Click:) forControlEvents:UIControlEventTouchUpInside];
        
        lblEntity_Title_Back1.text=@"נ\"י";
        lblEntity_Title_Front1.text=@"מו\"ה";
@@ -335,8 +308,6 @@
        lblEntity_Father_Title_Front1.text=@"מו\"ה";
        lblEntity_Wife_Father_Title_Back1.text=@"נ\"י";
        lblEntity_Wife_Father_Title_Front1.text=@"מו\"ה";
-      
-       
        
        [mEngagementSecondCell setSelectionStyle:UITableViewCellSelectionStyleNone];
        return mEngagementSecondCell;
@@ -345,84 +316,17 @@
     
 }
 
-- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
+-(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     
-    if (tableView.tag==20001) {
-        if (tblv_Title_Choose) {
-            [tblv_Title_Choose removeFromSuperview];
-            tblv_Title_Choose = nil;
-        }
-        if ([strBtnPress isEqualToString:@"1"]) {
-        lblEntity_Title_Back.text=[arrTitleBackData objectAtIndex:indexPath.row];
-        }
-        else if ([strBtnPress isEqualToString:@"2"]) {
-        lblEntity_Father_Title_Back.text=[arrTitleBackData objectAtIndex:indexPath.row];
-        }
-        else if ([strBtnPress isEqualToString:@"3"]) {
-        lblEntity_Wife_Father_Title_Back.text=[arrTitleBackData objectAtIndex:indexPath.row];
-        }
-        else if ([strBtnPress isEqualToString:@"4"]){
-        lblEntity_Title_Back1.text=[arrTitleBackData objectAtIndex:indexPath.row];
-        }
-        else if ([strBtnPress isEqualToString:@"5"]){
-        lblEntity_Father_Title_Back1.text=[arrTitleBackData objectAtIndex:indexPath.row];
-
-        }
-        else {
-        lblEntity_Wife_Father_Title_Back1.text=[arrTitleBackData objectAtIndex:indexPath.row];
-        }
-        _tblv_Engagement1.scrollEnabled=YES;
-        }
-    else  if (tableView.tag==20002) {
-        if (tblv_Title_Choose) {
-            [tblv_Title_Choose removeFromSuperview];
-            tblv_Title_Choose = nil;
-        }
-        if ([strBtnPress isEqualToString:@"1"]) {
-        lblEntity_Title_Front.text=[arrTitleFrontData objectAtIndex:indexPath.row];
-        }
-        else if ([strBtnPress isEqualToString:@"2"]){
-        lblEntity_Father_Title_Front.text=[arrTitleFrontData objectAtIndex:indexPath.row];
-        }
-        else if ([strBtnPress isEqualToString:@"3"]) {
-        lblEntity_Wife_Father_Title_Front.text=[arrTitleFrontData objectAtIndex:indexPath.row];
-        }
-        else if ([strBtnPress isEqualToString:@"4"]){
-        lblEntity_Title_Front1.text=[arrTitleFrontData objectAtIndex:indexPath.row];
-        }
-        else if ([strBtnPress isEqualToString:@"5"]){
-        lblEntity_Father_Title_Front1.text=[arrTitleFrontData objectAtIndex:indexPath.row];
-        }
-        else  {
-        lblEntity_Wife_Father_Title_Front1.text=[arrTitleFrontData objectAtIndex:indexPath.row];
-        }
-
-        _tblv_Engagement1.scrollEnabled=YES;
-        
-    }
-    else  if (tableView.tag==20003) {
-        if (tblv_Title_Choose) {
-            [tblv_Title_Choose removeFromSuperview];
-            tblv_Title_Choose = nil;
-        }
-        if ([strBtnPress isEqualToString:@"7"]) {
-            lblEntity_Living_Town.text=[[arrmLivingTownList objectAtIndex:indexPath.row] valueForKey:@"townName"];
-        }
-        else  {
-        lblEntity_Living_Town1.text=[[arrmLivingTownList objectAtIndex:indexPath.row] valueForKey:@"townName"];
-        }
-        
-        _tblv_Engagement1.scrollEnabled=YES;
-        
-    }
     
 }
 #pragma mark - Custom Delegate
 
-- (void)addItemViewController:(PopUpViewController *)controller didFinishEnteringItem:(NSString *)item
-{
-    NSLog(@"This was returned from ViewControllerB %@",item);
-   
+- (void)addItemViewController:(PopUpViewController *)controller didFinishEnteringItem:(NSString *)item dayValue:(NSMutableArray *)arrmDayData locationId:(NSString *)strId{
+    DebugLog(@"This was returned PopUpView %@",item);
+    DebugLog(@"This was returned PopUPView arrmDayData %@",arrmDayData);
+    DebugLog(@"This was returned PopUPView strId %@",strId);
+    arrmOnlyYiddishDay=[arrmDayData mutableCopy];
     if ([strBtnPress isEqualToString:@"1"]) {
         lblEntity_Title_Back.text=item;
     }
@@ -463,6 +367,24 @@
     else if ([strBtnPress isEqualToString:@"51"]){
         lblEntity_Father_Title_Front1.text=item;
     }
+    else if ([strBtnPress isEqualToString:@"10"]){
+        lblEvent_Location.text=item;
+        lblEvent_Location.textColor=[UIColor blackColor];
+    }
+    else if ([strBtnPress isEqualToString:@"Yes"]){
+        lblYeddish_Week.text=item;
+        lblYeddish_Week.textColor=[UIColor blackColor];
+        
+    }
+    else if ([strBtnPress isEqualToString:@"Day"]){
+        lblYeddish_Day.text=item;
+        lblYeddish_Day.textColor=[UIColor blackColor];
+    }
+    else if ([strBtnPress isEqualToString:@"EventLocation"]){
+        lblEvent_Location.text=item;
+        lblEvent_Location.textColor=[UIColor blackColor];
+    }
+    
     else  {
         lblEntity_Wife_Father_Title_Front1.text=item;
     }
@@ -514,8 +436,16 @@
     else if ([DataValidation isNullString:_txtf_Phone_Number.text]){
         [Utility showAlertWithTitle:ALERT_TITLE message:@"Phone number should not be blank"];
     }
-    else{
-        DebugLog(@"Call web service");
+    else if ([DataValidation isNullString:lblYeddish_Week.text]){
+        [Utility showAlertWithTitle:ALERT_TITLE message:@"Yiddish week should not be blank"];
+    }
+    else if ([DataValidation isNullString:lblYeddish_Day.text]){
+        [Utility showAlertWithTitle:ALERT_TITLE message:@"Yiddish day should not be blank"];
+    }
+    else if ([DataValidation isNullString:lblEvent_Location.text]){
+        [Utility showAlertWithTitle:ALERT_TITLE message:@"Event location should not be blank"];
+    }else{
+        [self PostEventData];
     }
   [self moveDownViewFrameInClick:self.view];
     
@@ -532,6 +462,7 @@
     DebugLog(@"buttonTag%ld", (long)buttonTag);
 }
 -(void)btnEntity_Title_Back_Click:(id)sender{
+    
     [self openPopUpViewForTitleFrontBack:@"1" Data:arrTitleBackData];
    
 }
@@ -588,36 +519,86 @@
     
 }
 -(void)btnEntity_Living_Town_Click:(id)sender{
+    if (arrmLivingTownList.count>0) {
     [self openPopUpViewForTitleFrontBack:@"7" Data:arrmLivingTownList];
+    }
 }
 
 -(void)btnEntity_Living_Town_Click1:(id)sender{
-    strBtnPress=@"8";
-    if (tblv_Title_Choose) {
-        [tblv_Title_Choose removeFromSuperview];
-        tblv_Title_Choose = nil;
+    if (arrmLivingTownList.count>0) {
+    [self openPopUpViewForTitleFrontBack:@"8" Data:arrmLivingTownList];
     }
-    //    if (arrmTitleBackFrontData.count<=0) {
-    //        [arrmTitleBackFrontData removeAllObjects];
-    //    }
-    //    arrmTitleBackFrontData=[arrTitleFrontData mutableCopy];
-    //    DebugLog(@"arrmTitleBackFrontData %@",arrmTitleBackFrontData);
-    CGRect fr = CGRectMake(mEngagementFirstCell.vw_FortitleFront.frame.origin.x+txtfEntity_First_Name.frame.size.width-30, _tblv_Engagement1.frame.origin.y+btnEntity_Title_Back.frame.origin.y+214+btnEntity_Title_Back.frame.size.height+3, 82, 116);
-    _tblv_Engagement1.scrollEnabled=NO;
+}
+
+-(void)btnYeddish_Week_Click:(id)sender{
+    DebugLog(@"arrmYiddishWeek%@",arrmYiddishWeek);
+    if (arrmYiddishWeek.count>0) {
+    [self openPopUpViewForTitleFrontBack:@"Yes" Data:arrmYiddishWeek];
+   }
+}
+
+-(void)btnYeddish_Day_Click:(id)sender{
+    if (arrmOnlyYiddishDay.count>0) {
+    [self openPopUpViewForTitleFrontBack:@"Day" Data:arrmOnlyYiddishDay];
+    }
+}
+-(void)btnEvent_Location_Click:(id)sender{
+    //if (arrmEventLocationList.count>0) {
+    [self openPopUpViewForTitleFrontBack:@"EventLocation" Data:arrmEventLocationList];
+    //}
     
-    tblv_Title_Choose = [[UITableView alloc] initWithFrame:fr style:UITableViewStylePlain];
-    DebugLog(@"My view frame %@",NSStringFromCGRect(tblv_Title_Choose.frame));
-    tblv_Title_Choose.autoresizingMask =UIViewAutoresizingFlexibleHeight |UIViewAutoresizingFlexibleWidth;
-    tblv_Title_Choose.separatorStyle = UITableViewCellSeparatorStyleSingleLine; // or you have the previous 'None' style...
-    tblv_Title_Choose.separatorColor = [UIColor grayColor];
-    tblv_Title_Choose.delegate = self;
-    tblv_Title_Choose.dataSource = self;
-    tblv_Title_Choose.tag=20003;
-    [self.view addSubview:tblv_Title_Choose];
-    [tblv_Title_Choose reloadData];
 }
 #pragma mark - Call Web Service
+-(void)PostEventData{
+    if ([Utility isNetworkAvailable]==YES) {
+        NSString *strCreateEventApi=[NSString stringWithFormat:@"%@%@",API,CREATEEVENT];
+        DebugLog(@"strCreateEventApi:%@",strCreateEventApi);
+        NSString *strPostParameter=[NSString stringWithFormat:@"event_place_name_added=%@&entity_father_title_back=%@&entity_father_name=%@&entity_father_title=%@&entity_child_fast=%@&entity_back=%@&entity_last_name=%@&entity_first_name=%@&entity_title=%@&event_place_zip=%@&event_place_state=%@&event_place_town=%@&event_place_address=%@&event_place_name=%@&location=%@&event_type=%@&yiddish_week=%@&yiddish_day=%@&contact_no=%@&phone_no=%@&entity_wifes_father_title_front=%@&entity_wifes_father_first_name=%@&entity_wifes_father_last_name=%@&entity_wifes_father_title_back=%@&entiy_living_town=%@&bride_father_title_front=%@&bride_father_first_name=%@&bride_father_last_name=%@&bride_father_title_back=%@&bride_first=%@&bride_fathers_father_title_front=%@&bride_fathers_father_first_name=%@&bride_fathers_father_title_back=%@ &bride_mothers_father_title_front=%@&bride_mothers_father_first_name=%@&bride_mothers_father_last_name=%@&bride_mothers_father_title_back=%@&bride_father_living_town=%@",@"",lblEntity_Father_Title_Back.text,txtfEntity_Father_First_Name.text,lblEntity_Title_Front.text,txtfEntity_Child_First.text,lblEntity_Title_Back.text,txtfEntity_Last_Name.text,txtfEntity_First_Name.text,lblEntity_Title_Front.text,@"",@"",@"",@"",@"",lblEvent_Location.text,@"",lblYeddish_Week.text,lblYeddish_Day.text,_txtf_Phone_Number.text,_txtf_Phone_Number.text,lblEntity_Wife_Father_Title_Front.text,txtfEntity_Wife_Father_First_Name.text,txtfEntity_Wife_Father_Last_Name.text,lblEntity_Wife_Father_Title_Back.text,lblEntity_Living_Town.text,lblEntity_Title_Front1.text,txtfEntity_First_Name1.text,txtfEntity_Last_Name1.text,lblEntity_Title_Back1.text,txtfEntity_Child_First1.text,lblEntity_Father_Title_Front1.text,txtfEntity_Father_First_Name1.text,lblEntity_Father_Title_Back1.text,lblEntity_Wife_Father_Title_Front1.text,txtfEntity_Wife_Father_First_Name1.text,txtfEntity_Wife_Father_Last_Name1.text,lblEntity_Wife_Father_Title_Back1.text,lblEntity_Living_Town1.text];
+        DebugLog(@"strPostParameter:%@",strPostParameter);
+        [[Singelton getInstance] jsonParseWithPostMethod:^(NSDictionary* testResult){
+            DebugLog(@"testResult1====%@",testResult);
 
+            if ([[testResult valueForKey:@"success"] boolValue]==1) {
+                
+            }
+            else{
+                alert=[[SCLAlertView alloc]init];
+                [alert showWarning:self title:@"Warning" subTitle:[testResult valueForKey:@"message"] closeButtonTitle:@"OK" duration:0.0f];
+            }
+        }andString:strCreateEventApi andParam:strPostParameter];
+    }
+    else{
+        alert=[[SCLAlertView alloc]init];
+        [alert showWarning:self title:@"Warning" subTitle:@"Network error" closeButtonTitle:@"OK" duration:0.0f];
+    }
+    
+}
+-(void)getYiddishWeekDayData{
+    if ([Utility isNetworkAvailable]==YES) {
+        NSString *strLocationListingApi=[NSString stringWithFormat:@"%@%@",API,YIDDISKWEEK];
+        DebugLog(@"strLocationListingApi:%@",strLocationListingApi);
+        [[Singelton getInstance]jsonparse:^(NSDictionary* testResult){
+            DebugLog(@"testResult====%@",testResult);
+            
+            if ([[testResult valueForKey:@"success"] boolValue]==1) {
+                arrmYiddishWeek=[[testResult valueForKey:@"details"] mutableCopy];
+                
+                DebugLog(@"arrmYiddishWeek====%@",arrmYiddishWeek);
+                
+                
+            }
+            else{
+                alert=[[SCLAlertView alloc]init];
+                [alert showWarning:self title:@"Warning" subTitle:[testResult valueForKey:@"message"] closeButtonTitle:@"OK" duration:0.0f];
+            }
+        }andString:strLocationListingApi];
+    }
+    else{
+        alert=[[SCLAlertView alloc]init];
+        [alert showWarning:self title:@"Warning" subTitle:@"Network error" closeButtonTitle:@"OK" duration:0.0f];
+    }
+
+}
 -(void)getLivingTownData{
     if ([Utility isNetworkAvailable]==YES) {
         NSString *strLocationListingApi=[NSString stringWithFormat:@"%@%@",API,TOWNLISTING];
@@ -629,13 +610,6 @@
                 arrmLivingTownList=[[testResult valueForKey:@"details"] mutableCopy];
                
                 DebugLog(@"arrmLivingTownList====%@",arrmLivingTownList);
-                if (arrmLivingTownList.count>0) {
-                    
-                    [tblv_Title_Choose reloadData];
-                }
-                else{
-                    tblv_Title_Choose.hidden=YES;
-                }
                 
             }
         else{
@@ -650,6 +624,32 @@
     }
 
 }
+-(void)getEventLocationData{
+    if ([Utility isNetworkAvailable]==YES) {
+        NSString *strLocationListingApi=[NSString stringWithFormat:@"%@%@",API,LOCATIONLISTING];
+        DebugLog(@"strLocationListingApi:%@",strLocationListingApi);
+        [[Singelton getInstance]jsonparse:^(NSDictionary* testResult){
+            DebugLog(@"testResult====%@",testResult);
+            
+            if ([[testResult valueForKey:@"success"] boolValue]==1) {
+                arrmEventLocationList=[[testResult valueForKey:@"details"] mutableCopy];
+                
+                DebugLog(@"arrmEventLocationList====%@",arrmEventLocationList);
+                
+            }
+            else{
+                alert=[[SCLAlertView alloc]init];
+                [alert showWarning:self title:@"Warning" subTitle:[testResult valueForKey:@"message"] closeButtonTitle:@"OK" duration:0.0f];
+            }
+        }andString:strLocationListingApi];
+    }
+    else{
+        alert=[[SCLAlertView alloc]init];
+        [alert showWarning:self title:@"Warning" subTitle:@"Network error" closeButtonTitle:@"OK" duration:0.0f];
+    }
+    
+}
+
 
 #pragma mark - Self Methods
 -(void)openPopUpViewForTitleFrontBack:(NSString *)str Data:(NSMutableArray *)arrmData{
@@ -657,20 +657,11 @@
     PopUpViewController *mPopUpViewController=[self.storyboard instantiateViewControllerWithIdentifier:@"PopUpViewController"];
     mPopUpViewController.delegate=self;
     mPopUpViewController.arrmTitleFrontAndBackData=arrmData;
+     mPopUpViewController.strComingFromYiddish=strBtnPress;
     DebugLog(@"arrmTitleFrontAndBackData%@", mPopUpViewController.arrmTitleFrontAndBackData);
     mPopUpViewController.modalPresentationStyle = UIModalPresentationFullScreen;
     [self presentViewController:mPopUpViewController animated:YES completion:NULL];
 
-}
--(void)openPopUpViewForTitleBack:(NSString *)str1{
-    strBtnPress=str1;//@"11";
-    PopUpViewController *mPopUpViewController=[self.storyboard instantiateViewControllerWithIdentifier:@"PopUpViewController"];
-    mPopUpViewController.delegate=self;
-    mPopUpViewController.arrmTitleFrontAndBackData=arrTitleBackData;
-    DebugLog(@"arrmTitleFrontAndBackData%@", mPopUpViewController.arrmTitleFrontAndBackData);
-    mPopUpViewController.modalPresentationStyle = UIModalPresentationFullScreen;
-    [self presentViewController:mPopUpViewController animated:YES completion:NULL];
-    
 }
 
 -(void)moveUpViewFrameInClick:(UIView *)viewUp{

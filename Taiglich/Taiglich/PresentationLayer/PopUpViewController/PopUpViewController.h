@@ -12,7 +12,7 @@
 
 @protocol PopUpViewControllerDelegate <NSObject>
 - (void)PopUpViewControllerDidTapCancelButton:(PopUpViewController *)controller;
-- (void)addItemViewController:(PopUpViewController *)controller didFinishEnteringItem:(NSString *)item;
+- (void)addItemViewController:(PopUpViewController *)controller didFinishEnteringItem:(NSString *)item dayValue:(NSMutableArray *)arrm locationId:(NSString*)strId;
 
 @end
 
@@ -22,5 +22,6 @@
 
 - (IBAction)btn_Cancel_Click:(id)sender;
 @property (strong, nonatomic) NSMutableArray *arrmTitleFrontAndBackData;
+@property (strong, nonatomic) NSString *strComingFromYiddish;
 
 @end
