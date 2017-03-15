@@ -439,8 +439,32 @@
         lblEntity_Father_Title_Back1.text=item;
         
     }
-    else {
+    else if([strBtnPress isEqualToString:@"6"]) {
         lblEntity_Wife_Father_Title_Back1.text=item;
+    }
+    else if([strBtnPress isEqualToString:@"7"]) {
+      lblEntity_Living_Town.text=item;
+    }
+    else if([strBtnPress isEqualToString:@"8"]) {
+        lblEntity_Living_Town1.text=item;
+    }
+    else if ([strBtnPress isEqualToString:@"11"]) {
+        lblEntity_Title_Front.text=item;
+    }
+    else if ([strBtnPress isEqualToString:@"21"]){
+        lblEntity_Father_Title_Front.text=item;
+    }
+    else if ([strBtnPress isEqualToString:@"31"]) {
+        lblEntity_Wife_Father_Title_Front.text=item;
+    }
+    else if ([strBtnPress isEqualToString:@"41"]){
+        lblEntity_Title_Front1.text=item;
+    }
+    else if ([strBtnPress isEqualToString:@"51"]){
+        lblEntity_Father_Title_Front1.text=item;
+    }
+    else  {
+        lblEntity_Wife_Father_Title_Front1.text=item;
     }
     [self dismissViewControllerAnimated:YES completion:^{
         
@@ -508,254 +532,63 @@
     DebugLog(@"buttonTag%ld", (long)buttonTag);
 }
 -(void)btnEntity_Title_Back_Click:(id)sender{
-    //tapOnTitleBack=YES;
-    strBtnPress=@"1";
-    
-    PopUpViewController *mPopUpViewController=[self.storyboard instantiateViewControllerWithIdentifier:@"PopUpViewController"];
-    mPopUpViewController.delegate=self;
-    mPopUpViewController.arrmTitleFrontAndBackData=arrTitleBackData;
-    DebugLog(@"arrmTitleFrontAndBackData%@", mPopUpViewController.arrmTitleFrontAndBackData);
-    mPopUpViewController.modalPresentationStyle = UIModalPresentationFullScreen;
-    [self presentViewController:mPopUpViewController animated:YES completion:NULL];
+    [self openPopUpViewForTitleFrontBack:@"1" Data:arrTitleBackData];
+   
 }
 -(void)btnEntity_Title_Front_Click:(id)sender{
     NSLog(@"Tap");
-     strBtnPress=@"1";
-    tapOnTitleBack=NO;
-    if (tblv_Title_Choose) {
-        [tblv_Title_Choose removeFromSuperview];
-        tblv_Title_Choose = nil;
-    }
-//    if (arrmTitleBackFrontData.count<=0) {
-//        [arrmTitleBackFrontData removeAllObjects];
-//    }
-//    arrmTitleBackFrontData=[arrTitleFrontData mutableCopy];
-//    DebugLog(@"arrmTitleBackFrontData %@",arrmTitleBackFrontData);
-
-   
-    CGRect fr = CGRectMake(mEngagementFirstCell.vw_FortitleFront.frame.origin.x+txtfEntity_First_Name.frame.size.width, _tblv_Engagement1.frame.origin.y+btnEntity_Title_Back.frame.origin.y+56+btnEntity_Title_Back.frame.size.height+2, 82, 116);
-    _tblv_Engagement1.scrollEnabled=NO;
-    
-    tblv_Title_Choose = [[UITableView alloc] initWithFrame:fr style:UITableViewStylePlain];
-    DebugLog(@"My view frame %@",NSStringFromCGRect(tblv_Title_Choose.frame));
-    tblv_Title_Choose.autoresizingMask =UIViewAutoresizingFlexibleHeight |UIViewAutoresizingFlexibleWidth;
-    tblv_Title_Choose.separatorStyle = UITableViewCellSeparatorStyleSingleLine; // or you have the previous 'None' style...
-    tblv_Title_Choose.separatorColor = [UIColor grayColor];
-    tblv_Title_Choose.delegate = self;
-    tblv_Title_Choose.dataSource = self;
-    tblv_Title_Choose.tag=20002;
-    [self.view addSubview:tblv_Title_Choose];
-    [tblv_Title_Choose reloadData];
-    
+    [self openPopUpViewForTitleFrontBack:@"11" Data:arrTitleFrontData];
 }
 
 -(void)btnEntity_Father_Title_Back_Click:(id)sender{
-    strBtnPress=@"2";
-    PopUpViewController *mPopUpViewController=[self.storyboard instantiateViewControllerWithIdentifier:@"PopUpViewController"];
-    mPopUpViewController.delegate=self;
-    mPopUpViewController.arrmTitleFrontAndBackData=arrTitleBackData;
-    DebugLog(@"arrmTitleFrontAndBackData%@", mPopUpViewController.arrmTitleFrontAndBackData);
-    mPopUpViewController.modalPresentationStyle = UIModalPresentationFullScreen;
-     [self presentViewController:mPopUpViewController animated:YES completion:NULL];
-    
+    [self openPopUpViewForTitleFrontBack:@"2" Data:arrTitleBackData];
 }
 -(void)btnEntity_Father_Title_Front_Click:(id)sender{
     NSLog(@"Tap");
-     strBtnPress=@"2";
-    tapOnTitleBack=NO;
-    if (tblv_Title_Choose) {
-        [tblv_Title_Choose removeFromSuperview];
-        tblv_Title_Choose = nil;
-    }
-    //    if (arrmTitleBackFrontData.count<=0) {
-    //        [arrmTitleBackFrontData removeAllObjects];
-    //    }
-    //    arrmTitleBackFrontData=[arrTitleFrontData mutableCopy];
-    //    DebugLog(@"arrmTitleBackFrontData %@",arrmTitleBackFrontData);
-    
-    CGRect fr = CGRectMake(mEngagementFirstCell.vw_FortitleFront.frame.origin.x+txtfEntity_First_Name.frame.size.width, _tblv_Engagement1.frame.origin.y+btnEntity_Title_Back.frame.origin.y+108+btnEntity_Title_Back.frame.size.height+3, 82, 116);
-    _tblv_Engagement1.scrollEnabled=NO;
-    
-    tblv_Title_Choose = [[UITableView alloc] initWithFrame:fr style:UITableViewStylePlain];
-    DebugLog(@"My view frame %@",NSStringFromCGRect(tblv_Title_Choose.frame));
-    tblv_Title_Choose.autoresizingMask =UIViewAutoresizingFlexibleHeight |UIViewAutoresizingFlexibleWidth;
-    tblv_Title_Choose.separatorStyle = UITableViewCellSeparatorStyleSingleLine; // or you have the previous 'None' style...
-    tblv_Title_Choose.separatorColor = [UIColor grayColor];
-    tblv_Title_Choose.delegate = self;
-    tblv_Title_Choose.dataSource = self;
-    tblv_Title_Choose.tag=20002;
-    [self.view addSubview:tblv_Title_Choose];
-    [tblv_Title_Choose reloadData];
+    [self openPopUpViewForTitleFrontBack:@"21" Data:arrTitleFrontData];
+   
     
 }
 -(void)btnEntity_Wife_Father_Title_Back_Click:(id)sender{
-    strBtnPress=@"3";
-   
-    PopUpViewController *mPopUpViewController=[self.storyboard instantiateViewControllerWithIdentifier:@"PopUpViewController"];
-    mPopUpViewController.delegate=self;
-    mPopUpViewController.arrmTitleFrontAndBackData=arrTitleBackData;
-    DebugLog(@"arrmTitleFrontAndBackData%@", mPopUpViewController.arrmTitleFrontAndBackData);
-    mPopUpViewController.modalPresentationStyle = UIModalPresentationFullScreen;
-     [self presentViewController:mPopUpViewController animated:YES completion:NULL];
+   [self openPopUpViewForTitleFrontBack:@"3" Data:arrTitleBackData];
     
 }
 -(void)btnEntity_Wife_Father_Title_Front_Click:(id)sender{
     NSLog(@"Tap");
-    strBtnPress=@"3";
-    tapOnTitleBack=NO;
-    if (tblv_Title_Choose) {
-        [tblv_Title_Choose removeFromSuperview];
-        tblv_Title_Choose = nil;
-    }
-    //    if (arrmTitleBackFrontData.count<=0) {
-    //        [arrmTitleBackFrontData removeAllObjects];
-    //    }
-    //    arrmTitleBackFrontData=[arrTitleFrontData mutableCopy];
-    //    DebugLog(@"arrmTitleBackFrontData %@",arrmTitleBackFrontData);
-    CGRect fr = CGRectMake(mEngagementFirstCell.vw_FortitleFront.frame.origin.x+txtfEntity_First_Name.frame.size.width, _tblv_Engagement1.frame.origin.y+btnEntity_Title_Back.frame.origin.y+161+btnEntity_Title_Back.frame.size.height+3, 82, 116);
-    _tblv_Engagement1.scrollEnabled=NO;
-    
-    tblv_Title_Choose = [[UITableView alloc] initWithFrame:fr style:UITableViewStylePlain];
-    DebugLog(@"My view frame %@",NSStringFromCGRect(tblv_Title_Choose.frame));
-    tblv_Title_Choose.autoresizingMask =UIViewAutoresizingFlexibleHeight |UIViewAutoresizingFlexibleWidth;
-    tblv_Title_Choose.separatorStyle = UITableViewCellSeparatorStyleSingleLine; // or you have the previous 'None' style...
-    tblv_Title_Choose.separatorColor = [UIColor grayColor];
-    tblv_Title_Choose.delegate = self;
-    tblv_Title_Choose.dataSource = self;
-    tblv_Title_Choose.tag=20002;
-    [self.view addSubview:tblv_Title_Choose];
-    [tblv_Title_Choose reloadData];
+    [self openPopUpViewForTitleFrontBack:@"31" Data:arrTitleFrontData];
     
 }
 
 -(void)btnEntity_Title_Back_Click1:(id)sender{
-    strBtnPress=@"4";
-    PopUpViewController *mPopUpViewController=[self.storyboard instantiateViewControllerWithIdentifier:@"PopUpViewController"];
-    mPopUpViewController.delegate=self;
-    mPopUpViewController.arrmTitleFrontAndBackData=arrTitleBackData;
-    DebugLog(@"arrmTitleFrontAndBackData%@", mPopUpViewController.arrmTitleFrontAndBackData);
-    mPopUpViewController.modalPresentationStyle = UIModalPresentationFullScreen;
-    [self presentViewController:mPopUpViewController animated:YES completion:NULL];
+   [self openPopUpViewForTitleFrontBack:@"4" Data:arrTitleBackData];
 }
 
 -(void)btnEntity_Title_Front_Click1:(id)sender{
     NSLog(@"Tap");
-    strBtnPress=@"4";
-    tapOnTitleBack=NO;
-    if (tblv_Title_Choose) {
-        [tblv_Title_Choose removeFromSuperview];
-        tblv_Title_Choose = nil;
-    }
-    //    if (arrmTitleBackFrontData.count<=0) {
-    //        [arrmTitleBackFrontData removeAllObjects];
-    //    }
-    //    arrmTitleBackFrontData=[arrTitleFrontData mutableCopy];
-    //    DebugLog(@"arrmTitleBackFrontData %@",arrmTitleBackFrontData);
-    
-    
-    CGRect fr = CGRectMake(mEngagementFirstCell.vw_FortitleFront.frame.origin.x+txtfEntity_First_Name.frame.size.width, _tblv_Engagement1.frame.origin.y+btnEntity_Title_Back.frame.origin.y+56+btnEntity_Title_Back.frame.size.height+2, 82, 116);
-    _tblv_Engagement1.scrollEnabled=NO;
-    
-    tblv_Title_Choose = [[UITableView alloc] initWithFrame:fr style:UITableViewStylePlain];
-    DebugLog(@"My view frame %@",NSStringFromCGRect(tblv_Title_Choose.frame));
-    tblv_Title_Choose.autoresizingMask =UIViewAutoresizingFlexibleHeight |UIViewAutoresizingFlexibleWidth;
-    tblv_Title_Choose.separatorStyle = UITableViewCellSeparatorStyleSingleLine; // or you have the previous 'None' style...
-    tblv_Title_Choose.separatorColor = [UIColor grayColor];
-    tblv_Title_Choose.delegate = self;
-    tblv_Title_Choose.dataSource = self;
-    tblv_Title_Choose.tag=20002;
-    [self.view addSubview:tblv_Title_Choose];
-    [tblv_Title_Choose reloadData];
-    
+    [self openPopUpViewForTitleFrontBack:@"41" Data:arrTitleFrontData];
 }
 
 -(void)btnEntity_Father_Title_Back_Click1:(id)sender{
-    strBtnPress=@"5";
-  
-    PopUpViewController *mPopUpViewController=[self.storyboard instantiateViewControllerWithIdentifier:@"PopUpViewController"];
-    mPopUpViewController.delegate=self;
-    mPopUpViewController.arrmTitleFrontAndBackData=arrTitleBackData;
-    DebugLog(@"arrmTitleFrontAndBackData%@", mPopUpViewController.arrmTitleFrontAndBackData);
-    mPopUpViewController.modalPresentationStyle = UIModalPresentationFullScreen;
-     [self presentViewController:mPopUpViewController animated:YES completion:NULL];
-    
+    [self openPopUpViewForTitleFrontBack:@"5" Data:arrTitleBackData];
 }
 -(void)btnEntity_Father_Title_Front_Click1:(id)sender{
     NSLog(@"Tap");
-    strBtnPress=@"5";
-    tapOnTitleBack=NO;
-    if (tblv_Title_Choose) {
-        [tblv_Title_Choose removeFromSuperview];
-        tblv_Title_Choose = nil;
-    }
-    //    if (arrmTitleBackFrontData.count<=0) {
-    //        [arrmTitleBackFrontData removeAllObjects];
-    //    }
-    //    arrmTitleBackFrontData=[arrTitleFrontData mutableCopy];
-    //    DebugLog(@"arrmTitleBackFrontData %@",arrmTitleBackFrontData);
+    [self openPopUpViewForTitleFrontBack:@"51" Data:arrTitleFrontData];
     
-    CGRect fr = CGRectMake(mEngagementFirstCell.vw_FortitleFront.frame.origin.x+txtfEntity_First_Name.frame.size.width, _tblv_Engagement1.frame.origin.y+btnEntity_Title_Back.frame.origin.y+108+btnEntity_Title_Back.frame.size.height+3, 82, 116);
-    _tblv_Engagement1.scrollEnabled=NO;
-    
-    tblv_Title_Choose = [[UITableView alloc] initWithFrame:fr style:UITableViewStylePlain];
-    DebugLog(@"My view frame %@",NSStringFromCGRect(tblv_Title_Choose.frame));
-    tblv_Title_Choose.autoresizingMask =UIViewAutoresizingFlexibleHeight |UIViewAutoresizingFlexibleWidth;
-    tblv_Title_Choose.separatorStyle = UITableViewCellSeparatorStyleSingleLine; // or you have the previous 'None' style...
-    tblv_Title_Choose.separatorColor = [UIColor grayColor];
-    tblv_Title_Choose.delegate = self;
-    tblv_Title_Choose.dataSource = self;
-    tblv_Title_Choose.tag=20002;
-    [self.view addSubview:tblv_Title_Choose];
-    [tblv_Title_Choose reloadData];
     
 }
 -(void)btnEntity_Wife_Father_Title_Back_Click1:(id)sender{
-    strBtnPress=@"6";
-        
-    PopUpViewController *mPopUpViewController=[self.storyboard instantiateViewControllerWithIdentifier:@"PopUpViewController"];
-    mPopUpViewController.delegate=self;
-    mPopUpViewController.arrmTitleFrontAndBackData=arrTitleBackData;
-    DebugLog(@"arrmTitleFrontAndBackData%@", mPopUpViewController.arrmTitleFrontAndBackData);
-    mPopUpViewController.modalPresentationStyle = UIModalPresentationFullScreen;
-     [self presentViewController:mPopUpViewController animated:YES completion:NULL];
+   [self openPopUpViewForTitleFrontBack:@"6" Data:arrTitleBackData];
     
 }
 -(void)btnEntity_Wife_Father_Title_Front_Click1:(id)sender{
     NSLog(@"Tap");
-    strBtnPress=@"6";
-    tapOnTitleBack=NO;
-    if (tblv_Title_Choose) {
-        [tblv_Title_Choose removeFromSuperview];
-        tblv_Title_Choose = nil;
-    }
-    //    if (arrmTitleBackFrontData.count<=0) {
-    //        [arrmTitleBackFrontData removeAllObjects];
-    //    }
-    //    arrmTitleBackFrontData=[arrTitleFrontData mutableCopy];
-    //    DebugLog(@"arrmTitleBackFrontData %@",arrmTitleBackFrontData);
-    CGRect fr = CGRectMake(mEngagementFirstCell.vw_FortitleFront.frame.origin.x+txtfEntity_First_Name.frame.size.width, _tblv_Engagement1.frame.origin.y+btnEntity_Title_Back.frame.origin.y+161+btnEntity_Title_Back.frame.size.height+3, 82, 116);
-    _tblv_Engagement1.scrollEnabled=NO;
+    [self openPopUpViewForTitleFrontBack:@"61" Data:arrTitleFrontData];
     
-    tblv_Title_Choose = [[UITableView alloc] initWithFrame:fr style:UITableViewStylePlain];
-    DebugLog(@"My view frame %@",NSStringFromCGRect(tblv_Title_Choose.frame));
-    tblv_Title_Choose.autoresizingMask =UIViewAutoresizingFlexibleHeight |UIViewAutoresizingFlexibleWidth;
-    tblv_Title_Choose.separatorStyle = UITableViewCellSeparatorStyleSingleLine; // or you have the previous 'None' style...
-    tblv_Title_Choose.separatorColor = [UIColor grayColor];
-    tblv_Title_Choose.delegate = self;
-    tblv_Title_Choose.dataSource = self;
-    tblv_Title_Choose.tag=20002;
-    [self.view addSubview:tblv_Title_Choose];
-    [tblv_Title_Choose reloadData];
     
 }
 -(void)btnEntity_Living_Town_Click:(id)sender{
-    strBtnPress=@"7";
-    PopUpViewController *mPopUpViewController=[self.storyboard instantiateViewControllerWithIdentifier:@"PopUpViewController"];
-    mPopUpViewController.delegate=self;
-    mPopUpViewController.arrmTitleFrontAndBackData=arrmLivingTownList;
-    DebugLog(@"arrmTitleFrontAndBackData%@", mPopUpViewController.arrmTitleFrontAndBackData);
-    mPopUpViewController.modalPresentationStyle = UIModalPresentationFullScreen;
-    [self presentViewController:mPopUpViewController animated:YES completion:NULL];
+    [self openPopUpViewForTitleFrontBack:@"7" Data:arrmLivingTownList];
 }
 
 -(void)btnEntity_Living_Town_Click1:(id)sender{
@@ -819,6 +652,26 @@
 }
 
 #pragma mark - Self Methods
+-(void)openPopUpViewForTitleFrontBack:(NSString *)str Data:(NSMutableArray *)arrmData{
+    strBtnPress=str;
+    PopUpViewController *mPopUpViewController=[self.storyboard instantiateViewControllerWithIdentifier:@"PopUpViewController"];
+    mPopUpViewController.delegate=self;
+    mPopUpViewController.arrmTitleFrontAndBackData=arrmData;
+    DebugLog(@"arrmTitleFrontAndBackData%@", mPopUpViewController.arrmTitleFrontAndBackData);
+    mPopUpViewController.modalPresentationStyle = UIModalPresentationFullScreen;
+    [self presentViewController:mPopUpViewController animated:YES completion:NULL];
+
+}
+-(void)openPopUpViewForTitleBack:(NSString *)str1{
+    strBtnPress=str1;//@"11";
+    PopUpViewController *mPopUpViewController=[self.storyboard instantiateViewControllerWithIdentifier:@"PopUpViewController"];
+    mPopUpViewController.delegate=self;
+    mPopUpViewController.arrmTitleFrontAndBackData=arrTitleBackData;
+    DebugLog(@"arrmTitleFrontAndBackData%@", mPopUpViewController.arrmTitleFrontAndBackData);
+    mPopUpViewController.modalPresentationStyle = UIModalPresentationFullScreen;
+    [self presentViewController:mPopUpViewController animated:YES completion:NULL];
+    
+}
 
 -(void)moveUpViewFrameInClick:(UIView *)viewUp{
     CGRect viewFrame = viewUp.frame;
