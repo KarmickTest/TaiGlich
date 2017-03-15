@@ -43,7 +43,8 @@
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
-   return 28.0f;
+    
+    return 60.0f;
    
     
 }
@@ -53,16 +54,19 @@
     if (cell == nil){
         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"cell"];
     }
-    cell.textLabel.font=[UIFont fontWithName:@"Helvetica Bold" size:18.0];
+    
     cell.textLabel.text=[[_arrmTitleFrontAndBackData objectAtIndex:indexPath.row] valueForKey:@"townName"];
-    //        UIView *vwSeperator=[[UIView alloc]initWithFrame:CGRectMake(0, 30, cell.frame.size.width, 1.0f)];
-    //        vwSeperator.backgroundColor=[UIColor lightGrayColor];
-    //        [cell addSubview:vwSeperator];
+    cell.textLabel.font=[UIFont fontWithName:@"OpenSans-Bold" size:20.0];
+    cell.textLabel.textColor = [UIColor darkGrayColor];
+    
     return cell;
     
 }
+
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
+    
     NSString *itemToPassBack = [[_arrmTitleFrontAndBackData objectAtIndex:indexPath.row] valueForKey:@"townName"];
     [self.delegate addItemViewController:self didFinishEnteringItem:itemToPassBack];
 }
+
 @end
