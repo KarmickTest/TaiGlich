@@ -39,6 +39,9 @@
 //    blurEffectView.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
 //    
 //    [_imgVw_form addSubview:blurEffectView];
+    
+    
+    self.radioButton.contentHorizontalAlignment = UIControlContentHorizontalAlignmentRight;
 
 }
 

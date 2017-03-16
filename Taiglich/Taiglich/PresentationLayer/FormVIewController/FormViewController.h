@@ -7,9 +7,12 @@
 //
 
 #import <UIKit/UIKit.h>
+
 @class RadioButton;
+
 @interface FormViewController : UIViewController
 @property (weak,nonatomic) id delegate;
+
 @property (nonatomic, strong) IBOutlet RadioButton* radioButton;
 
 @end
